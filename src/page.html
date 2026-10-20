@@ -301,6 +301,8 @@ details.memo ul{margin:0;padding-left:1.2em;display:grid;gap:8px}
 .wyears{display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0;list-style:none}
 .wyears li{font-family:var(--mono);font-size:12.5px;font-weight:600;border:2px solid var(--edge);border-radius:99px;padding:4px 10px;background:var(--surface2)}
 .wyears li.on{background:var(--signal)}
+.flash{animation:flashbg .9s ease-out}
+@keyframes flashbg{0%{background:var(--go);color:#fff}35%{background:var(--go);color:#fff}100%{}}
 
 /* 정리 */
 .wrapup{list-style:none;margin:0;padding:17px 19px;display:grid;gap:9px;background:var(--go-soft);border:2px solid var(--edge);border-radius:7px;box-shadow:var(--shadow-sm)}
@@ -1174,6 +1176,14 @@ function applyWage(){
     ss[i].value=String(w.year);
   }
 }
+function flashWage(){
+  var els=document.querySelectorAll('#wageNow,.wage-strip'),i;
+  for(i=0;i<els.length;i++){
+    els[i].classList.remove('flash');
+    void els[i].offsetWidth;
+    els[i].classList.add('flash');
+  }
+}
 function setWage(year,amount){
   try{localStorage.setItem('hj-wage',JSON.stringify({year:+year,amount:+amount}));}catch(e){}
   applyWage();
@@ -1191,7 +1201,7 @@ function wagePanelHtml(){
     '</div>'+
     '<div class="tabpane" data-pane="pick"><div class="wrow">'+
     '<label class="wfield"><span>연도</span><select id="wageYear">'+opts+'</select></label>'+
-    '<button type="button" class="btn" id="wageApply">이 연도로 바꾸기</button></div>'+
+    '<p class="wage-help" style="flex:1;min-width:190px">연도를 고르면 <b>바로 적용</b>됩니다. 따로 누를 버튼이 없습니다.</p></div>'+
     '<ul class="wyears" id="wageYears">'+chips+'</ul></div>'+
     '<div class="tabpane" data-pane="edit" hidden><div class="wrow">'+
     '<label class="wfield"><span>연도</span><input type="number" id="wageYearIn" min="2000" max="2100" step="1" placeholder="2027"></label>'+
@@ -1453,12 +1463,11 @@ function show(n,scroll){
 }
 sel.addEventListener('change',function(){show(+sel.value,true);});
 stage.addEventListener('change',function(e){
-  var ws=e.target.closest('[data-wage-sel]');
-  if(!ws)return;
-  var y=+ws.value;
+  var pick=e.target.closest('[data-wage-sel]')||(e.target.id==='wageYear'?e.target:null);
+  if(!pick)return;
+  var y=+pick.value;
   setWage(y,WAGE[y]);
-  var top=document.getElementById('wageYear');
-  if(top)top.value=String(y);
+  flashWage();
 });
 prevB.addEventListener('click',function(){if(current>1)show(current-1,true);});
 nextB.addEventListener('click',function(){if(current<total)show(current+1,true);});
@@ -1478,10 +1487,6 @@ stage.addEventListener('click',function(e){
     for(i=0;i<panes.length;i++)panes[i].hidden=(panes[i].dataset.pane!==tb.dataset.tab);
     return;
   }
-  if(e.target.closest('#wageApply')){
-    var y=+document.getElementById('wageYear').value;
-    setWage(y,WAGE[y]);return;
-  }
   if(e.target.closest('#wageSave')){
     var yi=document.getElementById('wageYearIn'),ai=document.getElementById('wageAmtIn');
     var yy=parseInt(yi.value,10),aa=parseInt(ai.value,10);
@@ -1499,13 +1504,19 @@ stage.addEventListener('click',function(e){
       ul.insertBefore(li,ul.firstChild);
     }
     document.getElementById('wageYear').value=String(yy);
-    applyWage();return;  /* 학습지 안 연도 선택기는 applyWage가 함께 갱신 */
+    applyWage();flashWage();return;  /* 학습지 안 연도 선택기는 applyWage가 함께 갱신 */
   }
   if(e.target.closest('#wageReset')){
     try{localStorage.removeItem('hj-wage');}catch(err){}
     var s0=document.getElementById('wageYear');if(s0)s0.value=String(WAGE_DEFAULT);
     applyWage();
   }
+});
+
+stage.addEventListener('keydown',function(e){
+  if(e.key!=='Enter')return;
+  var id=e.target.id;
+  if(id==='wageYearIn'||id==='wageAmtIn'){e.preventDefault();document.getElementById('wageSave').click();}
 });
 
 /* 전체 화면 수업 모드 */
