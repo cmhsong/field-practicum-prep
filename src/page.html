@@ -276,6 +276,13 @@ details.memo ul{margin:0;padding-left:1.2em;display:grid;gap:8px}
 .ws-foot{margin-top:26px;padding-top:14px;border-top:2px solid var(--line);font-family:var(--mono);font-size:11.5px;color:var(--ink3);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .ws-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
 
+/* 학습지 안 적용 연도 띠 */
+.wage-strip{display:flex;flex-wrap:wrap;gap:11px;align-items:center;justify-content:space-between;margin-top:18px;padding:12px 15px;background:var(--signal-soft);border:2px solid var(--edge);border-radius:7px}
+.wage-strip .ws-year{font-size:15.5px}
+.wage-strip .ws-year b{font-family:var(--head);font-size:17px;font-weight:900}
+.ws-pickyear{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink3)}
+.ws-pickyear select{font-family:var(--head);font-size:15px;font-weight:700;color:var(--ink);background:var(--surface);border:2px solid var(--edge);border-radius:6px;padding:7px 10px;cursor:pointer}
+
 /* 최저임금 설정 탭 */
 .wagebox{background:var(--surface);border:2px solid var(--edge);border-radius:9px;box-shadow:var(--shadow);overflow:hidden}
 .tabs{display:flex;gap:0;background:var(--surface2);border-bottom:2px solid var(--edge)}
@@ -939,8 +946,8 @@ memo:["최저임금액은 화면의 <b>최저임금 설정</b> 탭에서 연도�
 "표준근로계약서 양식은 고용노동부 누리집에서 내려받아 2부(빈 양식/작성 예시) 준비하면 활동이 쉬워집니다."],
 sheet:{title:"내 권리와 급여 확인하기",items:[
  {t:"check",q:"근로계약서에서 확인할 6가지입니다. 확인했으면 ✔ 하세요.",items:["임금(시급·월급)이 적혀 있다","근로시간이 적혀 있다","휴게시간이 적혀 있다","휴일이 적혀 있다","하는 일과 장소가 적혀 있다","내 이름과 서명이 있고, 계약서 1장을 받았다"]},
- {t:"fill",q:"계산해서 쓰세요. (계산기를 사용해도 됩니다)",bank:["<span data-w=\"amount\">10,320원</span>"],
-  lines:["시급이 <span data-w=\"amount\">10,320원</span>이고 하루 7시간 일하면, 하루에 ___________원을 받습니다.","5일 동안 일하면 ___________원입니다.","4시간을 일하면 휴게시간은 ______분 이상 쉬어야 합니다."]},
+ {t:"fill",q:"계산해서 쓰세요. (계산기를 사용해도 됩니다)",hint:"<span data-w=\"year\">2026년</span> 최저임금 기준입니다.",bank:["<span data-w=\"amount\">10,320원</span>"],
+  lines:["<span data-w=\"year\">2026년</span> 최저임금은 시급 <span data-w=\"amount\">10,320원</span>입니다.","시급이 <span data-w=\"amount\">10,320원</span>이고 하루 7시간 일하면, 하루에 ___________원을 받습니다.","5일 동안 일하면 ___________원입니다.","4시간을 일하면 휴게시간은 ______분 이상 쉬어야 합니다."]},
  {t:"ox",q:"맞으면 ○, 틀리면 ×를 쓰세요.",items:["근로계약서는 회사만 가지고 있어도 된다.","빈칸이 있는 계약서에 서명해도 괜찮다.","최저임금보다 적게 주는 것은 법을 어기는 것이다.","돈을 못 받으면 1350에 상담할 수 있다.","일하다 다치면 산재보험으로 치료를 받을 수 있다."]},
  {t:"pick",q:"계약서에 모르는 말이 있을 때 가장 알맞은 행동은?",opts:["그냥 서명한다","보호자·선생님과 함께 보고 오겠다고 말한다","아무 말 없이 집에 간다","친구에게 대신 서명하게 한다"]},
  {t:"write",q:"급여를 받은 뒤 확인할 것을 두 가지 쓰세요.",hint:"예) 통장에 들어온 금액과 명세서의 금액이 같은지 봅니다.",lines:3},
@@ -1158,6 +1165,14 @@ function applyWage(){
   if(now)now.innerHTML='지금 적용 중 — <b>'+w.year+'년 · 시급 '+won(w.amount)+'</b>';
   var ys=document.querySelectorAll('#wageYears li');
   for(i=0;i<ys.length;i++)ys[i].classList.toggle('on',+ys[i].dataset.y===+w.year);
+  var ss=document.querySelectorAll('[data-wage-sel]');
+  for(i=0;i<ss.length;i++){
+    if(!ss[i].querySelector('option[value="'+w.year+'"]')){
+      var op2=document.createElement('option');op2.value=w.year;op2.textContent=w.year+'년';
+      ss[i].insertBefore(op2,ss[i].firstChild);
+    }
+    ss[i].value=String(w.year);
+  }
 }
 function setWage(year,amount){
   try{localStorage.setItem('hj-wage',JSON.stringify({year:+year,amount:+amount}));}catch(e){}
@@ -1190,6 +1205,19 @@ function wagePanelHtml(){
     '<p class="wage-help">바꾼 금액은 이 차시의 <b>기준 표</b>, <b>학습지 8번 계산 문항</b>, <b>교사용 정답</b>에 바로 반영되고 이 기기에 저장됩니다.</p>'+
     '</div></div></div>';
   return h;
+}
+
+function wageYearOptions(){
+  var y,opts='';
+  for(y in WAGE)opts='<option value="'+y+'">'+y+'년</option>'+opts;
+  return opts;
+}
+function wageStripHtml(){
+  return '<div class="wage-strip">'+
+    '<span class="ws-year">적용 연도 <b data-w="year">2026년</b> · 최저임금 시급 <b data-w="amount">10,320원</b></span>'+
+    '<label class="ws-pickyear noprint">연도 바꾸기'+
+    '<select data-wage-sel aria-label="학습지에 적용할 최저임금 연도">'+wageYearOptions()+'</select></label>'+
+    '</div>';
 }
 
 /* 섹션 아이콘 (이모지 없이 직접 그림) */
@@ -1357,6 +1385,7 @@ function sessionHtml(s){
   h+='<div class="block b-ws">'+lbl('sheet','학습지 · 인쇄','var(--go)')+'<div class="ws" data-ws="'+s.n+'">'+
      '<div class="ws-top"><div><span class="ws-no">학습지 '+pad(s.n)+' · '+s.n+'차시</span>'+
      '<h4>'+s.sheet.title+'</h4></div><div class="idfields"><span>이름</span><span>날짜</span><span>확인</span></div></div>';
+  if(s.n===8)h+=wageStripHtml();
   for(i=0;i<s.sheet.items.length;i++)h+=qItem(s.sheet.items[i],i+1,s.n);
   h+='<div class="ws-foot"><span>'+s.n+'차시 학습지 · 현장실습 사전교육</span><span>○ 잘함 △ 더 연습 × 도움 필요</span></div>';
   h+='<div class="ws-actions noprint"><button class="btn" data-print-ws="'+s.n+'">이 학습지 인쇄</button>'+
@@ -1423,6 +1452,14 @@ function show(n,scroll){
   if(scroll)window.scrollTo({top:0,behavior:'smooth'});
 }
 sel.addEventListener('change',function(){show(+sel.value,true);});
+stage.addEventListener('change',function(e){
+  var ws=e.target.closest('[data-wage-sel]');
+  if(!ws)return;
+  var y=+ws.value;
+  setWage(y,WAGE[y]);
+  var top=document.getElementById('wageYear');
+  if(top)top.value=String(y);
+});
 prevB.addEventListener('click',function(){if(current>1)show(current-1,true);});
 nextB.addEventListener('click',function(){if(current<total)show(current+1,true);});
 stage.addEventListener('click',function(e){
@@ -1462,7 +1499,7 @@ stage.addEventListener('click',function(e){
       ul.insertBefore(li,ul.firstChild);
     }
     document.getElementById('wageYear').value=String(yy);
-    applyWage();return;
+    applyWage();return;  /* 학습지 안 연도 선택기는 applyWage가 함께 갱신 */
   }
   if(e.target.closest('#wageReset')){
     try{localStorage.removeItem('hj-wage');}catch(err){}
