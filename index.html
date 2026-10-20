@@ -1,0 +1,1155 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="고등학교 특수학급 지적장애 학생을 위한 현장실습 사전교육 10차시(차시당 50분). 수업 흐름, 영상 링크, 안전표지·보호구 안전교육 자료, 읽기자료, 인쇄용 학습지 10종.">
+<meta name="author" content="혜화학교 특수학급">
+<meta property="og:type" content="website">
+<meta property="og:title" content="안전한 첫 출근">
+<meta property="og:description" content="현장실습 사전교육 10차시 · 50분 수업 · 안전교육 자료 · 학습지 인쇄">
+<meta name="color-scheme" content="light dark">
+<style>
+:root{
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light dark;
+}
+html,body{margin:0}
+body{font:14px/1.5 system-ui,-apple-system,"Malgun Gothic",sans-serif;background:#FAF7F0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<title>안전한 첫 출근</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;900&family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --paper:#FAF7F0; --surface:#FFFFFF; --surface2:#F3EFE5;
+  --ink:#1C1F26; --ink2:#4A4740; --ink3:#7C7668; --line:#DDD7C9;
+  --signal:#E8A200; --signal-soft:#FCF1D4;
+  --guide:#0F5FA6; --guide-soft:#E5EEF8;
+  --halt:#C0352B; --halt-soft:#FAE7E4;
+  --go:#1F7A4D; --go-soft:#E4F1E9;
+  --body:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+  --disp:"Gothic A1","Noto Sans KR","Malgun Gothic",sans-serif;
+  --mono:"IBM Plex Mono","Gothic A1",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#14161A; --surface:#1B1E24; --surface2:#23272F;
+    --ink:#EDE8DC; --ink2:#C0BAAC; --ink3:#8D8779; --line:#343A44;
+    --signal:#F5BE3E; --signal-soft:#3B3013;
+    --guide:#74B3EA; --guide-soft:#152A3C;
+    --halt:#EA7E70; --halt-soft:#3B1F1C;
+    --go:#63C08B; --go-soft:#143121;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#14161A; --surface:#1B1E24; --surface2:#23272F;
+  --ink:#EDE8DC; --ink2:#C0BAAC; --ink3:#8D8779; --line:#343A44;
+  --signal:#F5BE3E; --signal-soft:#3B3013;
+  --guide:#74B3EA; --guide-soft:#152A3C;
+  --halt:#EA7E70; --halt-soft:#3B1F1C;
+  --go:#63C08B; --go-soft:#143121;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.9;-webkit-text-size-adjust:100%}
+img{max-width:100%}
+[hidden]{display:none!important}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ── hazard ribbon ── */
+.hazard{height:7px;background:repeating-linear-gradient(135deg,var(--signal) 0 14px,var(--ink) 14px 28px)}
+
+/* ── masthead ── */
+.mast{padding:26px 20px 20px;border-bottom:1px solid var(--line);background:var(--surface)}
+.mast-in{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-content:space-between}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);margin:0 0 6px}
+.mast h1{font-family:var(--disp);font-weight:900;font-size:clamp(27px,4.4vw,40px);line-height:1.15;letter-spacing:-.015em;margin:0;text-wrap:balance}
+.mast h1 small{display:block;font-size:.42em;font-weight:500;letter-spacing:.02em;color:var(--ink2);margin-top:8px;line-height:1.6}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 0;padding:0;list-style:none}
+.chips li{font-family:var(--mono);font-size:12px;padding:4px 9px;border:1px solid var(--line);border-radius:2px;color:var(--ink2);background:var(--surface2)}
+.tools{display:flex;flex-wrap:wrap;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:700;padding:10px 15px;border-radius:3px;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;transition:background .15s,color .15s}
+.btn:hover{background:var(--signal);border-color:var(--signal);color:#1C1F26}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--signal-soft);border-color:var(--signal);color:var(--ink)}
+.btn svg{flex:none}
+
+/* ── shell ── */
+.shell{max-width:1180px;margin:0 auto;padding:0 20px 70px;display:grid;grid-template-columns:260px 1fr;gap:38px;align-items:start}
+@media (max-width:900px){.shell{grid-template-columns:1fr;gap:20px}}
+
+/* ── rail ── */
+.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 14px);padding-top:26px}
+.rail h2{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);margin:0 0 10px;font-weight:600}
+.rail-list{display:flex;flex-direction:column;gap:2px}
+.rail-btn{display:grid;grid-template-columns:34px 1fr;gap:11px;align-items:center;width:100%;text-align:left;padding:9px 10px 9px 7px;background:none;border:0;border-left:3px solid transparent;cursor:pointer;color:var(--ink2);border-radius:0 3px 3px 0}
+.rail-btn b{font-family:var(--mono);font-size:14px;font-weight:600;display:grid;place-items:center;height:30px;border:1px solid var(--line);background:var(--surface);color:var(--ink3);border-radius:2px}
+.rail-btn span{font-size:14.5px;line-height:1.45;font-weight:500}
+.rail-btn:hover{background:var(--surface2);color:var(--ink)}
+.rail-btn[aria-current="true"]{background:var(--surface);border-left-color:var(--signal);color:var(--ink);box-shadow:0 1px 0 var(--line),0 -1px 0 var(--line),1px 0 0 var(--line)}
+.rail-btn[aria-current="true"] b{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.rail-btn[aria-current="true"] span{font-weight:700}
+@media (max-width:900px){
+  .rail{position:sticky;top:0;padding:10px 0;background:var(--paper);z-index:5;border-bottom:1px solid var(--line)}
+  .rail h2{display:none}
+  .rail-list{flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:4px}
+  .rail-btn{grid-template-columns:auto;width:auto;flex:none;border-left:0;border-bottom:3px solid transparent;padding:6px 10px}
+  .rail-btn span{display:none}
+  .rail-btn[aria-current="true"]{box-shadow:none;border-bottom-color:var(--signal)}
+}
+
+/* ── session ── */
+.stage{padding-top:26px;min-width:0}
+.s-head{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;padding-bottom:18px;border-bottom:2px solid var(--ink)}
+.s-num{font-family:var(--mono);font-size:clamp(40px,8vw,62px);font-weight:600;line-height:.9;color:var(--signal);letter-spacing:-.04em}
+.s-tag{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin:0 0 4px}
+.s-head h3{font-family:var(--disp);font-weight:900;font-size:clamp(23px,3.6vw,33px);line-height:1.2;margin:0;text-wrap:balance;letter-spacing:-.015em}
+.s-lead{margin:9px 0 0;color:var(--ink2);max-width:62ch}
+.block{margin-top:40px;min-width:0}
+.lbl{display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);margin:0 0 14px}
+.lbl::after{content:"";flex:1;height:1px;background:var(--line)}
+.block h4{font-family:var(--disp);font-size:19px;font-weight:700;margin:0 0 8px}
+.prose{max-width:66ch}
+.prose p{margin:0 0 12px}
+
+/* goals */
+.goals{counter-reset:g;list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.goals li{counter-increment:g;display:grid;grid-template-columns:26px 1fr;gap:11px;font-size:17px}
+.goals li::before{content:counter(g);font-family:var(--mono);font-size:12.5px;font-weight:600;display:grid;place-items:center;height:24px;background:var(--signal-soft);color:var(--ink);border-radius:2px;margin-top:4px}
+
+/* timeline */
+.tl{display:flex;height:40px;border:1.5px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl div{display:grid;place-items:center;font-family:var(--mono);font-size:12px;font-weight:600;border-right:1px solid var(--ink);color:var(--ink);white-space:nowrap;overflow:hidden}
+.tl div:last-child{border-right:0}
+.tl .p-in{background:var(--guide-soft)}
+.tl .p-mid{background:var(--signal-soft)}
+.tl .p-out{background:var(--go-soft)}
+.tl-scale{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--ink3);margin-top:5px;font-variant-numeric:tabular-nums}
+.flow{margin-top:18px;border-top:1px solid var(--line)}
+.frow{display:grid;grid-template-columns:86px 76px 1fr 1fr;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.75}
+.frow>b{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--ink2);font-variant-numeric:tabular-nums}
+.frow>i{font-style:normal;font-size:12.5px;font-weight:700;font-family:var(--disp);align-self:start;padding:1px 8px;border-radius:2px;background:var(--surface2);border:1px solid var(--line);justify-self:start}
+.frow em{font-style:normal;display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--ink3);margin-bottom:2px}
+@media (max-width:760px){.frow{grid-template-columns:76px 1fr;gap:6px 14px}.frow>i{grid-column:2}.frow>div{grid-column:2}}
+
+/* word bank */
+.words{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.words div{background:var(--surface);padding:13px 15px}
+.words b{display:block;font-family:var(--disp);font-size:16.5px;font-weight:700;margin-bottom:2px}
+.words p{margin:0;font-size:15px;line-height:1.7;color:var(--ink2)}
+
+/* videos */
+.vids{display:grid;gap:11px}
+.vid{display:grid;grid-template-columns:auto 1fr auto;gap:15px;align-items:center;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:3px}
+.vid-ic{width:40px;height:30px;display:grid;place-items:center;background:var(--halt);border-radius:3px;flex:none}
+.vid-ic svg{display:block}
+.vid b{display:block;font-size:16px;font-weight:700;line-height:1.5}
+.vid p{margin:2px 0 0;font-size:14px;color:var(--ink3);line-height:1.6}
+.vid a{font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--guide);text-decoration:none;border:1.5px solid var(--guide);padding:7px 11px;border-radius:3px;white-space:nowrap}
+.vid a:hover{background:var(--guide);color:var(--surface)}
+@media (max-width:620px){.vid{grid-template-columns:auto 1fr}.vid a{grid-column:2;justify-self:start}}
+
+/* safety boxes */
+.boxes{display:grid;gap:16px}
+.sbox{border:1px solid var(--line);border-left:5px solid var(--tone,var(--ink));border-radius:0 3px 3px 0;background:var(--surface);padding:16px 18px}
+.sbox.halt{--tone:var(--halt)} .sbox.warn{--tone:var(--signal)} .sbox.guide{--tone:var(--guide)} .sbox.go{--tone:var(--go)}
+.sbox h4{display:flex;align-items:center;gap:9px;color:var(--tone);margin-bottom:10px}
+.sbox h4 em{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink3);border:1px solid var(--line);padding:1px 6px;border-radius:2px}
+.sbox ul{margin:0;padding-left:1.1em;display:grid;gap:7px}
+.sbox li{font-size:16px;line-height:1.75}
+.sbox .say{font-family:var(--disp);font-weight:700;background:var(--signal-soft);padding:1px 6px;border-radius:2px;display:inline-block}
+.signs{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px}
+.sign{width:106px;text-align:center}
+.sign svg{width:62px;height:62px;display:block;margin:0 auto 5px}
+.sign b{display:block;font-size:13.5px;font-weight:700;line-height:1.4}
+.sign span{display:block;font-family:var(--mono);font-size:10.5px;color:var(--ink3)}
+
+/* table */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:430px;font-size:15.5px}
+th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+th{background:var(--surface2);font-family:var(--disp);font-weight:700;font-size:14.5px}
+td b{font-weight:700}
+
+/* reading / article */
+.read{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--ink);border-radius:0 0 3px 3px;padding:24px}
+.read .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--halt);margin:0 0 9px}
+.read h4{font-family:var(--disp);font-size:clamp(20px,2.8vw,25px);font-weight:900;line-height:1.3;margin:0 0 10px;text-wrap:balance}
+.read .lead{font-size:17px;font-weight:500;color:var(--ink2);margin:0 0 16px;max-width:60ch}
+.read .body{max-width:62ch;font-size:16.5px}
+.read .body p{margin:0 0 13px}
+.facts{margin:18px 0 0;padding:14px 16px;background:var(--surface2);border-radius:3px;display:grid;gap:8px;list-style:none}
+.facts li{display:grid;grid-template-columns:auto 1fr;gap:11px;font-size:15px;line-height:1.7}
+.facts b{font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--ink3);white-space:nowrap;padding-top:2px}
+.srcs{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.srcs a{font-family:var(--mono);font-size:12.5px;color:var(--ink2);text-decoration:none;border-bottom:1px solid var(--line);padding:2px 0}
+.srcs a:hover{color:var(--guide);border-color:var(--guide)}
+
+/* teacher memo */
+details.memo{margin-top:18px;border:1px dashed var(--line);border-radius:3px;background:var(--surface2)}
+details.memo summary{cursor:pointer;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:11px 15px;color:var(--ink2);font-weight:600}
+details.memo .inner{padding:0 17px 15px;font-size:15.5px;line-height:1.8}
+details.memo ul{margin:0;padding-left:1.1em;display:grid;gap:6px}
+
+/* ── worksheet ── */
+.ws{background:var(--surface);border:2px dashed var(--line);border-radius:4px;padding:26px;margin-top:16px}
+.ws-top{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--ink);padding-bottom:13px;margin-bottom:8px}
+.ws-top h4{font-family:var(--disp);font-size:21px;font-weight:900;margin:0}
+.ws-top .ws-no{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--ink3);display:block;margin-bottom:3px;text-transform:uppercase}
+.idfields{display:flex;gap:10px;font-family:var(--mono);font-size:12.5px;color:var(--ink3);flex-wrap:wrap}
+.idfields span{border-bottom:1.5px solid var(--ink);min-width:116px;padding:0 4px 2px}
+.q{margin-top:24px;break-inside:avoid}
+.q-h{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start}
+.q-h b{font-family:var(--mono);font-size:13px;font-weight:600;display:grid;place-items:center;height:25px;background:var(--ink);color:var(--paper);border-radius:2px}
+.q-h p{margin:0;font-size:17px;font-weight:700;line-height:1.65}
+.q-h p i{font-style:normal;font-family:var(--mono);font-size:11.5px;font-weight:500;color:var(--ink3);display:block;letter-spacing:.06em}
+.q-body{margin:11px 0 0 38px}
+@media (max-width:560px){.q-body{margin-left:0}}
+.bank{display:flex;flex-wrap:wrap;gap:7px;padding:11px 13px;background:var(--surface2);border-radius:3px;margin-bottom:13px}
+.bank em{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink3);width:100%}
+.bank span{font-size:15px;font-weight:700;background:var(--surface);border:1px solid var(--line);padding:3px 10px;border-radius:2px}
+.fillline{border-bottom:1.5px solid var(--ink3);display:inline-block;min-width:92px;margin:0 3px}
+.ruled{display:grid;gap:0}
+.ruled i{display:block;height:34px;border-bottom:1.5px solid var(--line)}
+.oxlist{display:grid;gap:0;border-top:1px solid var(--line)}
+.oxrow{display:grid;grid-template-columns:1fr 92px;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:16px}
+.oxrow em{font-style:normal;font-family:var(--mono);font-size:15px;font-weight:600;letter-spacing:.3em;color:var(--ink3);justify-self:end;white-space:nowrap}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:11px;align-items:flex-start;font-size:16px;line-height:1.7}
+.opt::before{content:"";flex:none;width:19px;height:19px;border:1.5px solid var(--ink2);border-radius:50%;margin-top:5px}
+.opt.sq::before{border-radius:2px}
+.checks{display:grid;gap:8px}
+.chk{display:flex;gap:11px;align-items:flex-start;font-size:16px;line-height:1.7}
+.chk input{appearance:none;flex:none;width:20px;height:20px;border:1.5px solid var(--ink2);border-radius:2px;margin:4px 0 0;cursor:pointer;background:var(--surface);position:relative}
+.chk input:checked{background:var(--go);border-color:var(--go)}
+.chk input:checked::after{content:"";position:absolute;left:5px;top:2px;width:6px;height:11px;border:2.5px solid #fff;border-top:0;border-left:0;transform:rotate(40deg)}
+.match{display:grid;grid-template-columns:1fr 54px 1fr;gap:10px;align-items:stretch}
+.match ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.match li{border:1.5px solid var(--line);border-radius:3px;padding:9px 12px;font-size:15.5px;background:var(--surface);line-height:1.5}
+.match .mid{display:grid;place-items:center;font-family:var(--mono);font-size:11px;color:var(--ink3);letter-spacing:.1em;writing-mode:vertical-rl}
+@media (max-width:560px){.match{grid-template-columns:1fr}.match .mid{writing-mode:horizontal-tb;padding:4px 0}}
+.orderbox{display:grid;gap:9px}
+.orow{display:grid;grid-template-columns:46px 1fr;gap:11px;align-items:center}
+.orow em{font-style:normal;height:38px;border:1.5px solid var(--ink2);border-radius:3px;display:grid;place-items:center;font-family:var(--mono);font-size:12px;color:var(--ink3)}
+.orow span{font-size:15.5px;line-height:1.6;border-bottom:1px solid var(--line);padding-bottom:6px}
+.cutcard{border:2px dashed var(--ink);border-radius:4px;padding:16px;background:var(--signal-soft);max-width:430px}
+.cutcard .cut{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--ink3);margin:0 0 9px}
+.cutcard dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:7px 12px;font-size:15px}
+.cutcard dt{font-weight:700}
+.cutcard dd{margin:0;border-bottom:1.5px dotted var(--ink3)}
+.sign-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-top:20px}
+.sign-row div{border:1px solid var(--line);border-radius:3px;padding:11px 13px;font-size:14px}
+.sign-row b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink3);margin-bottom:22px}
+.sign-row i{display:block;border-bottom:1.5px solid var(--ink3);font-style:normal}
+.scorebar{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.scorebar div{border:1.5px solid var(--line);border-radius:3px;padding:10px;text-align:center;font-size:14.5px;font-weight:700}
+.scorebar div span{display:block;font-size:22px;margin-bottom:2px}
+.ws-foot{margin-top:26px;padding-top:13px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11.5px;color:var(--ink3);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ws-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+
+/* footer */
+.foot{border-top:1px solid var(--line);background:var(--surface);padding:30px 20px 46px}
+.foot-in{max-width:1180px;margin:0 auto;display:grid;gap:14px;font-size:14.5px;color:var(--ink2)}
+.foot b{font-family:var(--disp);color:var(--ink)}
+.foot .links{display:flex;flex-wrap:wrap;gap:7px 18px}
+.foot a{color:var(--guide);text-decoration:none;font-family:var(--mono);font-size:13px}
+.foot a:hover{text-decoration:underline}
+.note{font-size:13.5px;color:var(--ink3);line-height:1.8}
+
+/* ── print ── */
+@media print{
+  @page{size:A4;margin:14mm 13mm}
+  .noprint{display:none!important}
+  body{background:#fff;color:#000;font-size:12pt}
+  .hazard,.mast,.rail,.foot{display:none!important}
+  .shell{display:block;max-width:none;padding:0;margin:0}
+  .stage{padding:0}
+  .ws{border:0;padding:0;margin:0;background:#fff}
+  .q{margin-top:16pt}
+  .sbox,.vid,.read,.words div,.cutcard{background:#fff}
+  .ws-top{border-bottom:2px solid #000}
+  a{color:#000;text-decoration:none}
+  body.pm[data-scope="sheet"] .session .block:not(.b-ws){display:none!important}
+  body.pm[data-scope="sheet"] .session .s-head{display:none!important}
+  body.pm[data-scope="sheet"] .ws:not(.pick){display:none!important}
+  body.pm[data-scope="sheet"] .block.b-ws:not(:has(.pick)){display:none!important}
+  body.pm[data-scope="all"] .session{display:block!important}
+  body.pm[data-scope="all"] .block:not(.b-ws){display:none!important}
+  body.pm[data-scope="all"] .s-head{display:none!important}
+  body.pm[data-scope="all"] .block.b-ws{break-before:page}
+  body.pm[data-scope="all"] .session:first-of-type .block.b-ws:first-of-type{break-before:auto}
+  body.pm[data-scope="session"] .ws-actions{display:none}
+}
+</style>
+
+<div class="hazard"></div>
+
+<header class="mast noprint">
+  <div class="mast-in">
+    <div>
+      <p class="eyebrow">고등학교 특수학급 · 현장실습 사전교육</p>
+      <h1>안전한 첫 출근<small>지적장애 학생을 위한 현장실습 사전교육 10차시 · 1차시 50분</small></h1>
+      <ul class="chips">
+        <li>10차시 × 50분</li>
+        <li>쉬운 말 · 큰 글씨</li>
+        <li>영상 · 안전자료 · 읽기자료</li>
+        <li>학습지 10종 인쇄</li>
+      </ul>
+    </div>
+    <div class="tools">
+      <button class="btn" id="printSheet">이 차시 학습지 인쇄</button>
+      <button class="btn ghost" id="printAll">학습지 10장 모두 인쇄</button>
+      <button class="btn ghost" id="printSession">차시 전체 인쇄</button>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="rail noprint" aria-label="차시 선택">
+    <h2>차시</h2>
+    <div class="rail-list" id="rail"></div>
+  </nav>
+  <main class="stage" id="stage"></main>
+</div>
+
+<footer class="foot noprint">
+  <div class="foot-in">
+    <p><b>수업 전 확인</b> · 영상 링크는 공식 기관 채널의 영상 목록(검색 결과)으로 연결됩니다. 수업 전에 1편을 직접 보고 학급 수준에 맞는 구간(2~5분)을 정해 주세요. 법령·최저임금 금액은 매년 바뀌므로 아래 공식 사이트에서 당해 연도 기준을 확인하세요.</p>
+    <div class="links">
+      <a href="https://www.kosha.or.kr" target="_blank" rel="noopener">안전보건공단</a>
+      <a href="https://edu.kosha.or.kr" target="_blank" rel="noopener">안전보건교육포털</a>
+      <a href="https://www.moel.go.kr" target="_blank" rel="noopener">고용노동부</a>
+      <a href="https://www.minimumwage.go.kr" target="_blank" rel="noopener">최저임금위원회</a>
+      <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터</a>
+      <a href="https://www.kead.or.kr" target="_blank" rel="noopener">한국장애인고용공단</a>
+      <a href="https://www.nise.go.kr" target="_blank" rel="noopener">국립특수교육원</a>
+      <a href="https://www.career.go.kr" target="_blank" rel="noopener">커리어넷</a>
+    </div>
+    <p class="note">읽기자료는 실제 보도·제도 내용을 바탕으로 학생이 읽을 수 있게 다시 쓴 교육용 글입니다(기업·개인 이름 제외). 원문 기사는 각 자료의 ‘기사 찾아보기’ 링크에서 검색해 확인하세요. 상담·신고: 고용노동부 1350 · 국가인권위원회 1331 · 화재·구급 119 · 범죄 112</p>
+  </div>
+</footer>
+
+<script>
+/* ===== 안전표지 ===== */
+var C={red:"#C0352B",yel:"#E8A200",blu:"#0F5FA6",grn:"#1F7A4D",ink:"#1C1F26",w:"#FFFFFF"};
+function svg(b){return '<svg viewBox="0 0 64 64" role="img" aria-hidden="true">'+b+'</svg>'}
+var S={
+  ban:function(p){return svg('<circle cx="32" cy="32" r="29" fill="'+C.w+'"/><circle cx="32" cy="32" r="25.5" fill="none" stroke="'+C.red+'" stroke-width="7"/>'+p+'<line x1="14" y1="50" x2="50" y2="14" stroke="'+C.red+'" stroke-width="7"/>')},
+  warn:function(p){return svg('<path d="M32 5 L61 57 H3 Z" fill="'+C.yel+'" stroke="'+C.ink+'" stroke-width="4.5" stroke-linejoin="round"/>'+p)},
+  must:function(p){return svg('<circle cx="32" cy="32" r="29" fill="'+C.blu+'"/>'+p)},
+  info:function(p){return svg('<rect x="3" y="3" width="58" height="58" rx="4" fill="'+C.grn+'"/>'+p)},
+  fire:function(p){return svg('<rect x="3" y="3" width="58" height="58" rx="4" fill="'+C.red+'"/>'+p)}
+};
+var G={
+  smoke:'<rect x="15" y="29" width="25" height="6" fill="'+C.ink+'"/><rect x="41" y="29" width="6" height="6" fill="'+C.yel+'"/>',
+  person:'<circle cx="32" cy="22" r="6" fill="'+C.ink+'"/><path d="M26 30h12l4 16h-5l-1-9-1 15h-6l-1-15-1 9h-5z" fill="'+C.ink+'"/>',
+  hand:'<path d="M23 48V28a3.4 3.4 0 016.8 0v-6a3.4 3.4 0 016.8 0 3.4 3.4 0 016.8 0v26z" fill="'+C.ink+'"/>',
+  bang:'<rect x="29" y="23" width="6" height="18" rx="1.6" fill="'+C.ink+'"/><rect x="29" y="44" width="6" height="6" rx="1.6" fill="'+C.ink+'"/>',
+  bolt:'<path d="M36 18 L22 40h8l-4 12 16-22h-9l5-12z" fill="'+C.ink+'"/>',
+  roller:'<circle cx="23" cy="40" r="7.5" fill="none" stroke="'+C.ink+'" stroke-width="3.5"/><circle cx="41" cy="40" r="7.5" fill="none" stroke="'+C.ink+'" stroke-width="3.5"/><path d="M32 20v10m0 0l-4-4m4 4l4-4" stroke="'+C.ink+'" stroke-width="3.5" fill="none"/>',
+  slip:'<path d="M20 48h26" stroke="'+C.ink+'" stroke-width="4"/><circle cx="26" cy="22" r="5" fill="'+C.ink+'"/><path d="M30 27l8 6-6 8 8 5" stroke="'+C.ink+'" stroke-width="4" fill="none"/>',
+  helmet:'<path d="M15 39a17 17 0 0134 0z" fill="'+C.w+'"/><rect x="11" y="39" width="42" height="6.5" rx="3.2" fill="'+C.w+'"/>',
+  goggle:'<rect x="12" y="25" width="40" height="15" rx="7.5" fill="'+C.w+'"/><rect x="30" y="29" width="4" height="7" fill="'+C.blu+'"/><rect x="8" y="29" width="5" height="4" fill="'+C.w+'"/><rect x="51" y="29" width="5" height="4" fill="'+C.w+'"/>',
+  glove:'<path d="M23 48V28a3.4 3.4 0 016.8 0v-5a3.4 3.4 0 016.8 0 3.4 3.4 0 016.8 0v25z" fill="'+C.w+'"/>',
+  boot:'<path d="M18 44h11l6-16h7v16h8v6H18z" fill="'+C.w+'"/>',
+  ear:'<circle cx="24" cy="34" r="8" fill="'+C.w+'"/><circle cx="40" cy="34" r="8" fill="'+C.w+'"/><path d="M24 22h16" stroke="'+C.w+'" stroke-width="5"/>',
+  mask:'<path d="M18 28h28v8a14 10 0 01-28 0z" fill="'+C.w+'"/><path d="M14 30h4m28 0h4" stroke="'+C.w+'" stroke-width="4"/>',
+  exit:'<rect x="13" y="15" width="19" height="34" fill="'+C.w+'"/><path d="M38 32l13-9v18z" fill="'+C.w+'"/>',
+  cross:'<rect x="28" y="15" width="8" height="34" fill="'+C.w+'"/><rect x="15" y="28" width="34" height="8" fill="'+C.w+'"/>',
+  ext:'<rect x="26" y="20" width="13" height="28" rx="3" fill="'+C.w+'"/><path d="M39 24h8v4h-8z" fill="'+C.w+'"/><rect x="29" y="14" width="7" height="6" fill="'+C.w+'"/>',
+  phone:'<path d="M20 18c10 0 10 8 6 11 2 6 9 13 15 15 3-4 11-4 11 6 0 3-3 4-7 4C30 54 10 34 10 25c0-4 1-7 10-7z" fill="'+C.w+'"/>'
+};
+function sign(kind,glyph,name,code){return '<div class="sign">'+S[kind](G[glyph])+'<b>'+name+'</b><span>'+code+'</span></div>'}
+
+/* ===== 공통 링크 ===== */
+function yt(q){return "https://www.youtube.com/results?search_query="+encodeURIComponent(q)}
+function nv(q){return "https://search.naver.com/search.naver?where=news&query="+encodeURIComponent(q)}
+function gn(q){return "https://news.google.com/search?q="+encodeURIComponent(q)+"&hl=ko"}
+
+var SESSIONS=[];
+SESSIONS.push({
+n:1,tag:"오리엔테이션",title:"현장실습, 왜 할까요?",
+lead:"현장실습이 무엇인지, 누가 나를 도와주는지, 언제 무엇을 하는지 알아봅니다.",
+goals:["현장실습이 무엇인지 쉬운 말로 말할 수 있다.","학교 선생님·회사 담당자·나의 할 일을 구분할 수 있다.","현장실습이 시작되기까지의 순서를 말할 수 있다."],
+flow:[
+ {m:5,ph:"도입",t:"영상 1편(2~3분) 시청 후 “어디에서 일하고 있나요?” 질문",s:"영상을 보고 본 것을 한 문장으로 말한다"},
+ {m:15,ph:"전개",t:"현장실습의 뜻·목적·기간을 쉬운 문장으로 설명, 쉬운 말 사전 함께 읽기",s:"교사와 함께 소리 내어 읽고 중요한 말에 동그라미"},
+ {m:12,ph:"전개",t:"‘세 사람의 할 일’ 역할 카드 활동(학생·학교 선생님·기업현장교사)",s:"역할 카드를 들고 짝과 역할놀이 1회"},
+ {m:13,ph:"전개",t:"학습지 1 함께 풀기(1~3번 교사 안내, 4~5번 개별)",s:"학습지 1을 쓴다"},
+ {m:5,ph:"정리",t:"오늘의 한 문장 확인, 다음 차시 예고",s:"자기평가 3칸에 표시"}],
+words:[
+ {w:"현장실습",d:"학교에서 배운 일을 실제 회사에 가서 해 보는 수업입니다. 수업이지 ‘취업’은 아닙니다."},
+ {w:"사업장",d:"내가 실습하러 가는 회사·가게·공장을 말합니다."},
+ {w:"기업현장교사",d:"회사에서 나를 가르쳐 주는 담당자입니다. 모르면 이 사람에게 먼저 묻습니다."},
+ {w:"현장실습 협약서",d:"학교·회사·학생(보호자)이 함께 약속하고 서명하는 종이입니다."}],
+vids:[
+ {t:"직업계고 ‘학습중심 현장실습’ 안내 영상",ch:"교육부·시도교육청 채널",url:yt("학습중심 현장실습 안내 직업계고"),why:"도입 5분. 현장실습이 ‘수업’이라는 점을 보여 줄 때"},
+ {t:"장애학생 취업·직업생활 이야기",ch:"한국장애인고용공단",url:yt("한국장애인고용공단 장애인 직업생활 사례"),why:"전개. 실습 후 모습을 미리 보여 줄 때"}],
+boxes:[
+ {tone:"guide",title:"현장실습 한눈에",badge:"기본",lines:[
+  "<b>어디서</b> 학교가 고른 안전한 회사에서 합니다.",
+  "<b>얼마나</b> 보통 하루 <b>7~8시간</b>, 정해진 기간(학교 계획에 따름) 동안 합니다.",
+  "<b>무엇을</b> 회사 일을 배우고, 직업인으로 행동하는 법을 익힙니다.",
+  "<b>중요</b> 위험한 일, 배우지 않은 기계 작업은 <b>하지 않습니다.</b>"]},
+ {tone:"go",title:"나를 돕는 세 사람",badge:"역할",table:{cols:["누구","하는 일","언제 연락"],rows:[
+  ["<b>나(실습생)</b>","시간 지키기 · 배우기 · 안전수칙 지키기 · 모르면 묻기","—"],
+  ["<b>기업현장교사</b>","일 가르쳐 주기 · 안전 알려 주기","회사에서 모르는 일이 생겼을 때 <b>바로</b>"],
+  ["<b>학교 선생님</b>","실습 점검 · 문제 해결 도와주기","힘든 일·다친 일·불편한 일이 있을 때 <b>그날</b>"]]}}],
+read:{kicker:"읽기자료 · 기사로 배우기",head:"현장실습은 ‘일하러 가는 것’이 아니라 ‘배우러 가는 것’입니다",
+lead:"예전에는 현장실습을 ‘조기 취업’처럼 운영한 곳이 있었습니다. 사고가 생긴 뒤 제도가 바뀌었습니다.",
+paras:["2017년, 한 음료 공장에서 현장실습을 하던 고등학생이 기계에 끼여 세상을 떠났습니다. 혼자 기계를 다루게 한 것이 문제였습니다.",
+"2021년에는 요트 업체에서 실습하던 학생이 물속 작업을 하다 숨졌습니다. 배우지 않은 위험한 일을 시킨 것이 문제였습니다.",
+"이런 일이 되풀이되지 않도록 제도가 바뀌었습니다. 지금의 현장실습은 <b>학습중심 현장실습</b>입니다. 학교가 회사의 안전을 먼저 확인하고, 학생은 <b>배운 일만</b>, <b>혼자가 아니라 담당자와 함께</b> 합니다. 위험하면 <b>“안 하겠습니다”라고 말할 수 있습니다.</b>",
+"그래서 사전교육 10차시가 있습니다. 10차시를 다 들으면 나는 안전하게 일하는 방법을 아는 실습생이 됩니다."],
+facts:[{k:"기억 1",v:"현장실습은 수업입니다. 성적·출결도 학교 기준을 따릅니다."},{k:"기억 2",v:"위험한 일은 거절할 수 있습니다. 거절해도 혼나지 않습니다."},{k:"기억 3",v:"힘든 일이 생기면 그날 학교 선생님께 알립니다."}],
+srcs:[{t:"기사 찾아보기 · 직업계고 현장실습",url:nv("직업계고 현장실습")},{t:"기사 찾아보기 · 현장실습 안전",url:gn("현장실습생 안전")},{t:"교육부",url:"https://www.moe.go.kr"}]},
+memo:["IQ 90 수준을 기준으로 문장을 2~3어절 단위로 끊어 읽히고, 새 용어는 ‘쉬운 말 사전’ 네 개로만 제한했습니다. 더 낮은 수준의 학생에게는 1·2번 문항만 쓰게 하고 나머지는 구두 응답으로 대체하세요.",
+"읽기자료의 사고 사례는 사실이지만 자극적 묘사를 뺐습니다. 학생 반응이 불안해지면 ‘그래서 우리는 10차시를 배웁니다’로 즉시 전환하세요.",
+"1차시 끝에 보호자 안내문(학습지 1 아래 서명란)을 가정으로 보내 협약서 일정과 연결하면 좋습니다."],
+sheet:{title:"현장실습이 무엇인지 알아요",items:[
+ {t:"fill",q:"빈칸에 알맞은 말을 <보기>에서 골라 쓰세요.",bank:["수업","사업장","기업현장교사","협약서"],
+  lines:["현장실습은 회사에 가서 일을 배우는 ___입니다.","내가 실습하러 가는 회사를 ___이라고 합니다.","회사에서 나를 가르쳐 주는 사람은 ___입니다.","학교·회사·나(보호자)가 함께 서명하는 종이는 ___입니다."]},
+ {t:"match",q:"누가 하는 일인지 선으로 이으세요.",left:["나(실습생)","기업현장교사","학교 선생님"],right:["일을 가르쳐 주고 안전을 알려 준다","시간을 지키고, 배운 일을 하고, 모르면 묻는다","실습을 점검하고 힘든 일을 해결해 준다"]},
+ {t:"order",q:"현장실습을 시작하기까지의 순서대로 1~5를 쓰세요.",items:["사전교육 10차시를 듣는다","실습할 회사를 정한다","학교·회사·보호자가 협약서에 서명한다","첫 출근을 한다","회사에서 안전교육을 받고 일을 배운다"]},
+ {t:"ox",q:"맞으면 ○, 틀리면 ×를 쓰세요.",items:["현장실습 중에 위험한 일은 거절할 수 있다.","배우지 않은 기계도 혼자 해 봐야 한다.","다치면 그날 바로 학교 선생님께 알린다.","현장실습은 학교 수업이다."]},
+ {t:"write",q:"내가 실습하고 싶은 곳과 그 이유를 쓰세요.",hint:"예) 저는 카페에서 실습하고 싶습니다. 사람들에게 친절하게 말하는 것을 좋아합니다.",lines:3},
+ {t:"score",q:"오늘 수업 자기평가",labels:["현장실습이 무엇인지 말할 수 있다","세 사람의 할 일을 안다","다음 시간이 기다려진다"]}]},
+close:["오늘의 한 문장: “현장실습은 안전하게 배우러 가는 수업입니다.”","다음 차시 준비: 집에서 회사까지 가는 길(교통수단)을 보호자와 알아 오기"]
+});
+SESSIONS.push({
+n:2,tag:"근무 태도",title:"시간 약속 지키기",
+lead:"출근 시각보다 10분 먼저 도착하기, 늦거나 못 가는 날 전화하는 방법을 연습합니다.",
+goals:["집에서 출발할 시각을 스스로 계산할 수 있다.","지각·결근할 때 연락하는 3단계를 말할 수 있다.","하루 일과(출근–일–휴게–퇴근) 순서를 안다."],
+flow:[
+ {m:5,ph:"도입",t:"“8시 50분 출근인데 8시 55분에 도착하면?” 질문으로 시작",s:"생각을 말한다"},
+ {m:12,ph:"전개",t:"출근 10분 전 도착 규칙 설명, 집→회사 이동시간 역산 방법 시범",s:"자기 집 기준 출발 시각을 계산한다"},
+ {m:13,ph:"전개",t:"지각·결근 전화 3단계 대본 제시, 교사 시범 통화",s:"대본을 보고 2명씩 전화 연습(휴대전화 모형)"},
+ {m:15,ph:"전개",t:"학습지 2 풀기 · 하루 일과표 함께 채우기",s:"학습지 2를 쓴다"},
+ {m:5,ph:"정리",t:"‘무단결근’의 결과 짧게 정리, 자기평가",s:"자기평가 표시"}],
+words:[
+ {w:"출근 시각",d:"일을 시작하는 시간입니다. 그 시각에 <b>이미 자리에 있어야</b> 합니다."},
+ {w:"휴게시간",d:"일하지 않고 쉬는 시간입니다. 4시간 일하면 30분 이상 쉽니다."},
+ {w:"조퇴",d:"허락을 받고 퇴근 시각보다 먼저 집에 가는 것입니다."},
+ {w:"무단결근",d:"연락도 허락도 없이 회사에 가지 않는 것입니다. 실습이 중단될 수 있습니다."}],
+vids:[
+ {t:"직장인 기본 예절 · 출근 시간 지키기",ch:"커리어넷 진로 영상",url:yt("직업기초능력 직장예절 출근 시간 지키기"),why:"도입. 지각 상황을 보여 주고 질문으로 연결"},
+ {t:"장애인 직업생활 적응 교육 영상",ch:"한국장애인고용공단",url:yt("한국장애인고용공단 직업적응훈련 근무태도"),why:"전개. 바람직한 근무 태도 모델링"}],
+boxes:[
+ {tone:"guide",title:"늦을 것 같으면 이렇게 전화해요",badge:"대본",lines:[
+  "<b>1단계 · 누구</b> <span class=\"say\">“안녕하세요. ○○고등학교 실습생 ○○○입니다.”</span>",
+  "<b>2단계 · 무엇</b> <span class=\"say\">“버스가 늦어서 10분 정도 늦을 것 같습니다. 죄송합니다.”</span>",
+  "<b>3단계 · 언제</b> <span class=\"say\">“9시 10분까지 도착하겠습니다.”</span>",
+  "전화는 <b>늦기 전에</b> 합니다. 도착한 뒤에 하는 것이 아닙니다. 전화 후 <b>학교 선생님께도</b> 문자로 알립니다."]},
+ {tone:"halt",title:"이것은 하지 않습니다",badge:"금지",lines:[
+  "연락 없이 안 가기(무단결근) → 실습 중단·성적 처리 불이익",
+  "말없이 먼저 집에 가기(무단조퇴) → 회사가 나를 찾게 됩니다",
+  "친구에게 대신 전화하게 하기 → 내 목소리로 직접 연락합니다",
+  "아픈 것을 숨기고 출근 → 아프면 전화하고 쉬는 것이 안전합니다"]},
+ {tone:"go",title:"하루 일과 예시",badge:"일과",table:{cols:["시각","할 일","확인"],rows:[
+  ["08:40","회사 도착 · 인사 · 작업복 갈아입기","출근 10분 전"],
+  ["08:50","출근 기록(출근카드) · 오늘 할 일 듣기","메모하기"],
+  ["09:00","일 시작 · 모르면 바로 질문","혼자 판단 금지"],
+  ["12:00","점심·휴게시간","정해진 시간에 복귀"],
+  ["16:50","정리정돈 · 오늘 한 일 보고 · 퇴근 인사","실습일지 쓰기"]]}}],
+read:{kicker:"읽기자료 · 사례로 배우기",head:"연락 한 번이 실습을 지켰습니다",
+lead:"지각 자체보다 ‘연락하지 않은 것’이 더 큰 문제가 됩니다.",
+paras:["A학생은 실습 둘째 주에 버스를 놓쳤습니다. 늦을 것 같아 걱정되었지만, 배운 대로 회사에 전화했습니다. “실습생 ○○○입니다. 10분 늦겠습니다.” 담당자는 “알려 줘서 고맙다”고 했고, A학생은 그날 일을 잘 마쳤습니다.",
+"B학생도 같은 날 늦었습니다. 혼날까 무서워 전화하지 않았습니다. 회사는 B학생이 오지 않은 줄 알고 학교에 연락했고, 학교는 보호자에게 연락했습니다. 모두가 걱정했습니다.",
+"두 학생의 차이는 ‘늦은 것’이 아니라 <b>알린 것</b>입니다. 회사는 실습생이 늦는 것보다 <b>어디 있는지 모르는 것</b>을 더 걱정합니다.",
+"현장실습 운영 지침에서도 결근·지각은 반드시 학교와 회사에 알리도록 하고 있습니다. 전화 한 번이 나를 지켜 줍니다."],
+facts:[{k:"규칙",v:"출근 10분 전 도착"},{k:"규칙",v:"늦을 것 같으면 늦기 전에 전화"},{k:"규칙",v:"아프면 출근 전에 회사+학교에 연락"}],
+srcs:[{t:"기사 찾아보기 · 현장실습 출결 관리",url:nv("현장실습 출결 관리 지침")},{t:"고용노동부",url:"https://www.moel.go.kr"}]},
+memo:["이동시간 역산은 학생마다 등교 경로가 달라 어렵습니다. 보호자와 함께 조사한 ‘집→회사 소요시간’을 미리 받아 두면 2번 문항이 실제 자료가 됩니다.",
+"전화 연습은 교사가 ‘회사 담당자’ 역할을 맡아 2회 반복하고, 대본을 코팅해 필통에 넣어 주세요.",
+"무단결근의 결과를 겁주는 방식이 아니라 ‘연락하면 해결된다’는 결론으로 끝내는 것이 핵심입니다."],
+sheet:{title:"시간을 지키고 연락해요",items:[
+ {t:"fill",q:"시각을 계산해서 쓰세요.",hint:"출근 시각보다 10분 먼저 도착해야 합니다.",bank:["08:40","60분","07:40"],
+  lines:["출근 시각이 08:50이면, 도착해야 할 시각은 ___입니다.","집에서 회사까지 ___이 걸립니다. (내 경우를 쓰세요)","그러면 집에서 나가야 할 시각은 ___입니다."]},
+ {t:"fill",q:"전화 대본의 빈칸을 채우세요.",bank:["실습생","늦을","도착"],
+  lines:["“안녕하세요. ○○고등학교 ___ ○○○입니다.”","“버스가 늦어서 10분 정도 ___ 것 같습니다. 죄송합니다.”","“9시 10분까지 ___하겠습니다.”"]},
+ {t:"ox",q:"맞으면 ○, 틀리면 ×를 쓰세요.",items:["늦을 것 같으면 도착한 다음에 전화한다.","아파서 못 가면 출근 전에 회사와 학교에 연락한다.","친구가 대신 전화해 주면 된다.","휴게시간이 끝나면 정해진 시각에 자리로 돌아온다."]},
+ {t:"check",q:"실습 전날 저녁에 준비할 것을 확인하고 ✔ 하세요.",items:["작업복·실내화 챙기기","출근 시각 알람 2개 맞추기","교통카드 충전 확인","실습일지와 필기구","휴대전화 충전","아침 식사 준비 확인"]},
+ {t:"write",q:"오늘 배운 ‘전화 3단계’를 보지 않고 써 보세요.",hint:"1) 누구인지 2) 무슨 일인지 3) 언제 도착하는지",lines:3},
+ {t:"score",q:"오늘 수업 자기평가",labels:["출발 시각을 계산할 수 있다","전화 3단계를 말할 수 있다","전화 연습을 해 보았다"]}]},
+close:["오늘의 한 문장: “늦기 전에 전화하면 문제가 되지 않습니다.”","다음 차시 준비: 어른에게 쓰는 존댓말 문장 3개 떠올려 오기"]
+});
+SESSIONS.push({
+n:3,tag:"의사소통",title:"인사하고 보고하기",
+lead:"인사 3단계, 존댓말 문장, 그리고 ‘모르겠습니다’라고 묻는 법을 연습합니다.",
+goals:["상황에 맞는 인사말을 할 수 있다.","일을 끝낸 뒤 보고하는 문장을 말할 수 있다.","모를 때·실수했을 때 말할 문장을 안다."],
+flow:[
+ {m:5,ph:"도입",t:"교사가 두 가지 인사를 시범(고개만 / 눈맞춤+허리+말) 후 비교 질문",s:"어느 쪽이 좋은지 고르고 이유 말하기"},
+ {m:12,ph:"전개",t:"인사 3단계와 상황별 인사말 카드 제시 · 전체 따라 하기",s:"일어서서 3단계 인사 3회 연습"},
+ {m:13,ph:"전개",t:"보고 문장 틀(‘~했습니다 / ~하겠습니다 / 모르겠습니다’) 설명·시범",s:"짝과 역할놀이: 일 완료 보고, 질문하기"},
+ {m:15,ph:"전개",t:"학습지 3 말풍선 채우기 지도",s:"학습지 3을 쓴다"},
+ {m:5,ph:"정리",t:"‘3초 규칙’ 정리, 자기평가",s:"자기평가 표시"}],
+words:[
+ {w:"보고",d:"일을 끝냈거나 문제가 생겼을 때 담당자에게 말하는 것입니다."},
+ {w:"존댓말",d:"어른에게 쓰는 높임말입니다. 끝을 <b>‘~습니다/~요’</b>로 맺습니다."},
+ {w:"호칭",d:"상대를 부르는 말입니다. 회사에서는 ‘○○님’, ‘팀장님’처럼 부릅니다."},
+ {w:"복명복창",d:"들은 지시를 다시 말해 확인하는 것입니다. “네, 상자 5개 옮기겠습니다.”"}],
+vids:[
+ {t:"직장 예절 · 인사와 호칭",ch:"커리어넷 / 직업교육 채널",url:yt("직장예절 인사 호칭 교육 영상"),why:"도입·전개. 인사 동작 모델링"},
+ {t:"직장에서 보고하기·질문하기 연습",ch:"직업적응훈련 교육 영상",url:yt("직장생활 보고하기 질문하기 교육"),why:"전개. 보고 문장 모델링 후 역할놀이"}],
+boxes:[
+ {tone:"guide",title:"인사 3단계",badge:"동작",lines:[
+  "<b>① 눈</b> 상대의 눈을 본다 (1초)",
+  "<b>② 허리</b> 허리를 15도 숙인다",
+  "<b>③ 말</b> <span class=\"say\">“안녕하세요. 잘 부탁드립니다.”</span>",
+  "출근 <span class=\"say\">“안녕하세요”</span> · 퇴근 <span class=\"say\">“먼저 가 보겠습니다. 수고하셨습니다”</span> · 도움받음 <span class=\"say\">“감사합니다”</span> · 실수 <span class=\"say\">“죄송합니다. 다시 하겠습니다”</span>"]},
+ {tone:"go",title:"이 네 문장만 외워도 됩니다",badge:"문장",table:{cols:["상황","내가 할 말"],rows:[
+  ["일을 다 했을 때","<b>“○○ 다 했습니다. 다음은 무엇을 할까요?”</b>"],
+  ["지시를 들었을 때","<b>“네, ○○ 하겠습니다.”</b> (들은 것을 다시 말하기)"],
+  ["모를 때","<b>“잘 모르겠습니다. 한 번 더 알려 주시겠어요?”</b>"],
+  ["실수했을 때","<b>“죄송합니다. 제가 ○○를 잘못했습니다.”</b> (숨기지 않기)"]]}},
+ {tone:"warn",title:"3초 규칙",badge:"주의",lines:[
+  "모르는 일을 받으면 <b>3초 멈추고</b> 묻습니다. 그냥 하면 사고나 불량이 생깁니다.",
+  "“알겠습니다”라고 말했지만 모를 때 → 다시 가서 물어봅니다. 늦게 묻는 것이 안 묻는 것보다 낫습니다.",
+  "기계·칼·높은 곳 관련 지시는 <b>반드시</b> 확인하고 시작합니다."]}],
+read:{kicker:"읽기자료 · 사례로 배우기",head:"“모르겠습니다”라고 말한 날, 사고가 나지 않았습니다",
+lead:"묻는 것은 못하는 것이 아닙니다. 묻는 것이 실력입니다.",
+paras:["C학생은 물류 창고에서 실습했습니다. 담당자가 “그 라벨 붙은 상자만 3층 선반에 올려 줘”라고 했습니다. C학생은 어떤 라벨인지 몰랐습니다.",
+"예전의 C학생이라면 그냥 아무 상자나 올렸을 것입니다. 그런데 사전교육에서 배운 문장이 떠올랐습니다. “잘 모르겠습니다. 어떤 라벨인지 한 번 더 알려 주시겠어요?”",
+"담당자는 라벨을 직접 보여 주었습니다. 그 상자는 깨지기 쉬운 유리 제품이어서, 모르고 다른 상자를 높이 올렸다면 떨어뜨려 다칠 수도 있었습니다.",
+"실습을 받는 회사 담당자들에게 물어보면, 가장 좋아하는 실습생은 ‘일을 빨리 하는 학생’이 아니라 <b>‘모르면 묻고, 끝나면 보고하는 학생’</b>이라고 말합니다. 이것은 연습하면 누구나 할 수 있습니다."],
+facts:[{k:"문장 1",v:"“다 했습니다. 다음은 무엇을 할까요?”"},{k:"문장 2",v:"“잘 모르겠습니다. 한 번 더 알려 주시겠어요?”"},{k:"문장 3",v:"“죄송합니다. 다시 하겠습니다.”"}],
+srcs:[{t:"기사 찾아보기 · 현장실습생 직무 적응",url:nv("현장실습생 직장 적응 의사소통")},{t:"커리어넷 직업정보",url:"https://www.career.go.kr"}]},
+memo:["역할놀이는 ‘교사–학생’ 1회 시범 후 ‘학생–학생’ 2회가 효과적입니다. 대사는 읽어도 됩니다(암기 강요 금지).",
+"학생이 보고를 어려워하면 문장 카드를 목걸이 형태로 만들어 실습 첫 주에 소지하게 하세요.",
+"‘죄송합니다’ 연습 시 과도한 사과 반복(불안 반응)이 나오면 ‘한 번 말하고 바로 다시 하기’로 끊어 주세요."],
+sheet:{title:"인사와 보고 말하기",items:[
+ {t:"fill",q:"상황에 맞는 말을 <보기>에서 골라 쓰세요.",bank:["안녕하세요","수고하셨습니다","감사합니다","죄송합니다"],
+  lines:["아침에 회사에 도착했을 때 → ___","퇴근할 때 → 먼저 가 보겠습니다. ___","도움을 받았을 때 → ___","실수했을 때 → ___"]},
+ {t:"pick",q:"일을 다 끝냈을 때 가장 알맞은 말을 고르세요.",sq:false,opts:["아무 말 하지 않고 서 있는다.","“다 했습니다. 다음은 무엇을 할까요?”","“이제 집에 가도 되나요?”","휴대전화를 본다."]},
+ {t:"write",q:"‘모르겠습니다’를 넣어 질문 문장을 쓰세요.",hint:"예) 잘 모르겠습니다. 이 상자를 어디에 둘까요?",lines:2},
+ {t:"ox",q:"맞으면 ○, 틀리면 ×를 쓰세요.",items:["인사할 때 눈을 보고 허리를 숙인다.","모르는 일은 일단 혼자 해 본다.","지시를 들으면 다시 말해서 확인한다.","실수를 숨기면 더 큰 문제가 된다."]},
+ {t:"order",q:"인사 3단계의 순서대로 1~3을 쓰세요.",items:["허리를 15도 숙인다","“안녕하세요”라고 말한다","상대의 눈을 본다"]},
+ {t:"score",q:"오늘 수업 자기평가",labels:["인사 3단계를 할 수 있다","보고 문장을 말할 수 있다","모를 때 물어볼 수 있다"]}]},
+close:["오늘의 한 문장: “모르면 묻고, 끝나면 보고합니다.”","다음 차시 준비: 내 작업복(또는 단정한 옷) 준비 상태 확인하기"]
+});
+SESSIONS.push({
+n:4,tag:"복장·정리정돈",title:"단정한 복장과 정리정돈",
+lead:"작업복을 바르게 입는 법, 위생 관리, 그리고 사고를 줄이는 정리정돈(5S)을 배웁니다.",
+goals:["작업장에 맞는 복장을 스스로 점검할 수 있다.","정리정돈이 안전과 연결되는 이유를 말할 수 있다.","작업 전·후 내 자리를 정리할 수 있다."],
+flow:[
+ {m:5,ph:"도입",t:"사진/그림 비교: 어질러진 작업대와 정리된 작업대",s:"위험한 곳을 찾아 말한다"},
+ {m:12,ph:"전개",t:"복장 체크 8항목 설명 · 거울 점검 시범(머리·소매·신발)",s:"거울 앞에서 자기 점검 1회"},
+ {m:12,ph:"전개",t:"5S(정리·정돈·청소·청결·습관) 쉬운 말로 설명 · 교실 작업대 실습",s:"모둠별로 작업대 1곳 정리하기"},
+ {m:16,ph:"전개",t:"학습지 4 지도 · 위험 요소 찾기 활동",s:"학습지 4를 쓴다"},
+ {m:5,ph:"정리",t:"‘넘어짐 사고’ 예방 3가지 정리, 자기평가",s:"자기평가 표시"}],
+words:[
+ {w:"작업복",d:"일할 때 입는 옷입니다. 몸에 맞고 끈·장식이 없어야 안전합니다."},
+ {w:"위생",d:"몸과 옷을 깨끗하게 하는 것입니다. 식품·조리 실습에서는 특히 중요합니다."},
+ {w:"5S",d:"정리·정돈·청소·청결·습관화. 작업장을 안전하게 만드는 5가지 약속입니다."},
+ {w:"넘어짐",d:"물건이나 물기 때문에 미끄러지거나 걸려 넘어지는 사고입니다. 작업장에서 매우 흔합니다."}],
+vids:[
+ {t:"작업장 정리정돈(5S)과 안전",ch:"안전보건공단",url:yt("안전보건공단 정리정돈 5S 작업장 안전"),why:"전개. 정리정돈–사고의 관계를 영상으로"},
+ {t:"넘어짐·미끄러짐 사고 예방",ch:"안전보건공단",url:yt("안전보건공단 넘어짐 미끄러짐 예방"),why:"정리. 통로·물기 관리 강조"}],
+boxes:[
+ {tone:"guide",title:"출근 전 거울 점검 8가지",badge:"체크",lines:[
+  "① 머리 — 긴 머리는 <b>묶기</b>(기계에 빨려 들어갈 수 있음)",
+  "② 얼굴·손 — 세수, 손톱 짧게, 손 씻기",
+  "③ 상의 — 소매 <b>단단히</b>, 끈·후드 끈 제거",
+  "④ 하의 — 바지 길이 적당(밟히지 않게)",
+  "⑤ 신발 — 발 뒤가 막힌 신발(실습장 지정 안전화)",
+  "⑥ 장신구 — 반지·목걸이·귀걸이 <b>빼기</b>",
+  "⑦ 명찰·출입증 — 보이는 곳에",
+  "⑧ 냄새 — 땀·향수 과하지 않게"]},
+ {tone:"halt",title:"기계 작업에서 절대 안 되는 복장",badge:"금지",signs:[["warn","roller","끼임 위험","경고 · 삼각형"],["warn","slip","넘어짐 위험","경고 · 삼각형"],["ban","hand","손 대지 마시오","금지 · 원+사선"]],lines:[
+  "풀어 놓은 긴 머리, 늘어진 끈, 반지·팔찌 → <b>끼임 사고</b>의 원인",
+  "슬리퍼·샌들, 밑창이 미끄러운 신발 → <b>넘어짐·발 부상</b>",
+  "회전하는 기계 앞에서 <b>면장갑</b> 착용 → 장갑이 말려 들어갈 수 있음(작업별 지시를 따릅니다)",
+  "주머니에 커터칼·공구 넣고 걷기 → 찔림 사고"]},
+ {tone:"go",title:"5S를 쉬운 말로",badge:"5S",table:{cols:["약속","쉬운 말","내가 할 일"],rows:[
+  ["정리","필요 없는 것은 버린다","작업대 위 빈 상자 치우기"],
+  ["정돈","쓰는 것은 제자리에","공구를 쓴 뒤 원래 자리에"],
+  ["청소","바닥과 기계를 닦는다","물기·기름기 바로 닦기"],
+  ["청결","깨끗한 상태를 지킨다","퇴근 전 10분 정리"],
+  ["습관화","매일 똑같이 한다","날마다 같은 순서로"]]}}],
+read:{kicker:"읽기자료 · 안전 상식",head:"작업장에서 가장 흔한 사고는 ‘넘어짐’입니다",
+lead:"크고 특별한 사고보다, 바닥에 놓인 상자 하나가 더 자주 사람을 다치게 합니다.",
+paras:["안전보건공단 자료를 보면, 산업현장 사고 가운데 <b>넘어짐</b>은 해마다 가장 많이 발생하는 유형에 속합니다. 이유는 단순합니다. 통로에 물건이 있고, 바닥에 물기가 있고, 급하게 걷기 때문입니다.",
+"D학생은 조리 실습장에서 일했습니다. 바닥에 기름이 조금 떨어졌는데 ‘나중에 닦지’ 하고 지나쳤습니다. 10분 뒤 다른 직원이 그 자리에서 미끄러졌습니다. 다행히 크게 다치지 않았지만, D학생은 그날 바로 ‘보이면 바로 닦기’를 배웠습니다.",
+"반대로 정리정돈이 사고를 막은 경우도 많습니다. 통로에 아무것도 없으면 급한 상황에서 뛰어도 걸리지 않고, 비상구까지 빠르게 갈 수 있습니다.",
+"그래서 복장과 정리정돈은 ‘깔끔함’의 문제가 아니라 <b>안전</b>의 문제입니다. 머리를 묶고, 신발을 바로 신고, 바닥을 닦는 일은 모두 나를 지키는 일입니다."],
+facts:[{k:"3가지",v:"통로에 물건 두지 않기"},{k:"3가지",v:"물기·기름기는 보이면 바로 닦기"},{k:"3가지",v:"뛰지 않고 걷기, 계단은 손잡이"}],
+srcs:[{t:"안전보건 자료 · 안전보건공단",url:"https://www.kosha.or.kr"},{t:"기사 찾아보기 · 산업재해 넘어짐",url:nv("산업재해 넘어짐 사고 예방")}]},
+memo:["복장 점검은 말로 설명하기보다 전신거울 1개를 교실에 두고 ‘거울 앞 8초 점검’ 루틴으로 만드는 것이 효과적입니다.",
+"면장갑 금지는 작업 종류에 따라 다릅니다(회전체 작업 시 위험). ‘담당자가 지시한 보호구를 착용한다’로 마무리하세요.",
+"5S 활동은 교실 청소와 연결해 매 차시 마지막 2분 루틴으로 반복하면 10차시 동안 습관이 형성됩니다."],
+sheet:{title:"복장과 정리정돈 점검하기",items:[
+ {t:"check",q:"출근 전 거울 점검표입니다. 확인한 것에 ✔ 하세요.",items:["긴 머리를 묶었다","소매를 단단히 했다","끈·후드 끈이 없다","발 뒤가 막힌 신발을 신었다","반지·목걸이를 뺐다","손을 씻고 손톱을 짧게 했다","명찰을 달았다","작업복이 깨끗하다"]},
+ {t:"ox",q:"맞으면 ○, 틀리면 ×를 쓰세요.",items:["기계 앞에서는 긴 머리를 묶는다.","슬리퍼를 신고 작업해도 된다.","바닥에 물이 있으면 보이는 사람이 바로 닦는다.","통로에 상자를 잠깐 두는 것은 괜찮다."]},
+ {t:"pick",q:"작업대를 정리하는 순서로 알맞은 것을 고르세요.",opts:["쓰던 공구를 제자리에 → 필요 없는 것 버리기 → 바닥 닦기","바닥 닦기 → 공구 꺼내기 → 상자 쌓기","아무것도 하지 않고 퇴근한다","다음 사람이 정리하도록 둔다"]},
+ {t:"write",q:"우리 교실(또는 실습실)에서 위험한 곳 두 곳을 찾아 쓰고, 어떻게 고칠지 쓰세요.",hint:"예) 교실 뒤 통로에 의자가 있습니다 → 벽 쪽으로 붙입니다.",lines:4},
+ {t:"fill",q:"5S의 다섯 가지를 쓰세요.",bank:["정리","정돈","청소","청결","습관화"],lines:["① ___  ② ___  ③ ___  ④ ___  ⑤ ___"]},
+ {t:"score",q:"오늘 수업 자기평가",labels:["복장을 스스로 점검할 수 있다","정리정돈이 왜 중요한지 안다","내 자리를 정리했다"]}]},
+close:["오늘의 한 문장: “묶고, 바로 신고, 바로 닦습니다.”","다음 차시 준비: 학교·마트에서 본 안전표지 1개를 기억해 오기"]
+});
+SESSIONS.push({
+n:5,tag:"안전교육 ①",title:"안전표지를 읽어요",
+lead:"금지·경고·지시·안내. 색과 모양만 알면 글자를 다 읽지 않아도 뜻을 알 수 있습니다.",
+goals:["안전표지 4종류를 색과 모양으로 구분할 수 있다.","표지의 뜻을 보고 내가 할 행동을 말할 수 있다.","모르는 표지가 있으면 담당자에게 물을 수 있다."],
+flow:[
+ {m:5,ph:"도입",t:"표지 4장을 칠판에 붙이고 “무슨 뜻일까?” 질문",s:"아는 표지를 말한다"},
+ {m:14,ph:"전개",t:"색·모양 규칙 설명(빨강 둥근=금지, 노랑 삼각=경고, 파랑 둥근=지시, 초록 사각=안내)",s:"표지 카드를 4가지로 분류한다"},
+ {m:12,ph:"전개",t:"실습장에서 자주 보는 표지 10종 제시 · 행동으로 연결(“이 표지를 보면 나는 ___한다”)",s:"표지–행동 짝 맞추기"},
+ {m:14,ph:"전개",t:"학습지 5 지도 · 학교 안 표지 찾기 과제 안내",s:"학습지 5를 쓴다"},
+ {m:5,ph:"정리",t:"‘모르는 표지는 물어본다’ 강조, 자기평가",s:"자기평가 표시"}],
+words:[
+ {w:"안전표지",d:"위험을 알려 주는 그림 표지입니다. 색과 모양에 뜻이 있습니다."},
+ {w:"금지표지",d:"<b>하면 안 되는 것</b>입니다. 빨간 원에 사선이 그어져 있습니다."},
+ {w:"경고표지",d:"<b>위험이 있다</b>는 뜻입니다. 노란 삼각형입니다."},
+ {w:"지시표지",d:"<b>꼭 해야 하는 것</b>입니다. 파란 원입니다. 보호구 착용이 많습니다."},
+ {w:"안내표지",d:"<b>도움이 되는 곳</b>을 알려 줍니다. 초록 사각형입니다(비상구·구급)."}],
+vids:[
+ {t:"안전보건표지 종류와 의미",ch:"안전보건공단",url:yt("안전보건공단 안전보건표지 종류 의미"),why:"전개. 표지 4분류 설명 구간만 사용"},
+ {t:"작업장 안전표지 퀴즈 영상",ch:"안전교육 채널",url:yt("안전표지 퀴즈 안전교육 영상"),why:"정리. 퀴즈 형식으로 복습"}],
+boxes:[
+ {tone:"halt",title:"금지표지 — 하면 안 돼요",badge:"빨강 · 원 + 사선",signs:[["ban","smoke","금연","금지"],["ban","person","출입금지","금지"],["ban","hand","손대지 마시오","금지"]],lines:[
+  "이 표지를 보면 나는 <b>멈춥니다.</b> 그리고 그 행동을 하지 않습니다.",
+  "담당자가 시켜도 금지표지가 있는 곳은 먼저 <b>확인</b>합니다."]},
+ {tone:"warn",title:"경고표지 — 위험이 있어요",badge:"노랑 · 삼각형",signs:[["warn","bang","위험 경고","경고"],["warn","bolt","감전 위험","경고"],["warn","roller","끼임 위험","경고"],["warn","slip","넘어짐 위험","경고"]],lines:[
+  "이 표지를 보면 나는 <b>천천히, 조심해서</b> 움직입니다.",
+  "감전 경고가 있는 곳에서는 <b>젖은 손으로 만지지 않습니다.</b>"]},
+ {tone:"guide",title:"지시표지 — 꼭 해야 해요",badge:"파랑 · 원",signs:[["must","helmet","안전모 착용","지시"],["must","goggle","보안경 착용","지시"],["must","glove","보호장갑 착용","지시"],["must","boot","안전화 착용","지시"],["must","ear","귀마개 착용","지시"]],lines:[
+  "이 표지를 보면 나는 <b>보호구를 먼저 착용</b>하고 들어갑니다.",
+  "보호구가 없으면 <b>“보호구 어디 있나요?”</b>라고 묻습니다."]},
+ {tone:"go",title:"안내표지 — 도와주는 곳이에요",badge:"초록 · 사각형",signs:[["info","exit","비상구","안내"],["info","cross","응급처치","안내"],["fire","ext","소화기","소방"]],lines:[
+  "출근 첫날 <b>비상구·소화기·구급상자 위치</b>를 확인합니다.",
+  "소방·소화 설비 표지는 <b>빨간색</b>을 씁니다. 그 앞에 물건을 쌓지 않습니다."]}],
+read:{kicker:"읽기자료 · 안전 상식",head:"표지는 글을 다 못 읽어도 알 수 있습니다",
+lead:"색과 모양이 먼저 말해 줍니다. 빨강은 ‘하지 마’, 노랑은 ‘조심’, 파랑은 ‘꼭 해’, 초록은 ‘여기 있어’.",
+paras:["안전표지는 전 세계가 비슷한 규칙으로 만듭니다. 우리나라도 산업안전보건법에 따라 사업장마다 안전보건표지를 붙이게 되어 있습니다. 그래서 어느 회사에 가도 모양과 색이 같습니다.",
+"E학생은 글을 빠르게 읽기 어려웠습니다. 하지만 색과 모양 규칙을 외운 뒤에는 처음 간 공장에서도 ‘파란 동그라미 → 보호구 착용’을 바로 알아보고 안전모를 쓰고 들어갔습니다. 담당자가 가장 먼저 칭찬한 점이었습니다.",
+"반대로 표지를 지나친 경우도 있습니다. ‘출입금지’ 표지가 붙은 문 안쪽은 기계가 움직이는 구역이었는데, 물건을 빨리 가져오려고 들어갔다가 크게 놀란 학생도 있었습니다. 다행히 다치지는 않았습니다.",
+"첫날 할 일은 하나입니다. <b>내 작업장을 한 바퀴 돌며 표지를 찾아보는 것</b>입니다. 그리고 모르는 표지는 담당자에게 묻습니다. “이 표지는 무슨 뜻인가요?”"],
+facts:[{k:"빨강 원",v:"금지 — 하지 않습니다"},{k:"노랑 삼각",v:"경고 — 조심합니다"},{k:"파랑 원",v:"지시 — 반드시 합니다"},{k:"초록 사각",v:"안내 — 위치를 기억합니다"}],
+srcs:[{t:"안전보건표지 자료 · 안전보건공단",url:"https://www.kosha.or.kr"},{t:"산업안전보건법 찾아보기",url:"https://www.law.go.kr"},{t:"기사 찾아보기 · 안전표지",url:nv("산업안전보건표지")}]},
+memo:["표지는 인쇄·코팅해 교실 벽에 4분류로 붙여 두고, 6~10차시 동안 계속 참조하게 하면 전이가 잘 됩니다.",
+"‘색–모양–행동’ 3단 연결이 핵심입니다. 표지 이름 암기보다 ‘보면 무엇을 하는가’로 평가하세요.",
+"과제: 학교 안 표지 3개 사진 찍어 오기 → 6차시 도입에서 발표(휴대전화 사용 규정 확인)."],
+sheet:{title:"안전표지 읽기",items:[
+ {t:"fill",q:"표지의 색과 모양, 뜻을 쓰세요.",bank:["금지","경고","지시","안내"],
+  lines:["빨간 원에 사선 → ___ (하면 안 된다)","노란 삼각형 → ___ (위험하니 조심한다)","파란 원 → ___ (꼭 해야 한다)","초록 사각형 → ___ (위치를 알려 준다)"]},
+ {t:"match",q:"표지와 내가 할 행동을 이으세요.",left:["금연 표지","안전모 착용 표지","감전 위험 표지","비상구 표지"],right:["안전모를 쓰고 들어간다","담배를 피우지 않는다","위치를 기억해 둔다","젖은 손으로 만지지 않는다"]},
+ {t:"signs",q:"아래 표지의 뜻을 빈칸에 쓰세요. (교사가 보여 주는 표지를 보고 씁니다)",rows:["표지 1","표지 2","표지 3","표지 4"]},
+ {t:"ox",q:"맞으면 ○, 틀리면 ×를 쓰세요.",items:["파란 원 표지는 ‘하지 마’라는 뜻이다.","출입금지 표지가 있는 문은 들어가지 않는다.","모르는 표지는 담당자에게 물어본다.","소화기 앞에는 물건을 쌓아도 된다."]},
+ {t:"write",q:"우리 학교(또는 집 근처)에서 본 안전표지 2개를 쓰고 뜻을 쓰세요.",hint:"예) 복도의 초록 비상구 표지 → 급할 때 나가는 문",lines:4},
+ {t:"score",q:"오늘 수업 자기평가",labels:["표지 4종류를 구분할 수 있다","표지를 보고 행동을 말할 수 있다","모르는 표지를 물어볼 수 있다"]}]},
+close:["오늘의 한 문장: “빨강은 하지 마, 노랑은 조심, 파랑은 꼭 해, 초록은 여기 있어.”","다음 차시 준비: 안전모·장갑 등 보호구를 본 적이 있는지 떠올려 오기"]
+});
+SESSIONS.push({
+n:6,tag:"안전교육 ②",title:"보호구와 기계 안전",
+lead:"보호구 5종을 바르게 쓰고, 기계 앞에서 ‘3초 멈춤 – 3가지 확인’을 연습합니다.",
+goals:["작업에 맞는 보호구를 고를 수 있다.","기계를 만지기 전에 확인할 3가지를 말할 수 있다.","끼임·베임·넘어짐을 막는 행동을 할 수 있다."],
+flow:[
+ {m:5,ph:"도입",t:"실물 보호구(안전모·장갑·보안경) 제시 후 “언제 쓸까?” 질문",s:"보호구를 만져 보고 말한다"},
+ {m:14,ph:"전개",t:"보호구 5종의 이름·쓰는 때·바르게 쓰는 법 시범(턱끈 조이기 등)",s:"안전모 착용 2회 연습(턱끈까지)"},
+ {m:13,ph:"전개",t:"‘기계 앞 3초 멈춤’ 지도: ①전원 ②덮개(방호장치) ③사람",s:"구호와 함께 손동작으로 3회 반복"},
+ {m:13,ph:"전개",t:"학습지 6 지도 · 작업–보호구 짝 맞추기",s:"학습지 6을 쓴다"},
+ {m:5,ph:"정리",t:"‘배우지 않은 기계는 만지지 않는다’ 재확인, 자기평가",s:"자기평가 표시"}],
+words:[
+ {w:"보호구",d:"몸을 지키기 위해 쓰는 장비입니다. 안전모·보안경·장갑·안전화·귀마개 등이 있습니다."},
+ {w:"방호장치",d:"기계의 위험한 부분을 막아 주는 덮개·울입니다. <b>절대 치우지 않습니다.</b>"},
+ {w:"끼임",d:"움직이는 기계 사이에 손·옷·머리카락이 들어가는 사고입니다."},
+ {w:"전원 차단",d:"기계를 멈추고 전기를 끊는 것입니다. 청소·점검 전에 반드시 합니다."}],
+vids:[
+ {t:"개인보호구 올바른 착용법",ch:"안전보건공단",url:yt("안전보건공단 개인보호구 착용방법"),why:"전개. 안전모 턱끈·보안경 착용 구간"},
+ {t:"끼임 사고 예방 · 방호장치와 전원 차단",ch:"안전보건공단",url:yt("안전보건공단 끼임사고 예방 방호장치"),why:"전개. 사례 재현 구간(2~3분)만 사용"}],
+boxes:[
+ {tone:"guide",title:"보호구 5종 — 무엇을, 언제",badge:"지시표지",signs:[["must","helmet","안전모","머리"],["must","goggle","보안경","눈"],["must","glove","보호장갑","손"],["must","boot","안전화","발"],["must","ear","귀마개","귀"],["must","mask","방진마스크","호흡"]],
+  table:{cols:["보호구","쓰는 때","바르게 쓰는 법"],rows:[
+   ["안전모","물건이 떨어질 수 있는 곳, 공사·창고","<b>턱끈을 조인다</b>(안 조이면 벗겨짐)"],
+   ["보안경","자르기·갈기·튀는 작업, 세제 사용","눈을 완전히 덮게"],
+   ["보호장갑","칼·거친 물건·화학물질 다룰 때","<b>회전 기계 앞에서는 지시에 따라</b>"],
+   ["안전화","무거운 물건·공장·창고","끈을 묶고 발에 맞게"],
+   ["귀마개","소리가 큰 곳(말소리가 안 들릴 정도)","귀 안쪽까지 넣기"],
+   ["방진마스크","먼지·가루가 많은 곳","코와 입을 함께 덮기"]]}},
+ {tone:"halt",title:"기계 앞 ‘3초 멈춤 – 3가지 확인’",badge:"핵심",lines:[
+  "<b>① 전원</b> 기계가 멈춰 있나? 청소·막힌 것 빼기는 <b>전원을 끄고</b> 합니다.",
+  "<b>② 덮개</b> 방호장치(덮개)가 제자리에 있나? 없으면 담당자에게 말합니다.",
+  "<b>③ 사람</b> 기계 근처에 사람이 있나? 시작 전에 <span class=\"say\">“시작하겠습니다”</span>라고 말합니다.",
+  "<b>배우지 않은 기계는 만지지 않습니다.</b> ‘한 번만’도 안 됩니다."]},
+ {tone:"warn",title:"자주 생기는 3가지 사고와 막는 법",badge:"예방",table:{cols:["사고","어떻게 생기나","막는 법"],rows:[
+  ["<b>끼임</b>","움직이는 기계에 손·옷·머리를 넣는다","전원 끄기 · 덮개 유지 · 머리 묶기"],
+  ["<b>베임</b>","칼·커터·날카로운 철판을 맨손으로 다룬다","보호장갑 · 칼은 몸 반대로 · 쓴 뒤 덮개"],
+  ["<b>넘어짐</b>","바닥 물기, 통로의 물건, 뛰어가기","바로 닦기 · 통로 비우기 · 걷기"]]}}],
+read:{kicker:"읽기자료 · 기사로 배우기",head:"“혼자 하지 않기”가 가장 센 안전수칙입니다",
+lead:"현장실습생 사고를 보면 공통점이 있습니다. 배우지 않은 일을, 혼자, 급하게 했습니다.",
+paras:["기계는 사람보다 힘이 셉니다. 멈춘 것처럼 보여도 안에서 돌고 있을 수 있습니다. 그래서 공장에서는 <b>청소나 막힌 것을 빼기 전에 전원을 끄는 것</b>을 가장 먼저 가르칩니다.",
+"보도된 현장실습생 사고 중에는, 기계에 재료가 걸려 그것을 빼려다 손이 끼인 경우가 여러 번 있었습니다. 급한 마음에 전원을 끄지 않았고, 옆에 알려 줄 사람도 없었습니다.",
+"현장실습 운영 기준에서는 실습생에게 위험한 작업을 혼자 하게 하는 것을 금지하고 있습니다. 담당자와 함께, 배운 범위 안에서만 하는 것이 원칙입니다.",
+"그러므로 기억할 것은 두 문장입니다. <b>“전원을 끄고 합니다.”</b> <b>“혼자 하지 않습니다.”</b> 이 두 문장을 지키면 대부분의 큰 사고는 일어나지 않습니다."],
+facts:[{k:"원칙 1",v:"배운 일만, 담당자와 함께"},{k:"원칙 2",v:"청소·점검 전 전원 차단"},{k:"원칙 3",v:"덮개(방호장치)는 치우지 않기"}],
+srcs:[{t:"기사 찾아보기 · 현장실습생 끼임 사고",url:nv("현장실습생 기계 끼임 사고")},{t:"안전보건 교육자료",url:"https://edu.kosha.or.kr"},{t:"기사 찾아보기 · 산업안전 보호구",url:gn("개인보호구 착용 산업안전")}]},
+memo:["실물 보호구가 없으면 학교 과학실 보안경·급식실 장갑 등으로 대체하고, 사진 카드라도 반드시 ‘만지고 쓰는’ 경험을 넣으세요.",
+"안전모 턱끈 조이기, 장갑 착용은 과제분석(3~4단계)으로 쪼개 반복 연습하면 수행률이 올라갑니다.",
+"‘3초 멈춤’은 구호+손동작(손가락 3개)으로 만들어 7~10차시 도입마다 20초씩 복습하세요."],
+sheet:{title:"보호구와 기계 안전",items:[
+ {t:"match",q:"작업과 필요한 보호구를 이으세요.",left:["무거운 상자를 옮긴다","쇠를 갈아서 불꽃이 튄다","소리가 아주 큰 기계실","먼지가 많은 작업장"],right:["보안경","방진마스크","안전화","귀마개"]},
+ {t:"fill",q:"기계 앞 ‘3가지 확인’을 쓰세요.",bank:["전원","덮개","사람"],lines:["① ___이 꺼져 있는지 확인한다.","② ___(방호장치)가 제자리에 있는지 확인한다.","③ 근처에 ___이 있는지 보고 말한다."]},
+ {t:"ox",q:"맞으면 ○, 틀리면 ×를 쓰세요.",items:["기계에 재료가 걸리면 전원을 끄고 담당자를 부른다.","안전모는 턱끈을 조이지 않아도 된다.","덮개가 불편하면 잠깐 떼어 놓는다.","배우지 않은 기계는 만지지 않는다.","칼을 쓴 뒤에는 덮개를 씌워 제자리에 둔다."]},
+ {t:"pick",q:"기계가 멈춰서 안을 청소해야 합니다. 가장 먼저 할 일은?",opts:["손을 넣어 재료를 뺀다","전원을 끄고 담당자에게 말한다","옆 친구를 부른다","그냥 다시 작동시킨다"]},
+ {t:"write",q:"내가 실습할 곳에서 쓸 보호구를 쓰고, 언제 쓰는지 쓰세요.",hint:"예) 안전화 — 창고에서 상자를 옮길 때 신습니다.",lines:3},
+ {t:"score",q:"오늘 수업 자기평가",labels:["보호구를 고를 수 있다","3가지 확인을 말할 수 있다","안전모를 바르게 썼다"]}]},
+close:["오늘의 한 문장: “전원을 끄고, 혼자 하지 않습니다.”","다음 차시 준비: 집의 소화기와 119 신고 방법을 보호자와 확인해 오기"]
+});
+SESSIONS.push({
+n:7,tag:"안전교육 ③",title:"위험하면 멈추고 알려요",
+lead:"위험할 때 일을 멈출 권리, 119 신고 말하기, 그리고 기본 응급처치를 연습합니다.",
+goals:["위험할 때 작업을 멈추고 알릴 수 있다.","119에 신고하는 문장을 말할 수 있다.","다쳤을 때 해야 할 일과 하면 안 되는 일을 구분할 수 있다."],
+flow:[
+ {m:5,ph:"도입",t:"“위험한데 하라고 하면 어떻게 할까?” 질문으로 시작",s:"자기 생각을 말한다"},
+ {m:12,ph:"전개",t:"작업중지 — 산업안전보건법상 근로자는 위험 시 작업을 멈출 수 있음을 쉬운 말로 설명 · 거절 문장 제시",s:"거절 문장 2개 소리 내어 연습"},
+ {m:13,ph:"전개",t:"119 신고 대본 시범 · 사고 발생 시 행동 순서(멈춤–알림–대피/신고)",s:"짝과 119 신고 역할놀이 2회"},
+ {m:15,ph:"전개",t:"기본 응급처치 3가지 시범(지혈·화상·골절) · 학습지 7 지도",s:"학습지 7을 쓴다 · 비상연락망 작성"},
+ {m:5,ph:"정리",t:"‘내 몸이 가장 중요하다’ 정리, 자기평가",s:"자기평가 표시"}],
+words:[
+ {w:"작업중지",d:"위험이 보이면 일을 멈추는 것입니다. 산업안전보건법은 근로자가 위험할 때 작업을 멈출 수 있도록 하고 있습니다."},
+ {w:"대피",d:"위험한 곳에서 안전한 곳으로 빠져나가는 것입니다. 비상구로 나갑니다."},
+ {w:"응급처치",d:"119가 오기 전까지 하는 간단한 돌봄입니다."},
+ {w:"안전보건관리자",d:"회사에서 안전을 담당하는 사람입니다. 위험을 알리면 조치해 줍니다."}],
+vids:[
+ {t:"작업 전 안전점검과 작업중지",ch:"안전보건공단",url:yt("안전보건공단 작업중지권 위험성 안전점검"),why:"전개. ‘멈출 수 있다’는 메시지 확인"},
+ {t:"119 신고 요령 / 심장정지 응급처치",ch:"소방청 · 대한심폐소생협회",url:yt("119 신고요령 응급처치 소방청"),why:"전개. 신고 대본·응급처치 시범"}],
+boxes:[
+ {tone:"halt",title:"이럴 때는 멈추고 말합니다",badge:"작업중지",lines:[
+  "기계에서 <b>이상한 소리·냄새·연기</b>가 난다",
+  "덮개(방호장치)가 <b>없거나 고장</b>났다",
+  "<b>배우지 않은</b> 기계·높은 곳·물속 작업을 시킨다",
+  "몸이 아프거나 너무 어지럽다",
+  "말하는 문장 → <span class=\"say\">“죄송하지만 이것은 위험해 보입니다. 담당자님께 먼저 확인하겠습니다.”</span> / <span class=\"say\">“저는 이 작업을 배우지 않았습니다.”</span>"]},
+ {tone:"go",title:"119 신고 — 이 순서로 말해요",badge:"대본",signs:[["info","cross","응급처치","안내"],["info","exit","비상구","안내"],["fire","ext","소화기","소방"],["must","phone","신고","연락"]],lines:[
+  "<b>① 무슨 일</b> <span class=\"say\">“사람이 다쳤습니다.”</span> / <span class=\"say\">“불이 났습니다.”</span>",
+  "<b>② 어디</b> <span class=\"say\">“○○시 ○○동 ○○회사 1층 작업장입니다.”</span> (주소를 미리 적어 둡니다)",
+  "<b>③ 누가·어떻게</b> <span class=\"say\">“20살 남자이고, 손에서 피가 많이 납니다.”</span>",
+  "<b>④ 나</b> <span class=\"say\">“저는 실습생 ○○○입니다. 전화번호는 010-○○○○-○○○○입니다.”</span>",
+  "전화를 <b>먼저 끊지 않습니다.</b> 119가 알려 주는 대로 합니다."]},
+ {tone:"warn",title:"사고가 났을 때 순서",badge:"3단계",table:{cols:["순서","할 일","하면 안 되는 일"],rows:[
+  ["1","<b>멈춘다</b> — 기계 정지, 전원 차단","계속 작업하기"],
+  ["2","<b>알린다</b> — 큰 소리로 “사고입니다!” · 담당자 호출 · 119","혼자 해결하려 하기"],
+  ["3","<b>돕는다/대피</b> — 안전한 곳에서 응급처치 · 불이면 비상구로 대피","다친 사람을 억지로 옮기기"]]}},
+ {tone:"guide",title:"기본 응급처치 3가지",badge:"처치",table:{cols:["상황","해야 할 일","하면 안 되는 일"],rows:[
+  ["피가 날 때","깨끗한 천으로 <b>누르고</b> 손을 심장보다 높이","흙·연고 바르기"],
+  ["화상","<b>흐르는 찬물 15분</b> 이상, 그 뒤 감싸기","얼음 직접 대기, 물집 터뜨리기"],
+  ["뼈를 다친 것 같을 때","움직이지 않게 두고 119","흔들거나 억지로 펴기"]]}}],
+read:{kicker:"읽기자료 · 사례로 배우기",head:"“이건 위험해 보입니다”라고 말해도 괜찮습니다",
+lead:"일을 멈추는 것은 잘못이 아닙니다. 법으로 보호되는 행동입니다.",
+paras:["산업안전보건법에는 <b>근로자가 급박한 위험이 있을 때 작업을 중지하고 대피할 수 있다</b>는 내용이 들어 있습니다(제52조). 그리고 그 일 때문에 불리한 처우를 해서는 안 된다고도 적혀 있습니다. 실습생도 같은 보호를 받습니다.",
+"F학생은 창고에서 일하다 지게차가 지나가는 통로에서 짐을 정리하라는 말을 들었습니다. 지게차가 바로 옆을 지나가 무서웠습니다. F학생은 배운 문장을 썼습니다. “죄송하지만 여기는 위험해 보입니다. 다른 곳에서 하면 안 될까요?” 담당자는 통로 바깥에서 작업하도록 바꿔 주었습니다.",
+"반대로, 2021년 한 요트 업체에서는 실습생이 배우지 않은 물속 작업을 하다 숨졌습니다. ‘시키니까 해야 한다’고 생각한 것이 비극이 되었습니다.",
+"그래서 사전교육에서 이 말을 꼭 연습합니다. <b>“저는 이 작업을 배우지 않았습니다.”</b> 이 말을 했다고 혼내는 회사는 학교에 알려야 할 회사입니다."],
+facts:[{k:"법",v:"산업안전보건법 제52조 — 근로자의 작업중지"},{k:"연락",v:"회사 담당자 → 학교 선생님 → 보호자 순으로 알립니다"},{k:"번호",v:"화재·구급 119 · 고용노동부 상담 1350"}],
+srcs:[{t:"산업안전보건법 제52조 찾아보기",url:"https://www.law.go.kr"},{t:"기사 찾아보기 · 작업중지권",url:nv("작업중지권 근로자")},{t:"기사 찾아보기 · 현장실습 사고",url:gn("현장실습생 사고")}]},
+memo:["이 차시는 정서적으로 민감합니다. 사례는 짧게 전달하고, 반드시 ‘그래서 우리는 말할 수 있다’로 마무리하세요.",
+"119 역할놀이는 교사가 접수자 역할을 맡아 주소를 못 말하면 알려 주는 식으로 지원하세요. 회사 주소는 학습지 비상연락망에 미리 적게 합니다.",
+"응급처치 시범은 삼각건·거즈 실물을 사용하고, 심폐소생술은 ‘119 안내에 따른다’ 수준으로만 다룹니다."],
+sheet:{title:"위험할 때 멈추고 알리기",items:[
+ {t:"fill",q:"119 신고 대본을 완성하세요.",bank:["다쳤습니다","회사 주소","실습생"],
+  lines:["“사람이 ___.”","“여기는 ___ 입니다. (___________________________)”","“저는 ___ ○○○이고, 전화번호는 ______________입니다.”"]},
+ {t:"order",q:"사고가 났을 때의 순서대로 1~3을 쓰세요.",items:["큰 소리로 알리고 담당자·119에 연락한다","기계를 멈추고 전원을 끈다","안전한 곳에서 응급처치하거나 대피한다"]},
+ {t:"ox",q:"맞으면 ○, 틀리면 ×를 쓰세요.",items:["위험해 보이면 일을 멈추고 말할 수 있다.","배우지 않은 작업도 시키면 해야 한다.","화상을 입으면 흐르는 찬물에 15분 이상 식힌다.","뼈를 다친 것 같으면 억지로 펴 준다.","119에 신고하면 내가 먼저 전화를 끊는다."]},
+ {t:"write",q:"위험한 일을 시켰을 때 할 말을 쓰세요.",hint:"예) 죄송하지만 저는 이 작업을 배우지 않았습니다. 담당자님께 확인해 주시겠어요?",lines:3},
+ {t:"card",q:"비상연락망을 쓰고, 오려서 지갑·휴대전화 케이스에 넣으세요.",rows:[["화재·구급","119"],["회사 이름",""],["회사 주소",""],["기업현장교사",""],["학교 선생님",""],["보호자",""],["노동 상담","1350"]]},
+ {t:"score",q:"오늘 수업 자기평가",labels:["위험할 때 멈출 수 있다","119 신고를 말할 수 있다","응급처치 3가지를 안다"]}]},
+close:["오늘의 한 문장: “멈추고, 알리고, 돕습니다.”","다음 차시 준비: 보호자와 ‘내 통장·급여’ 이야기 나눠 오기"]
+});
+SESSIONS.push({
+n:8,tag:"권리와 임금",title:"근로계약서와 내 권리",
+lead:"계약서에 무엇이 적혀 있어야 하는지, 내 돈과 시간은 어떻게 지켜지는지 배웁니다.",
+goals:["근로계약서에서 꼭 확인할 항목을 찾을 수 있다.","내 하루 일하는 시간과 쉬는 시간을 말할 수 있다.","급여(월급)를 받으면 명세서를 확인할 수 있다."],
+flow:[
+ {m:5,ph:"도입",t:"“한 달 일하면 얼마를 받을까?” 간단 질문",s:"추측해 보고 말한다"},
+ {m:14,ph:"전개",t:"근로계약서(표준양식) 함께 보며 6가지 확인 항목 표시 · 서명 전 규칙",s:"양식에 형광펜으로 6곳 표시"},
+ {m:12,ph:"전개",t:"최저임금·근로시간·휴게시간 설명 · 계산기로 시급×시간 계산 시범",s:"계산기로 급여 계산 2문항"},
+ {m:14,ph:"전개",t:"학습지 8 지도 · 급여명세서 보는 법",s:"학습지 8을 쓴다"},
+ {m:5,ph:"정리",t:"임금 문제 생기면 1350·학교 선생님, 자기평가",s:"자기평가 표시"}],
+words:[
+ {w:"근로계약서",d:"일하는 조건을 적고 서명하는 종이입니다. 회사와 내가 <b>한 장씩</b> 가집니다."},
+ {w:"최저임금",d:"법으로 정한 <b>가장 낮은 시간당 돈</b>입니다. 이보다 적게 주면 안 됩니다."},
+ {w:"급여명세서",d:"받은 돈과 빠진 돈이 적힌 종이입니다. 월급과 함께 받습니다."},
+ {w:"4대보험",d:"국민연금·건강보험·고용보험·산재보험입니다. 다치면 산재보험이 치료비를 돕습니다."}],
+vids:[
+ {t:"근로계약서 작성과 확인 방법",ch:"고용노동부",url:yt("고용노동부 근로계약서 작성방법 청소년"),why:"전개. 계약서 항목 확인 구간"},
+ {t:"청소년·연소근로자 노동인권 교육",ch:"고용노동부 · 교육청",url:yt("청소년 노동인권 교육 아르바이트 권리"),why:"도입/정리. 권리 이해"}],
+boxes:[
+ {tone:"guide",title:"근로계약서에서 꼭 볼 6곳",badge:"체크",lines:[
+  "① <b>임금</b> — 시급·월급이 얼마인지, 언제 주는지",
+  "② <b>근로시간</b> — 몇 시부터 몇 시까지",
+  "③ <b>휴게시간</b> — 언제 몇 분 쉬는지",
+  "④ <b>휴일</b> — 쉬는 날이 언제인지",
+  "⑤ <b>하는 일</b> — 내가 할 일과 일하는 장소",
+  "⑥ <b>내 이름·서명</b> — 그리고 <b>계약서 1장을 내가 받는다</b>"]},
+ {tone:"halt",title:"서명 전에 멈춰요",badge:"금지",lines:[
+  "빈칸이 있는 종이에 서명하지 않습니다.",
+  "무슨 말인지 모르면 <b>“보호자·선생님과 보고 오겠습니다”</b>라고 말합니다.",
+  "계약서를 안 주면 <b>“한 장 받을 수 있을까요?”</b>라고 묻습니다. 이것은 법으로 정해진 내 권리입니다.",
+  "돈을 제대로 못 받으면 혼자 참지 않고 <b>학교 선생님</b>과 <b>1350</b>에 알립니다."]},
+ {tone:"go",title:"시간과 돈의 기준",badge:"기준",table:{cols:["구분","기준","메모"],rows:[
+  ["최저임금(시급)","<b>2026년 10,320원</b>","매년 바뀝니다. 최저임금위원회에서 확인"],
+  ["18세 미만 근로시간","하루 <b>7시간</b>, 주 <b>35시간</b>","합의하면 하루 1시간·주 5시간까지 연장"],
+  ["18세 이상 근로시간","하루 <b>8시간</b>, 주 <b>40시간</b>","연장은 합의 필요"],
+  ["휴게시간","4시간 일하면 <b>30분</b> 이상, 8시간이면 <b>1시간</b> 이상","일하는 중간에 줍니다"],
+  ["야간·휴일","18세 미만은 밤 10시~새벽 6시 근무 <b>원칙 금지</b>","본인 동의+고용노동부 인가 필요"]]}}],
+read:{kicker:"읽기자료 · 사례로 배우기",head:"계약서 한 장이 내 돈을 지켜 줍니다",
+lead:"‘얼마 받는지 모르고 일하는 것’이 가장 위험합니다.",
+paras:["G학생은 실습이 끝난 뒤 받은 돈이 생각보다 적었습니다. 계약서를 보니 시급이 적혀 있었고, 일한 시간을 곱해 보니 금액이 달랐습니다. 학교 선생님과 함께 회사에 물어보았고, 회사는 계산 착오를 인정해 차액을 지급했습니다.",
+"H학생은 계약서를 받지 못했습니다. 돈이 적게 들어왔지만 ‘얼마 받기로 했는지’를 보여 줄 종이가 없었습니다. 해결하는 데 시간이 훨씬 오래 걸렸습니다.",
+"근로기준법은 임금·근로시간·휴일 등을 적은 <b>근로계약서를 써서 근로자에게 한 장 주어야 한다</b>고 정하고 있습니다. 주지 않는 것은 법 위반입니다.",
+"돈 문제는 창피한 일이 아닙니다. 모르면 묻고, 적게 받으면 알립니다. 고용노동부 상담전화 <b>1350</b>은 누구나 무료로 이용할 수 있습니다."],
+facts:[{k:"확인",v:"계약서 1장을 내가 가지고 있는지"},{k:"계산",v:"시급 × 일한 시간 = 받을 돈"},{k:"상담",v:"고용노동부 1350 (무료)"}],
+srcs:[{t:"최저임금 확인 · 최저임금위원회",url:"https://www.minimumwage.go.kr"},{t:"근로기준법 찾아보기",url:"https://www.law.go.kr"},{t:"기사 찾아보기 · 현장실습 임금",url:nv("현장실습 수당 임금 미지급")}]},
+memo:["최저임금액은 수업 당일 최저임금위원회 사이트에서 확인해 칠판에 적어 주세요(자료의 금액은 2026년 적용 기준).",
+"계산 활동은 계산기 사용을 허용하고, 10,320 × 7시간처럼 단순 곱셈으로 제한하세요. 주휴수당 등은 ‘어른에게 물어본다’로 처리합니다.",
+"표준근로계약서 양식은 고용노동부 누리집에서 내려받아 2부(빈 양식/작성 예시) 준비하면 활동이 쉬워집니다."],
+sheet:{title:"내 권리와 급여 확인하기",items:[
+ {t:"check",q:"근로계약서에서 확인할 6가지입니다. 확인했으면 ✔ 하세요.",items:["임금(시급·월급)이 적혀 있다","근로시간이 적혀 있다","휴게시간이 적혀 있다","휴일이 적혀 있다","하는 일과 장소가 적혀 있다","내 이름과 서명이 있고, 계약서 1장을 받았다"]},
+ {t:"fill",q:"계산해서 쓰세요. (계산기를 사용해도 됩니다)",bank:["10,320원"],
+  lines:["시급이 10,320원이고 하루 7시간 일하면, 하루에 ___________원을 받습니다.","5일 동안 일하면 ___________원입니다.","4시간을 일하면 휴게시간은 ______분 이상 쉬어야 합니다."]},
+ {t:"ox",q:"맞으면 ○, 틀리면 ×를 쓰세요.",items:["근로계약서는 회사만 가지고 있어도 된다.","빈칸이 있는 계약서에 서명해도 괜찮다.","최저임금보다 적게 주는 것은 법을 어기는 것이다.","돈을 못 받으면 1350에 상담할 수 있다.","일하다 다치면 산재보험으로 치료를 받을 수 있다."]},
+ {t:"pick",q:"계약서에 모르는 말이 있을 때 가장 알맞은 행동은?",opts:["그냥 서명한다","보호자·선생님과 함께 보고 오겠다고 말한다","아무 말 없이 집에 간다","친구에게 대신 서명하게 한다"]},
+ {t:"write",q:"급여를 받은 뒤 확인할 것을 두 가지 쓰세요.",hint:"예) 통장에 들어온 금액과 명세서의 금액이 같은지 봅니다.",lines:3},
+ {t:"score",q:"오늘 수업 자기평가",labels:["계약서 6곳을 찾을 수 있다","내 근로시간을 말할 수 있다","급여를 계산해 보았다"]}]},
+close:["오늘의 한 문장: “계약서는 한 장 받아서 보관합니다.”","다음 차시 준비: 힘들 때 내가 도움을 청할 사람 3명 떠올려 오기"]
+});
+SESSIONS.push({
+n:9,tag:"인권과 도움 요청",title:"힘든 일이 생겼을 때",
+lead:"괴롭힘·성희롱을 알아차리고, 거절하고, 도움을 요청하는 방법을 연습합니다.",
+goals:["참지 않아도 되는 일을 구분할 수 있다.","싫을 때 거절하는 말을 할 수 있다.","도움을 요청할 사람과 번호를 말할 수 있다."],
+flow:[
+ {m:5,ph:"도입",t:"“이런 일이 있으면 기분이 어떨까?” 상황 카드 2장 제시",s:"기분을 말하거나 표정 카드로 표시"},
+ {m:13,ph:"전개",t:"괜찮은 일 / 참지 않아도 되는 일 구분 지도(괴롭힘·성희롱 쉬운 정의)",s:"상황 카드 8장을 두 칸으로 분류"},
+ {m:12,ph:"전개",t:"거절 3문장 + 도움 요청 3단계 시범 · 전화번호 안내",s:"거절·도움 요청 역할놀이 2회"},
+ {m:15,ph:"전개",t:"학습지 9 지도 · 스트레스 대처 방법 고르기",s:"학습지 9를 쓴다 · 도움카드 작성"},
+ {m:5,ph:"정리",t:"‘말해도 괜찮다’ 확인, 자기평가",s:"자기평가 표시"}],
+words:[
+ {w:"직장 내 괴롭힘",d:"힘을 이용해 다른 사람을 괴롭히거나 창피하게 하는 것입니다. 법으로 금지되어 있습니다."},
+ {w:"성희롱",d:"몸을 만지거나, 성적인 말·사진으로 불편하게 하는 것입니다. 절대 참지 않아도 됩니다."},
+ {w:"신고",d:"힘든 일을 어른·기관에 알려 도움을 받는 것입니다."},
+ {w:"스트레스",d:"마음이 힘들고 지치는 느낌입니다. 쉬고, 말하고, 움직이면 줄어듭니다."}],
+vids:[
+ {t:"직장 내 괴롭힘 예방 교육",ch:"고용노동부",url:yt("직장 내 괴롭힘 예방 교육 고용노동부"),why:"전개. 사례 구간을 짧게"},
+ {t:"장애인 인권·성교육(자기보호) 자료",ch:"국립특수교육원 · 인권위",url:yt("발달장애인 인권 자기보호 성교육 영상"),why:"전개. 거절·도움 요청 모델링"}],
+boxes:[
+ {tone:"halt",title:"이런 일은 참지 않아도 돼요",badge:"금지",lines:[
+  "욕하기, 때리기, 밀기, 물건 던지기",
+  "내 몸을 만지기, 껴안기, 성적인 말이나 사진 보여 주기",
+  "“너는 못한다”, “장애인은 안 된다” 같은 말로 깎아내리기",
+  "일부러 일을 안 주고 혼자 두기, 여러 사람 앞에서 창피하게 만들기",
+  "내 돈·휴대전화·물건을 가져가기",
+  "<b>한 번이라도</b> 있으면 어른에게 말합니다. 내 잘못이 아닙니다."]},
+ {tone:"guide",title:"거절하는 말 · 도움 요청 3단계",badge:"연습",lines:[
+  "거절 1 <span class=\"say\">“싫습니다. 하지 마세요.”</span>",
+  "거절 2 <span class=\"say\">“그 말은 기분이 나쁩니다.”</span>",
+  "거절 3 <span class=\"say\">“선생님께 말하겠습니다.”</span> (말하고 자리를 떠납니다)",
+  "<b>① 적기</b> 언제·어디서·누가·무엇을 했는지 휴대전화나 공책에 적습니다.",
+  "<b>② 말하기</b> 믿을 수 있는 어른에게 말합니다(학교 선생님 → 보호자).",
+  "<b>③ 연락하기</b> 해결이 안 되면 기관에 전화합니다."]},
+ {tone:"go",title:"도움 받을 수 있는 곳",badge:"연락처",signs:[["must","phone","전화하기","도움"],["info","cross","상담","안내"]],table:{cols:["어디","번호","어떤 때"],rows:[
+  ["학교 선생님·보호자","내 휴대전화에 저장","<b>가장 먼저</b>, 그날 바로"],
+  ["고용노동부 상담","<b>1350</b>","임금·괴롭힘·근로조건"],
+  ["국가인권위원회","<b>1331</b>","장애 때문에 차별받았을 때"],
+  ["경찰","<b>112</b>","폭행·성범죄 등 급한 위험"],
+  ["정신건강 상담","<b>1577-0199</b>","마음이 많이 힘들 때"]]}},
+ {tone:"warn",title:"마음이 힘들 때 할 수 있는 일",badge:"스트레스",lines:[
+  "쉬는 시간에 물 마시고 심호흡 5번",
+  "믿는 사람에게 <b>말하기</b> — 말하면 절반이 줄어듭니다",
+  "집에 와서 좋아하는 일 30분(음악·산책·운동)",
+  "잠을 충분히 자기 — 피곤하면 실수가 늘고 다칩니다",
+  "이틀 이상 많이 힘들면 <b>반드시</b> 선생님께 말합니다"]}],
+read:{kicker:"읽기자료 · 사례로 배우기",head:"말했더니 바뀌었습니다",
+lead:"혼자 참으면 그대로지만, 말하면 어른들이 움직입니다.",
+paras:["I학생은 실습 중 한 직원이 자꾸 어깨를 만지고 얼굴·몸에 대해 말하는 것이 불편했습니다. 처음에는 ‘내가 예민한 걸까?’ 생각하고 참았습니다. 잠이 잘 오지 않았습니다.",
+"사전교육에서 배운 대로, I학생은 날짜와 내용을 휴대전화 메모에 적었습니다. 그리고 학교 선생님께 보여 주었습니다. 학교는 회사에 문제를 알리고, 회사는 그 직원을 다른 업무로 옮기고 교육을 했습니다. I학생은 남은 기간을 편하게 마쳤습니다.",
+"근로기준법에는 <b>직장 내 괴롭힘을 금지</b>하는 조항(제76조의2)이 있고, 신고한 사람에게 불이익을 주는 것도 금지합니다. 성희롱은 남녀고용평등법에서 다루고, 심한 경우 범죄가 됩니다.",
+"기억할 것은 한 문장입니다. <b>“말하는 것은 고자질이 아니라 나를 지키는 일입니다.”</b> 내가 말하지 않으면 다음 실습생도 같은 일을 겪습니다."],
+facts:[{k:"① 적기",v:"날짜·장소·누가·무엇을"},{k:"② 말하기",v:"학교 선생님·보호자에게 그날"},{k:"③ 연락",v:"1350 · 1331 · 112"}],
+srcs:[{t:"근로기준법 제76조의2 찾아보기",url:"https://www.law.go.kr"},{t:"국가인권위원회",url:"https://www.humanrights.go.kr"},{t:"기사 찾아보기 · 직장 내 괴롭힘",url:nv("직장 내 괴롭힘 신고")}]},
+memo:["이 차시는 안전보다 더 조심스럽게 다뤄야 합니다. 과거 피해 경험이 드러날 수 있으므로, 수업 후 개별 면담 시간을 반드시 비워 두세요.",
+"분류 활동(괜찮은 일/참지 않아도 되는 일)은 애매한 카드 1~2장을 넣어 ‘애매하면 어른에게 묻는다’는 결론을 끌어내세요.",
+"도움카드(학습지 9)는 코팅해서 가방·지갑에 넣게 하고, 보호자에게도 동일한 카드를 전달하세요."],
+sheet:{title:"거절하고 도움 요청하기",items:[
+ {t:"ox",q:"참지 않아도 되는 일에는 ○, 괜찮은 일에는 ×를 쓰세요.",items:["직원이 내 몸을 만진다.","담당자가 일하는 방법을 다시 가르쳐 준다.","여러 사람 앞에서 나를 놀린다.","내 휴대전화를 가져가서 돌려주지 않는다.","실수했을 때 바르게 하라고 알려 준다."]},
+ {t:"write",q:"싫을 때 할 말을 세 가지 쓰세요.",hint:"예) 싫습니다. 하지 마세요.",lines:3},
+ {t:"order",q:"도움을 요청하는 순서대로 1~3을 쓰세요.",items:["믿을 수 있는 어른에게 말한다","언제·어디서·누가·무엇을 했는지 적는다","해결이 안 되면 1350·1331에 전화한다"]},
+ {t:"card",q:"나의 도움카드를 쓰고 오려서 가지고 다니세요.",rows:[["학교 선생님",""],["보호자",""],["기업현장교사",""],["노동 상담","1350"],["인권 상담","1331"],["급할 때","112 / 119"]]},
+ {t:"check",q:"마음이 힘들 때 내가 해 볼 방법에 ✔ 하세요.",items:["심호흡 5번 하기","믿는 사람에게 말하기","음악 듣기","산책·운동하기","충분히 자기","선생님께 상담 요청하기"]},
+ {t:"score",q:"오늘 수업 자기평가",labels:["참지 않아도 되는 일을 안다","거절하는 말을 할 수 있다","도움 요청할 사람을 안다"]}]},
+close:["오늘의 한 문장: “말하는 것은 나를 지키는 일입니다.”","다음 차시 준비: 실습 준비물 가방을 집에서 한 번 싸 보기"]
+});
+SESSIONS.push({
+n:10,tag:"최종 점검",title:"첫 출근 준비 점검",
+lead:"실습일지 쓰는 법을 익히고, 첫날 시나리오를 연습하고, 20가지 최종 점검을 합니다.",
+goals:["실습일지를 세 줄로 쓸 수 있다.","첫날 할 일을 순서대로 말할 수 있다.","최종 점검표로 준비 상태를 확인할 수 있다."],
+flow:[
+ {m:5,ph:"도입",t:"1~9차시 핵심 문장 9개를 빠르게 복습(카드 넘기기)",s:"다 함께 소리 내어 읽는다"},
+ {m:12,ph:"전개",t:"실습일지 3줄 공식 지도(한 일 / 배운 것 / 어려운 것) · 예시 1편 함께 쓰기",s:"일지 1칸 작성"},
+ {m:13,ph:"전개",t:"첫날 시나리오 역할놀이(도착–인사–안전교육–질문–퇴근 보고)",s:"모둠별로 첫날 장면 연기"},
+ {m:15,ph:"전개",t:"학습지 10 지도 · 최종 점검 20문항 · 보호자 확인란 안내",s:"학습지 10을 쓴다"},
+ {m:5,ph:"정리",t:"수료 축하 · 비상연락망 최종 확인",s:"다짐 한 문장 발표"}],
+words:[
+ {w:"실습일지",d:"매일 한 일과 배운 것을 적는 공책입니다. 학교에 제출합니다."},
+ {w:"출근 기록",d:"출근·퇴근 시각을 적거나 카드를 찍는 것입니다. 꼭 합니다."},
+ {w:"비상연락망",d:"급할 때 전화할 번호를 모아 둔 것입니다. 가방에 넣고 다닙니다."},
+ {w:"수료",d:"교육을 끝까지 다 들은 것입니다. 10차시를 마치면 수료입니다."}],
+vids:[
+ {t:"현장실습 첫날 — 무엇을 할까요",ch:"직업계고·특수교육 채널",url:yt("현장실습 첫날 출근 직업교육 영상"),why:"도입. 첫날 장면 모델링"},
+ {t:"현장실습 사전교육 종합 복습",ch:"안전보건공단 · 교육청",url:yt("현장실습 사전교육 안전 종합"),why:"정리. 10차시 복습용"}],
+boxes:[
+ {tone:"go",title:"실습일지 3줄 공식",badge:"쓰기",lines:[
+  "<b>① 한 일</b> <span class=\"say\">“오늘은 상자에 라벨을 붙였습니다.”</span>",
+  "<b>② 배운 것</b> <span class=\"say\">“라벨은 오른쪽 아래에 붙이는 것을 배웠습니다.”</span>",
+  "<b>③ 어려운 것·질문</b> <span class=\"say\">“라벨이 비뚤어질 때가 있어서 더 연습하고 싶습니다.”</span>",
+  "매일 퇴근 전 <b>5분</b>에 씁니다. 어려우면 사진을 찍어 두고 집에서 씁니다."]},
+ {tone:"guide",title:"첫 출근 날 타임라인",badge:"첫날",table:{cols:["시각","할 일","말할 문장"],rows:[
+  ["출근 10분 전","도착 · 담당자 찾기","<b>“안녕하세요. ○○고 실습생 ○○○입니다.”</b>"],
+  ["시작 전","안전교육 받기 · 보호구 받기","<b>“보호구는 어디에 있나요?”</b>"],
+  ["첫 1시간","작업장 한 바퀴 · 표지·비상구·화장실 확인","<b>“이 표지는 무슨 뜻인가요?”</b>"],
+  ["작업 중","모르면 묻기 · 끝나면 보고","<b>“다 했습니다. 다음은요?”</b>"],
+  ["퇴근 전","정리정돈 · 실습일지 · 인사","<b>“먼저 가 보겠습니다. 수고하셨습니다.”</b>"]]}},
+ {tone:"warn",title:"가방에 꼭 넣을 것",badge:"준비물",lines:[
+  "실습일지·필기구 · 명찰/출입증 · 작업복·실내화",
+  "<b>비상연락망 카드</b>(7차시·9차시에서 만든 것)",
+  "교통카드 · 휴대전화와 충전기 · 물통 · 상비약",
+  "근로계약서 사본(받은 경우) · 보호자 동의서"]},
+ {tone:"halt",title:"실습 중 이 세 가지는 꼭 지킵니다",badge:"약속",lines:[
+  "<b>배운 일만</b> 합니다. 배우지 않은 기계·높은 곳·물속 작업은 하지 않습니다.",
+  "위험하면 <b>멈추고 말합니다.</b> 다치면 그날 바로 알립니다.",
+  "힘든 일이 있으면 <b>혼자 참지 않고</b> 학교 선생님께 말합니다."]}],
+read:{kicker:"읽기자료 · 선배의 편지",head:"먼저 다녀온 선배가 보내는 편지",
+lead:"처음은 누구나 떨립니다. 그래도 10차시를 배운 너는 준비가 된 사람입니다.",
+paras:["안녕. 나는 작년에 현장실습을 다녀온 선배야. 첫날 아침에 손이 떨렸어. 버스에서 ‘인사말을 뭐라고 하지?’만 계속 생각했어.",
+"막상 도착해서는 배운 대로 했어. “안녕하세요. ○○고 실습생 ○○○입니다.” 그 한마디로 시작이 됐어. 담당자님이 웃으면서 자리를 알려 주셨어.",
+"제일 도움이 된 건 <b>“잘 모르겠습니다”</b>라는 말이었어. 처음엔 창피할 것 같았는데, 물어볼 때마다 더 빨리 배웠어. 그리고 한 번은 기계에서 이상한 소리가 나서 “이거 좀 봐 주세요”라고 말했는데, 정말 고장이 난 거였어. 내가 말해서 아무도 다치지 않았어.",
+"힘든 날도 있었어. 그럴 땐 선생님께 전화했어. 참지 않은 게 제일 잘한 일이야. 실습을 마치고 나는 지금 같은 회사에서 일하고 있어.",
+"<b>너도 할 수 있어. 시간 지키고, 묻고, 안전하게. 그거면 충분해.</b>"],
+facts:[{k:"선배의 말 1",v:"인사 한마디로 시작된다"},{k:"선배의 말 2",v:"모르겠다고 말하면 더 빨리 배운다"},{k:"선배의 말 3",v:"힘들면 참지 말고 전화한다"}],
+srcs:[{t:"기사 찾아보기 · 장애학생 취업 성공",url:nv("장애학생 현장실습 취업 성공")},{t:"한국장애인고용공단",url:"https://www.kead.or.kr"},{t:"에듀에이블(국립특수교육원)",url:"https://www.nise.go.kr"}]},
+memo:["학습지 10의 ‘최종 점검 20문항’은 사전교육 이수 평가 자료로 그대로 활용할 수 있습니다. 미달 항목은 해당 차시 학습지를 다시 출력해 보충하세요.",
+"보호자 확인란은 가정 연계용입니다. 비상연락망·근로시간·실습 장소를 보호자가 함께 확인하도록 안내하세요.",
+"수료증(간단한 양식)과 함께 1~9차시 학습지를 묶어 ‘나의 현장실습 준비 파일’로 제작하면 자기효능감이 높아집니다. 상단의 ‘학습지 10장 모두 인쇄’ 버튼을 사용하세요."],
+sheet:{title:"첫 출근 최종 점검",items:[
+ {t:"table",q:"실습일지를 연습해 봅시다. 오늘 날짜로 한 칸을 써 보세요.",cols:["날짜","① 한 일","② 배운 것","③ 어려운 것·질문"],rows:[["/",""," ",""],["/","","",""],["/","","",""]]},
+ {t:"check",q:"최종 점검 20문항입니다. 할 수 있으면 ✔ 하세요.",items:[
+  "현장실습이 무엇인지 말할 수 있다","기업현장교사와 학교 선생님의 역할을 안다","출근 10분 전에 도착해야 함을 안다","늦을 때 전화 3단계를 말할 수 있다","아프면 출근 전에 연락할 수 있다","인사 3단계를 할 수 있다","“다 했습니다. 다음은요?”라고 보고할 수 있다","“잘 모르겠습니다”라고 물을 수 있다","출근 전 복장을 스스로 점검할 수 있다","통로·바닥 정리정돈을 할 수 있다",
+  "안전표지 4종류를 구분할 수 있다","모르는 표지를 물어볼 수 있다","보호구 이름과 쓰는 때를 안다","기계 앞 3가지 확인을 말할 수 있다","배우지 않은 기계는 만지지 않는다","위험할 때 “멈추겠습니다”라고 말할 수 있다","119 신고를 말할 수 있다","근로계약서에서 볼 6곳을 안다","싫을 때 거절하는 말을 할 수 있다","비상연락망 카드를 가지고 있다"]},
+ {t:"order",q:"첫 출근 날의 순서대로 1~5를 쓰세요.",items:["작업장을 돌며 비상구와 표지를 확인한다","도착해서 담당자에게 인사한다","안전교육을 받고 보호구를 받는다","실습일지를 쓰고 퇴근 인사를 한다","일을 배우고 끝나면 보고한다"]},
+ {t:"write",q:"나의 다짐을 한 문장으로 쓰세요.",hint:"예) 저는 시간을 지키고, 모르면 묻고, 안전하게 일하겠습니다.",lines:3},
+ {t:"card",q:"보호자 확인 (가정에서 함께 확인하고 서명해 주세요)",rows:[["실습 회사·장소",""],["출근/퇴근 시각",""],["이동 방법",""],["비상연락망 확인","확인했습니다 ( )"],["보호자 서명",""]]},
+ {t:"score",q:"사전교육 10차시 최종 자기평가",labels:["나는 준비가 되었다","안전하게 일할 수 있다","도움을 요청할 수 있다"]}]},
+close:["오늘의 한 문장: “시간 지키고, 묻고, 안전하게.”","사전교육 10차시 수료 — 학습지 10장을 모아 ‘나의 현장실습 준비 파일’로 보관하세요."]
+});
+/* ===== 렌더링 ===== */
+function esc(s){return s}
+function pad(n){return n<10?"0"+n:""+n}
+function phCls(p){return p==="도입"?"p-in":(p==="정리"?"p-out":"p-mid")}
+
+function tlHtml(flow){
+  var h='<div class="tl">',acc=0,i,scale='';
+  for(i=0;i<flow.length;i++){
+    var f=flow[i];
+    h+='<div class="'+phCls(f.ph)+'" style="flex:'+f.m+' 1 0">'+f.m+'분</div>';
+  }
+  h+='</div><div class="tl-scale"><span>0분</span><span>25분</span><span>50분 (1차시)</span></div>';
+  h+='<div class="flow">';
+  for(i=0;i<flow.length;i++){
+    var g=flow[i],st=pad(Math.floor(acc)),en=pad(acc+g.m);acc+=g.m;
+    h+='<div class="frow"><b>'+st+'–'+en+'분</b><i>'+g.ph+'</i>'+
+       '<div><em>교사</em>'+g.t+'</div><div><em>학생</em>'+g.s+'</div></div>';
+  }
+  return h+'</div>';
+}
+function tblHtml(t){
+  var h='<div class="tbl"><table><thead><tr>',i,j;
+  for(i=0;i<t.cols.length;i++)h+='<th>'+t.cols[i]+'</th>';
+  h+='</tr></thead><tbody>';
+  for(i=0;i<t.rows.length;i++){h+='<tr>';for(j=0;j<t.rows[i].length;j++)h+='<td>'+t.rows[i][j]+'</td>';h+='</tr>';}
+  return h+'</tbody></table></div>';
+}
+function boxHtml(b){
+  var h='<div class="sbox '+b.tone+'"><h4>'+b.title+(b.badge?' <em>'+b.badge+'</em>':'')+'</h4>';
+  if(b.lines&&b.lines.length){h+='<ul>';for(var i=0;i<b.lines.length;i++)h+='<li>'+b.lines[i]+'</li>';h+='</ul>';}
+  if(b.signs){h+='<div class="signs">';for(var j=0;j<b.signs.length;j++){var s=b.signs[j];h+=sign(s[0],s[1],s[2],s[3]);}h+='</div>';}
+  if(b.table)h+='<div style="margin-top:14px">'+tblHtml(b.table)+'</div>';
+  return h+'</div>';
+}
+function ruled(n){var h='<div class="ruled">';for(var i=0;i<n;i++)h+='<i></i>';return h+'</div>';}
+function fillLines(ls){
+  var h='',i;
+  for(i=0;i<ls.length;i++){
+    h+='<p style="margin:0 0 13px;font-size:16.5px;line-height:2.2">'+
+       ls[i].replace(/_{3,}/g,'<span class="fillline">&nbsp;</span>')+'</p>';
+  }
+  return h;
+}
+function qItem(it,n,sid){
+  var h='<div class="q"><div class="q-h"><b>'+n+'</b><p>'+it.q+(it.hint?'<i>'+it.hint+'</i>':'')+'</p></div><div class="q-body">',i;
+  if(it.bank&&it.bank.length){h+='<div class="bank"><em>보기</em>';for(i=0;i<it.bank.length;i++)h+='<span>'+it.bank[i]+'</span>';h+='</div>';}
+  if(it.t==="fill")h+=fillLines(it.lines);
+  else if(it.t==="ox"){h+='<div class="oxlist">';for(i=0;i<it.items.length;i++)h+='<div class="oxrow"><span>'+(i+1)+') '+it.items[i]+'</span><em>○ ×</em></div>';h+='</div>';}
+  else if(it.t==="pick"){h+='<div class="opts">';for(i=0;i<it.opts.length;i++)h+='<div class="opt'+(it.sq?' sq':'')+'"><span>'+it.opts[i]+'</span></div>';h+='</div>';}
+  else if(it.t==="check"){h+='<div class="checks">';for(i=0;i<it.items.length;i++){var cid='c'+sid+'_'+n+'_'+i;h+='<label class="chk" for="'+cid+'"><input type="checkbox" id="'+cid+'"><span>'+it.items[i]+'</span></label>';}h+='</div>';}
+  else if(it.t==="write")h+=ruled(it.lines||3);
+  else if(it.t==="match"){
+    h+='<div class="match"><ul>';
+    for(i=0;i<it.left.length;i++)h+='<li>'+it.left[i]+' ·</li>';
+    h+='</ul><div class="mid">선으로 잇기</div><ul>';
+    for(i=0;i<it.right.length;i++)h+='<li>· '+it.right[i]+'</li>';
+    h+='</ul></div>';
+  }
+  else if(it.t==="order"){h+='<div class="orderbox">';for(i=0;i<it.items.length;i++)h+='<div class="orow"><em>번호</em><span>'+it.items[i]+'</span></div>';h+='</div>';}
+  else if(it.t==="card"){
+    h+='<div class="cutcard"><p class="cut">✂ - - - - - 오려서 가지고 다니세요 - - - - -</p><dl>';
+    for(i=0;i<it.rows.length;i++)h+='<dt>'+it.rows[i][0]+'</dt><dd>'+(it.rows[i][1]||'&nbsp;')+'</dd>';
+    h+='</dl></div>';
+  }
+  else if(it.t==="signs"){h+='<div class="sign-row">';for(i=0;i<it.rows.length;i++)h+='<div><b>'+it.rows[i]+'</b><i>&nbsp;</i></div>';h+='</div>';}
+  else if(it.t==="table"){
+    h+='<div class="tbl"><table><thead><tr>';
+    for(i=0;i<it.cols.length;i++)h+='<th>'+it.cols[i]+'</th>';
+    h+='</tr></thead><tbody>';
+    for(i=0;i<it.rows.length;i++){h+='<tr>';for(var j=0;j<it.rows[i].length;j++)h+='<td style="height:52px">'+it.rows[i][j]+'</td>';h+='</tr>';}
+    h+='</tbody></table></div>';
+  }
+  else if(it.t==="score"){
+    h+='<div class="scorebar">';
+    for(i=0;i<it.labels.length;i++)h+='<div><span>○&nbsp;△&nbsp;×</span>'+it.labels[i]+'</div>';
+    h+='</div>';
+  }
+  return h+'</div></div>';
+}
+function sessionHtml(s){
+  var h='<section class="session" data-n="'+s.n+'" aria-label="'+s.n+'차시">',i;
+  h+='<div class="s-head"><div class="s-num">'+pad(s.n)+'</div><div>'+
+     '<p class="s-tag">'+s.n+'차시 · 50분 · '+s.tag+'</p><h3>'+s.title+'</h3>'+
+     '<p class="s-lead">'+s.lead+'</p></div></div>';
+
+  h+='<div class="block"><p class="lbl">학습목표</p><ol class="goals">';
+  for(i=0;i<s.goals.length;i++)h+='<li>'+s.goals[i]+'</li>';
+  h+='</ol></div>';
+
+  h+='<div class="block"><p class="lbl">50분 수업 흐름</p>'+tlHtml(s.flow)+'</div>';
+
+  h+='<div class="block"><p class="lbl">쉬운 말 사전</p><div class="words">';
+  for(i=0;i<s.words.length;i++)h+='<div><b>'+s.words[i].w+'</b><p>'+s.words[i].d+'</p></div>';
+  h+='</div></div>';
+
+  h+='<div class="block"><p class="lbl">수업 영상</p><div class="vids">';
+  for(i=0;i<s.vids.length;i++){
+    var v=s.vids[i];
+    h+='<div class="vid"><span class="vid-ic"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">'+
+       '<path d="M4 2.5l9 5.5-9 5.5z" fill="#fff"/></svg></span>'+
+       '<div><b>'+v.t+'</b><p>'+v.ch+' · '+v.why+'</p></div>'+
+       '<a href="'+v.url+'" target="_blank" rel="noopener">영상 목록 열기 ↗</a></div>';
+  }
+  h+='</div></div>';
+
+  h+='<div class="block"><p class="lbl">'+(s.n===5||s.n===6||s.n===7?'안전교육 자료':'핵심 자료')+'</p><div class="boxes">';
+  for(i=0;i<s.boxes.length;i++)h+=boxHtml(s.boxes[i]);
+  h+='</div></div>';
+
+  var r=s.read;
+  h+='<div class="block"><p class="lbl">읽기자료 · 기사</p><article class="read"><p class="kicker">'+r.kicker+'</p>'+
+     '<h4>'+r.head+'</h4><p class="lead">'+r.lead+'</p><div class="body">';
+  for(i=0;i<r.paras.length;i++)h+='<p>'+r.paras[i]+'</p>';
+  h+='</div><ul class="facts">';
+  for(i=0;i<r.facts.length;i++)h+='<li><b>'+r.facts[i].k+'</b><span>'+r.facts[i].v+'</span></li>';
+  h+='</ul><div class="srcs">';
+  for(i=0;i<r.srcs.length;i++)h+='<a href="'+r.srcs[i].url+'" target="_blank" rel="noopener">'+r.srcs[i].t+' ↗</a>';
+  h+='</div></article></div>';
+
+  h+='<div class="block b-ws"><p class="lbl">학습지 · 인쇄</p><div class="ws" data-ws="'+s.n+'">'+
+     '<div class="ws-top"><div><span class="ws-no">학습지 '+pad(s.n)+' · '+s.n+'차시</span>'+
+     '<h4>'+s.sheet.title+'</h4></div><div class="idfields"><span>이름</span><span>날짜</span><span>확인</span></div></div>';
+  for(i=0;i<s.sheet.items.length;i++)h+=qItem(s.sheet.items[i],i+1,s.n);
+  h+='<div class="ws-foot"><span>'+s.n+'차시 학습지 · 현장실습 사전교육</span><span>○ 잘함 △ 더 연습 × 도움 필요</span></div>';
+  h+='<div class="ws-actions noprint"><button class="btn" data-print-ws="'+s.n+'">이 학습지 인쇄</button>'+
+     '<button class="btn ghost" data-print-all="1">10장 모두 인쇄</button></div></div></div>';
+
+  h+='<div class="block"><p class="lbl">정리</p><ul class="sbox go" style="list-style:none;padding-left:18px">';
+  for(i=0;i<s.close.length;i++)h+='<li style="font-size:16.5px;line-height:1.8;margin:4px 0">· '+s.close[i]+'</li>';
+  h+='</ul>';
+  h+='<details class="memo"><summary>교사용 지도 메모 · '+s.n+'차시</summary><div class="inner"><ul>';
+  for(i=0;i<s.memo.length;i++)h+='<li>'+s.memo[i]+'</li>';
+  h+='</ul></div></details></div>';
+
+  return h+'</section>';
+}
+
+var rail=document.getElementById('rail'),stage=document.getElementById('stage');
+var rh='',sh='';
+for(var k=0;k<SESSIONS.length;k++){
+  var s=SESSIONS[k];
+  rh+='<button class="rail-btn" type="button" data-go="'+s.n+'" aria-current="false">'+
+      '<b>'+pad(s.n)+'</b><span>'+s.title+'</span></button>';
+  sh+=sessionHtml(s);
+}
+rail.innerHTML=rh;stage.innerHTML=sh;
+
+var sections=stage.querySelectorAll('.session'),railBtns=rail.querySelectorAll('.rail-btn');
+var current=1;
+function show(n,scroll){
+  current=n;
+  for(var i=0;i<sections.length;i++)sections[i].hidden=(+sections[i].dataset.n!==n);
+  for(var j=0;j<railBtns.length;j++)railBtns[j].setAttribute('aria-current',(+railBtns[j].dataset.go===n)?'true':'false');
+  try{localStorage.setItem('hj-session',String(n));}catch(e){}
+  if(scroll)window.scrollTo({top:0,behavior:'smooth'});
+}
+rail.addEventListener('click',function(e){
+  var b=e.target.closest('[data-go]');
+  if(b)show(+b.dataset.go,true);
+});
+
+/* ===== 인쇄 ===== */
+var saved=null;
+function beginPrint(scope,n){
+  saved=[];
+  for(var i=0;i<sections.length;i++)saved.push(sections[i].hidden);
+  if(scope==='all'){for(var j=0;j<sections.length;j++)sections[j].hidden=false;}
+  if(scope==='sheet'){
+    var ws=stage.querySelector('.ws[data-ws="'+n+'"]');
+    for(var m=0;m<sections.length;m++)sections[m].hidden=(+sections[m].dataset.n!==n);
+    if(ws)ws.classList.add('pick');
+  }
+  document.body.classList.add('pm');
+  document.body.dataset.scope=scope;
+  window.print();
+}
+function endPrint(){
+  if(!saved)return;
+  for(var i=0;i<sections.length;i++)sections[i].hidden=saved[i];
+  saved=null;
+  var p=stage.querySelector('.ws.pick');if(p)p.classList.remove('pick');
+  document.body.classList.remove('pm');
+  delete document.body.dataset.scope;
+}
+window.addEventListener('afterprint',endPrint);
+document.getElementById('printSheet').addEventListener('click',function(){beginPrint('sheet',current);});
+document.getElementById('printAll').addEventListener('click',function(){beginPrint('all');});
+document.getElementById('printSession').addEventListener('click',function(){beginPrint('session',current);});
+stage.addEventListener('click',function(e){
+  var a=e.target.closest('[data-print-ws]');
+  if(a){beginPrint('sheet',+a.dataset.printWs);return;}
+  var b=e.target.closest('[data-print-all]');
+  if(b){beginPrint('all');}
+});
+document.addEventListener('keydown',function(e){
+  if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;
+  if(e.key==='ArrowRight'&&current<10)show(current+1,true);
+  if(e.key==='ArrowLeft'&&current>1)show(current-1,true);
+});
+
+var start=1;
+try{var v=localStorage.getItem('hj-session');if(v&&+v>=1&&+v<=10)start=+v;}catch(e){}
+show(start,false);
+</script>
+
+</body>
+</html>
