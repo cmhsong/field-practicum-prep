@@ -276,6 +276,25 @@ details.memo ul{margin:0;padding-left:1.2em;display:grid;gap:8px}
 .ws-foot{margin-top:26px;padding-top:14px;border-top:2px solid var(--line);font-family:var(--mono);font-size:11.5px;color:var(--ink3);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .ws-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
 
+/* 최저임금 설정 탭 */
+.wagebox{background:var(--surface);border:2px solid var(--edge);border-radius:9px;box-shadow:var(--shadow);overflow:hidden}
+.tabs{display:flex;gap:0;background:var(--surface2);border-bottom:2px solid var(--edge)}
+.tab{flex:1;font-family:var(--head);font-size:15px;font-weight:700;padding:13px 10px;border:0;border-right:2px solid var(--edge);background:transparent;color:var(--ink2);cursor:pointer}
+.tab:last-child{border-right:0}
+.tab[aria-selected="true"]{background:var(--signal);color:#14161B}
+.tabpane{padding:18px 20px;display:grid;gap:14px}
+.wrow{display:flex;flex-wrap:wrap;gap:11px;align-items:flex-end}
+.wfield{display:grid;gap:5px}
+.wfield span{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.08em;color:var(--ink3)}
+.wfield select,.wfield input{font-family:var(--head);font-size:16.5px;font-weight:700;color:var(--ink);background:var(--surface);border:2px solid var(--edge);border-radius:6px;padding:10px 13px;min-width:150px}
+.wfield input{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.wage-now{margin:0;padding:14px 16px;background:var(--signal-soft);border:2px solid var(--edge);border-radius:7px;font-size:15.5px;line-height:1.7}
+.wage-now b{font-family:var(--head);font-size:18px;font-weight:900}
+.wage-help{margin:0;font-size:14px;color:var(--ink3);line-height:1.7}
+.wyears{display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0;list-style:none}
+.wyears li{font-family:var(--mono);font-size:12.5px;font-weight:600;border:2px solid var(--edge);border-radius:99px;padding:4px 10px;background:var(--surface2)}
+.wyears li.on{background:var(--signal)}
+
 /* 정리 */
 .wrapup{list-style:none;margin:0;padding:17px 19px;display:grid;gap:9px;background:var(--go-soft);border:2px solid var(--edge);border-radius:7px;box-shadow:var(--shadow-sm)}
 .wrapup li{font-size:17px;font-weight:500;line-height:1.75;display:grid;grid-template-columns:auto 1fr;gap:10px}
@@ -902,7 +921,7 @@ boxes:[
   "계약서를 안 주면 <b>“한 장 받을 수 있을까요?”</b>라고 묻습니다. 이것은 법으로 정해진 내 권리입니다.",
   "돈을 제대로 못 받으면 혼자 참지 않고 <b>학교 선생님</b>과 <b>1350</b>에 알립니다."]},
  {tone:"go",title:"시간과 돈의 기준",badge:"기준",table:{cols:["구분","기준","메모"],rows:[
-  ["최저임금(시급)","<b>2026년 10,320원</b>","매년 바뀝니다. 최저임금위원회에서 확인"],
+  ["최저임금(시급)","<b><span data-w=\"year\">2026년</span> <span data-w=\"amount\">10,320원</span></b>","해마다 바뀝니다. 아래 <b>최저임금 설정</b>에서 연도를 고르세요"],
   ["18세 미만 근로시간","하루 <b>7시간</b>, 주 <b>35시간</b>","합의하면 하루 1시간·주 5시간까지 연장"],
   ["18세 이상 근로시간","하루 <b>8시간</b>, 주 <b>40시간</b>","연장은 합의 필요"],
   ["휴게시간","4시간 일하면 <b>30분</b> 이상, 8시간이면 <b>1시간</b> 이상","일하는 중간에 줍니다"],
@@ -915,13 +934,13 @@ paras:["G학생은 실습이 끝난 뒤 받은 돈이 생각보다 적었습니�
 "돈 문제는 창피한 일이 아닙니다. 모르면 묻고, 적게 받으면 알립니다. 고용노동부 상담전화 <b>1350</b>은 누구나 무료로 이용할 수 있습니다."],
 facts:[{k:"확인",v:"계약서 1장을 내가 가지고 있는지"},{k:"계산",v:"시급 × 일한 시간 = 받을 돈"},{k:"상담",v:"고용노동부 1350 (무료)"}],
 srcs:[{t:"최저임금 확인 · 최저임금위원회",url:"https://www.minimumwage.go.kr"},{t:"근로기준법 찾아보기",url:"https://www.law.go.kr"},{t:"기사 찾아보기 · 현장실습 임금",url:nv("현장실습 수당 임금 미지급")}]},
-memo:["최저임금액은 수업 당일 최저임금위원회 사이트에서 확인해 칠판에 적어 주세요(자료의 금액은 2026년 적용 기준).",
+memo:["최저임금액은 화면의 <b>최저임금 설정</b> 탭에서 연도를 고르면 기준 표·학습지·정답에 함께 반영됩니다. 새 연도가 고시되면 <b>직접 입력</b> 탭에 연도와 시급을 넣어 저장하세요.",
 "계산 활동은 계산기 사용을 허용하고, 10,320 × 7시간처럼 단순 곱셈으로 제한하세요. 주휴수당 등은 ‘어른에게 물어본다’로 처리합니다.",
 "표준근로계약서 양식은 고용노동부 누리집에서 내려받아 2부(빈 양식/작성 예시) 준비하면 활동이 쉬워집니다."],
 sheet:{title:"내 권리와 급여 확인하기",items:[
  {t:"check",q:"근로계약서에서 확인할 6가지입니다. 확인했으면 ✔ 하세요.",items:["임금(시급·월급)이 적혀 있다","근로시간이 적혀 있다","휴게시간이 적혀 있다","휴일이 적혀 있다","하는 일과 장소가 적혀 있다","내 이름과 서명이 있고, 계약서 1장을 받았다"]},
- {t:"fill",q:"계산해서 쓰세요. (계산기를 사용해도 됩니다)",bank:["10,320원"],
-  lines:["시급이 10,320원이고 하루 7시간 일하면, 하루에 ___________원을 받습니다.","5일 동안 일하면 ___________원입니다.","4시간을 일하면 휴게시간은 ______분 이상 쉬어야 합니다."]},
+ {t:"fill",q:"계산해서 쓰세요. (계산기를 사용해도 됩니다)",bank:["<span data-w=\"amount\">10,320원</span>"],
+  lines:["시급이 <span data-w=\"amount\">10,320원</span>이고 하루 7시간 일하면, 하루에 ___________원을 받습니다.","5일 동안 일하면 ___________원입니다.","4시간을 일하면 휴게시간은 ______분 이상 쉬어야 합니다."]},
  {t:"ox",q:"맞으면 ○, 틀리면 ×를 쓰세요.",items:["근로계약서는 회사만 가지고 있어도 된다.","빈칸이 있는 계약서에 서명해도 괜찮다.","최저임금보다 적게 주는 것은 법을 어기는 것이다.","돈을 못 받으면 1350에 상담할 수 있다.","일하다 다치면 산재보험으로 치료를 받을 수 있다."]},
  {t:"pick",q:"계약서에 모르는 말이 있을 때 가장 알맞은 행동은?",opts:["그냥 서명한다","보호자·선생님과 함께 보고 오겠다고 말한다","아무 말 없이 집에 간다","친구에게 대신 서명하게 한다"]},
  {t:"write",q:"급여를 받은 뒤 확인할 것을 두 가지 쓰세요.",hint:"예) 통장에 들어온 금액과 명세서의 금액이 같은지 봅니다.",lines:3},
@@ -1116,6 +1135,63 @@ close:["오늘의 한 문장: “시간 지키고, 묻고, 안전하게.”","�
 function esc(s){return s}
 function pad(n){return n<10?"0"+n:""+n}
 
+/* ===== 연도별 최저임금 ===== */
+/* 고시된 시간급. 새 연도는 화면의 ‘최저임금 설정 · 직접 입력’에서 추가합니다. */
+var WAGE={2021:8720,2022:9160,2023:9620,2024:9860,2025:10030,2026:10320};
+var WAGE_DEFAULT=2026;
+function won(n){return Number(n).toLocaleString('ko-KR')+'원'}
+function getWage(){
+  try{var v=JSON.parse(localStorage.getItem('hj-wage'));
+    if(v&&v.amount>0&&v.year)return v;}catch(e){}
+  return {year:WAGE_DEFAULT,amount:WAGE[WAGE_DEFAULT]};
+}
+function applyWage(){
+  var w=getWage(),els=document.querySelectorAll('[data-w]'),i;
+  for(i=0;i<els.length;i++){
+    var kind=els[i].dataset.w;
+    if(kind==='amount')els[i].textContent=won(w.amount);
+    else if(kind==='year')els[i].textContent=w.year+'년';
+    else if(kind==='day7')els[i].textContent=won(w.amount*7);
+    else if(kind==='week5')els[i].textContent=won(w.amount*7*5);
+  }
+  var now=document.getElementById('wageNow');
+  if(now)now.innerHTML='지금 적용 중 — <b>'+w.year+'년 · 시급 '+won(w.amount)+'</b>';
+  var ys=document.querySelectorAll('#wageYears li');
+  for(i=0;i<ys.length;i++)ys[i].classList.toggle('on',+ys[i].dataset.y===+w.year);
+}
+function setWage(year,amount){
+  try{localStorage.setItem('hj-wage',JSON.stringify({year:+year,amount:+amount}));}catch(e){}
+  applyWage();
+}
+function wagePanelHtml(){
+  var h='',y,opts='',chips='';
+  for(y in WAGE){
+    opts='<option value="'+y+'">'+y+'년 · '+won(WAGE[y])+'</option>'+opts;
+    chips='<li data-y="'+y+'">'+y+' · '+won(WAGE[y])+'</li>'+chips;
+  }
+  h='<div class="block b-wage noprint" id="wageBlock">'+lbl('coin','최저임금 설정 · 교사용','var(--signal)')+
+    '<div class="wagebox"><div class="tabs" role="tablist">'+
+    '<button type="button" class="tab" data-tab="pick" role="tab" aria-selected="true">연도에서 고르기</button>'+
+    '<button type="button" class="tab" data-tab="edit" role="tab" aria-selected="false">직접 입력(새 연도)</button>'+
+    '</div>'+
+    '<div class="tabpane" data-pane="pick"><div class="wrow">'+
+    '<label class="wfield"><span>연도</span><select id="wageYear">'+opts+'</select></label>'+
+    '<button type="button" class="btn" id="wageApply">이 연도로 바꾸기</button></div>'+
+    '<ul class="wyears" id="wageYears">'+chips+'</ul></div>'+
+    '<div class="tabpane" data-pane="edit" hidden><div class="wrow">'+
+    '<label class="wfield"><span>연도</span><input type="number" id="wageYearIn" min="2000" max="2100" step="1" placeholder="2027"></label>'+
+    '<label class="wfield"><span>시급(원)</span><input type="number" id="wageAmtIn" min="100" max="100000" step="10" placeholder="10600"></label>'+
+    '<button type="button" class="btn" id="wageSave">저장</button>'+
+    '<button type="button" class="btn ghost" id="wageReset">기본값으로</button></div>'+
+    '<p class="wage-help">최저임금은 해마다 새로 고시됩니다. 새 금액이 정해지면 여기에 연도와 시급을 넣어 저장하세요. ' +
+    '<a href="https://www.minimumwage.go.kr" target="_blank" rel="noopener">최저임금위원회</a>에서 확인할 수 있습니다.</p></div>'+
+    '<div style="padding:0 20px 20px;display:grid;gap:11px">'+
+    '<p class="wage-now" id="wageNow"></p>'+
+    '<p class="wage-help">바꾼 금액은 이 차시의 <b>기준 표</b>, <b>학습지 8번 계산 문항</b>, <b>교사용 정답</b>에 바로 반영되고 이 기기에 저장됩니다.</p>'+
+    '</div></div></div>';
+  return h;
+}
+
 /* 섹션 아이콘 (이모지 없이 직접 그림) */
 var IC={
  goal:'<path d="M3 15h14M10 15V5m0 0l7 3-7 3" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/>',
@@ -1126,6 +1202,7 @@ var IC={
  news:'<path d="M3 4h10v12H3z" stroke="currentColor" stroke-width="2.2" fill="none"/><path d="M13 7h4v7a2 2 0 01-4 0z" stroke="currentColor" stroke-width="2.2" fill="none"/><path d="M5.5 7.5h5M5.5 10.5h5M5.5 13.5h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
  quiz:'<circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="2.2" fill="none"/><path d="M7.5 7.8A2.6 2.6 0 0110 6.2c1.5 0 2.6.9 2.6 2.2 0 1.6-2.3 1.7-2.3 3.2" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/><circle cx="10" cy="14.4" r="1.2" fill="currentColor"/>',
  sheet:'<path d="M5 2.5h10v15H5z" stroke="currentColor" stroke-width="2.2" fill="none"/><path d="M7.5 6.5h5M7.5 10h5M7.5 13.5h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+ coin:'<circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="2.2" fill="none"/><path d="M12.4 7.4A3 3 0 0010 6.3c-1.6 0-2.7.8-2.7 1.9 0 2.4 5.4 1.2 5.4 3.6 0 1.1-1.1 1.9-2.7 1.9a3 3 0 01-2.4-1.1M10 5v10" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>',
  flag:'<path d="M5 17V3m0 0l10 2.5L5 9" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/>'
 };
 function lbl(icon,text,color){
@@ -1271,6 +1348,8 @@ function sessionHtml(s){
   for(i=0;i<r.srcs.length;i++)h+='<a href="'+r.srcs[i].url+'" target="_blank" rel="noopener">'+r.srcs[i].t+' ↗</a>';
   h+='</div></article></div>';
 
+  if(s.n===8)h+=wagePanelHtml();
+
   h+=linksHtml(s.n);
 
   h+=quizHtml(s.n);
@@ -1288,6 +1367,7 @@ function sessionHtml(s){
   h+='</ul>';
   h+='<details class="memo"><summary>교사용 지도 메모 · '+s.n+'차시</summary><div class="inner"><ul>';
   for(i=0;i<s.memo.length;i++)h+='<li>'+s.memo[i]+'</li>';
+  if(s.n===8)h+='<li><b>학습지 2번 계산 정답 — 하루 7시간 <span data-w="day7"></span> · 5일 <span data-w="week5"></span> · 휴게 30분</b></li>';
   h+='<li><b>'+quizKey(s.n)+'</b></li>';
   h+='</ul></div></details>';
   h+='<div class="jump noprint"><button type="button" class="btn ghost" data-jump="-1">◀ 이전 차시</button>'+
@@ -1350,6 +1430,45 @@ stage.addEventListener('click',function(e){
   if(!j)return;
   var n=current+(+j.dataset.jump);
   if(n>=1&&n<=total)show(n,true);
+});
+
+/* 최저임금 설정 탭 */
+stage.addEventListener('click',function(e){
+  var tb=e.target.closest('.tab');
+  if(tb){
+    var box=tb.closest('.wagebox'),tabs=box.querySelectorAll('.tab'),panes=box.querySelectorAll('.tabpane'),i;
+    for(i=0;i<tabs.length;i++)tabs[i].setAttribute('aria-selected',tabs[i]===tb?'true':'false');
+    for(i=0;i<panes.length;i++)panes[i].hidden=(panes[i].dataset.pane!==tb.dataset.tab);
+    return;
+  }
+  if(e.target.closest('#wageApply')){
+    var y=+document.getElementById('wageYear').value;
+    setWage(y,WAGE[y]);return;
+  }
+  if(e.target.closest('#wageSave')){
+    var yi=document.getElementById('wageYearIn'),ai=document.getElementById('wageAmtIn');
+    var yy=parseInt(yi.value,10),aa=parseInt(ai.value,10);
+    if(!yy||yy<2000||yy>2100){yi.focus();return;}
+    if(!aa||aa<100){ai.focus();return;}
+    WAGE[yy]=aa;setWage(yy,aa);
+    var sl=document.getElementById('wageYear');
+    if(sl&&!sl.querySelector('option[value="'+yy+'"]')){
+      var op=document.createElement('option');op.value=yy;op.textContent=yy+'년 · '+won(aa);
+      sl.insertBefore(op,sl.firstChild);
+    }
+    var ul=document.getElementById('wageYears');
+    if(ul&&!ul.querySelector('li[data-y="'+yy+'"]')){
+      var li=document.createElement('li');li.dataset.y=yy;li.textContent=yy+' · '+won(aa);
+      ul.insertBefore(li,ul.firstChild);
+    }
+    document.getElementById('wageYear').value=String(yy);
+    applyWage();return;
+  }
+  if(e.target.closest('#wageReset')){
+    try{localStorage.removeItem('hj-wage');}catch(err){}
+    var s0=document.getElementById('wageYear');if(s0)s0.value=String(WAGE_DEFAULT);
+    applyWage();
+  }
 });
 
 /* 전체 화면 수업 모드 */
@@ -1459,4 +1578,15 @@ document.addEventListener('keydown',function(e){
 var start=1;
 try{var v=localStorage.getItem('hj-session');if(v&&+v>=1&&+v<=SESSIONS.length)start=+v;}catch(e){}
 show(start,false);
+
+var w0=getWage();
+var selY=document.getElementById('wageYear');
+if(selY){
+  if(!selY.querySelector('option[value="'+w0.year+'"]')){
+    var o0=document.createElement('option');o0.value=w0.year;o0.textContent=w0.year+'년 · '+won(w0.amount);
+    selY.insertBefore(o0,selY.firstChild);
+  }
+  selY.value=String(w0.year);
+}
+applyWage();
 </script>
