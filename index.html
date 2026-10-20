@@ -386,8 +386,51 @@ body.present .nav-pick select{font-size:19px}
 body.present .present-only{display:inline-flex}
 body.present .hide-present{display:none}
 
+/* ── A4 인쇄 미리보기 ── */
+#pv{position:fixed;inset:0;z-index:60;background:#55575E;display:none;flex-direction:column}
+body.pv-open{overflow:hidden}
+body.pv-open #pv{display:flex}
+.pv-bar{flex:none;display:flex;flex-wrap:wrap;gap:9px;align-items:center;padding:11px 14px;background:var(--ink);border-bottom:2px solid #000}
+.pv-bar h2{font-family:var(--disp);font-size:19px;color:#F2EEE3;margin:0 8px 0 0}
+.pv-bar .sp{flex:1}
+.pv-bar .btn{font-size:13.5px;padding:9px 13px}
+.pv-tip{width:100%;margin:0;font-family:var(--mono);font-size:11.5px;color:#C9C5BA;line-height:1.6}
+.pv-scroll{flex:1;overflow:auto;padding:22px 12px 60px;display:flex;flex-direction:column;align-items:center;gap:18px}
+.pv-page{width:210mm;min-height:297mm;background:#fff;color:#111;padding:14mm 13mm;box-shadow:0 6px 24px #0007;transform-origin:top center}
+.pv-page *{color:#111!important;background-image:none!important}
+.pv-page .card,.pv-page .sbox,.pv-page .quiz,.pv-page .read,.pv-page .goals li,
+.pv-page .words div,.pv-page .vid,.pv-page .match li,.pv-page .scorebar div{box-shadow:none!important}
+.pv-page .sbox h4,.pv-page .qz-top,.pv-page th{background:#fff!important;border-bottom:2px solid #111}
+.pv-page .ws{border:0;padding:0}
+.pv-page .quiz{border:0}
+.pv-page .qz-list{padding:0}
+.pv-page .qz-top{padding:0 0 10px}
+.pv-page .qz-row{grid-template-columns:30px 1fr 96px;padding:11px 0}
+.pv-page .qz-btn{box-shadow:none;background:#fff!important;width:34px;height:34px;font-size:16px}
+.pv-page .qz-fb,.pv-page .noprint,.pv-page .qz-ctl,.pv-page .qz-foot,.pv-page .qz-badge,
+.pv-page .ws-actions,.pv-page .s-done,.pv-page .ed-head{display:none!important}
+.pv-page .print-only{display:flex!important}
+.pv-page [contenteditable="true"]:focus{outline:2px dashed var(--guide);outline-offset:3px;background:#FFFBEA!important}
+.pv-page .pv-head{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:flex-end;border-bottom:3px solid #111;padding-bottom:10px;margin-bottom:6px}
+.pv-page .pv-head b{font-family:var(--disp);font-size:21px}
+.pv-page .pv-head span{font-family:var(--mono);font-size:12px}
+.pv-page .pv-id span{border-bottom:2px solid #111;min-width:110px;display:inline-block;margin-left:8px}
+body.pv-big .pv-page{font-size:19px}
+body.pv-big .pv-page .qz-row p,body.pv-big .pv-page .q-h p{font-size:19px}
+body.pv-ans .pv-page .qz-row::after{content:attr(data-key);font-family:var(--mono);font-weight:600;color:#C0352B!important;font-size:15px;padding-left:6px}
+@media (max-width:860px){.pv-page{transform:scale(.62);margin-bottom:-110mm}}
+@media (max-width:620px){.pv-page{transform:scale(.44);margin-bottom:-166mm}}
+
 /* ── 인쇄 ── */
 @media print{
+  body.pv-open .hazard,body.pv-open .mast,body.pv-open .navbar,
+  body.pv-open .shell,body.pv-open .foot{display:none!important}
+  body.pv-open{overflow:visible}
+  body.pv-open #pv{position:static;display:block;background:#fff}
+  body.pv-open .pv-bar{display:none!important}
+  body.pv-open .pv-scroll{display:block;overflow:visible;padding:0;gap:0}
+  body.pv-open .pv-page{width:auto;min-height:0;padding:0;box-shadow:none;transform:none;margin:0;break-after:page}
+  body.pv-open .pv-page:last-child{break-after:auto}
   @page{size:A4;margin:14mm 13mm}
   .noprint{display:none!important}
   body{background:#fff;color:#000;font-size:12pt}
@@ -411,23 +454,6 @@ body.present .hide-present{display:none}
   .s-head{box-shadow:none;background:#fff;border:2px solid #000}
   .s-head h3,.s-num,.s-tag,.s-lead{color:#000}
   .s-done{display:none}
-  body.pm[data-scope="sheet"] .block:not(.b-ws){display:none!important}
-  body.pm[data-scope="sheet"] .s-head{display:none!important}
-  body.pm[data-scope="sheet"] .ws:not(.pick){display:none!important}
-  body.pm[data-scope="quiz"] .block:not(.b-quiz){display:none!important}
-  body.pm[data-scope="quiz"] .s-head{display:none!important}
-  body.pm[data-scope="quiz"] .quiz:not(.pick){display:none!important}
-  body.pm[data-scope="all"] .session{display:block!important}
-  body.pm[data-scope="all"] .block:not(.b-ws){display:none!important}
-  body.pm[data-scope="all"] .s-head{display:none!important}
-  body.pm[data-scope="all"] .block.b-ws{break-before:page}
-  body.pm[data-scope="all"] .session:first-of-type .block.b-ws{break-before:auto}
-  body.pm[data-scope="all-quiz"] .session{display:block!important}
-  body.pm[data-scope="all-quiz"] .block:not(.b-quiz){display:none!important}
-  body.pm[data-scope="all-quiz"] .s-head{display:none!important}
-  body.pm[data-scope="all-quiz"] .block.b-quiz{break-before:page}
-  body.pm[data-scope="all-quiz"] .session:first-of-type .block.b-quiz{break-before:auto}
-  body.pm[data-scope="session"] .ws-actions{display:none}
 }
 </style>
 
@@ -473,6 +499,19 @@ body.present .hide-present{display:none}
 
 <div class="shell">
   <main class="stage" id="stage"></main>
+</div>
+
+<div id="pv" role="dialog" aria-modal="true" aria-label="인쇄 미리보기">
+  <div class="pv-bar noprint">
+    <h2 id="pvTitle">인쇄 미리보기</h2>
+    <button type="button" class="btn ghost" id="pvBig" aria-pressed="false">글자 크게</button>
+    <button type="button" class="btn ghost" id="pvAns" aria-pressed="false" hidden>정답 표시</button>
+    <span class="sp"></span>
+    <button type="button" class="btn" id="pvPrint">인쇄하기</button>
+    <button type="button" class="btn ghost" id="pvClose">닫기</button>
+    <p class="pv-tip">종이 위 글자를 눌러 바로 고칠 수 있습니다. 고친 내용은 이 인쇄물에만 쓰이고 자료 원본은 그대로입니다. · 인쇄 창이 열리지 않으면 Ctrl+P (Mac은 ⌘P)</p>
+  </div>
+  <div class="pv-scroll" id="pvBody"></div>
 </div>
 
 <footer class="foot noprint">
@@ -1421,7 +1460,7 @@ function linksHtml(n){
        '<span class="n">링크 '+pad(i+1)+'</span><b>'+ls[i][0]+'</b><p>'+ls[i][2]+'</p>'+
        '<span class="go">열기 ↗</span></a>';
   }
-  return '<div class="block">'+h+'</div>';
+  return '<div class="block">'+h+'</div></div>';
 }
 function quizHtml(n){
   var qs=QUIZ[n]||[],h='',i;
@@ -1881,44 +1920,126 @@ stage.addEventListener('click',function(e){
   }
 });
 
-/* ===== 인쇄 ===== */
-var saved=null;
-function beginPrint(scope,n){
-  saved=[];
-  for(var i=0;i<sections.length;i++)saved.push(sections[i].hidden);
-  if(scope==='all'){for(var j=0;j<sections.length;j++)sections[j].hidden=false;}
-  if(scope==='all-quiz'){for(var q=0;q<sections.length;q++)sections[q].hidden=false;}
-  if(scope==='sheet'||scope==='quiz'){
-    for(var m=0;m<sections.length;m++)sections[m].hidden=(+sections[m].dataset.n!==n);
-    var t=stage.querySelector(scope==='sheet'?'.ws[data-ws="'+n+'"]':'.quiz[data-quiz="'+n+'"]');
-    if(t)t.classList.add('pick');
+/* ===== A4 인쇄 미리보기 ===== */
+var pv=document.getElementById('pv'),pvBody=document.getElementById('pvBody');
+var pvTitle=document.getElementById('pvTitle'),pvAns=document.getElementById('pvAns');
+
+function sessionOf(n){
+  for(var i=0;i<SESSIONS.length;i++)if(SESSIONS[i].n===n)return SESSIONS[i];
+  return null;
+}
+/* 한 장(페이지) 만들기 — 화면의 자료를 복사해 종이용으로 다듬습니다 */
+function pvPage(node,head,sub){
+  var p=document.createElement('div');
+  p.className='pv-page';
+  var h=document.createElement('div');
+  h.className='pv-head';
+  h.innerHTML='<b contenteditable="true">'+head+'</b>'+
+    '<span class="pv-id">이름 <span></span> 날짜 <span></span></span>'+
+    (sub?'<span style="width:100%">'+sub+'</span>':'');
+  p.appendChild(h);
+  var c=node.cloneNode(true);
+  var kill=c.querySelectorAll('.noprint,.ws-actions,.qz-ctl,.qz-foot,.qz-badge,.ed-head,.s-done,.qz-fb,.print-only,.idfields');
+  for(var i=0;i<kill.length;i++)kill[i].parentNode.removeChild(kill[i]);
+  var rows=c.querySelectorAll('.qz-row');
+  for(i=0;i<rows.length;i++){
+    rows[i].classList.remove('ok','no');
+    rows[i].setAttribute('data-key','정답 '+(rows[i].dataset.ans==='O'?'○':'×'));
+    var bs=rows[i].querySelectorAll('.qz-btn');
+    for(var j=0;j<bs.length;j++)bs[j].setAttribute('aria-pressed','false');
   }
-  document.body.classList.add('pm');
-  document.body.dataset.scope=scope;
-  window.print();
+  var inputs=c.querySelectorAll('input[type="checkbox"]');
+  for(i=0;i<inputs.length;i++)inputs[i].checked=false;
+  makeEditable(c);
+  p.appendChild(c);
+  return p;
 }
-function endPrint(){
-  if(!saved)return;
-  for(var i=0;i<sections.length;i++)sections[i].hidden=saved[i];
-  saved=null;
-  var p=stage.querySelectorAll('.pick');for(var q=0;q<p.length;q++)p[q].classList.remove('pick');
-  document.body.classList.remove('pm');
-  delete document.body.dataset.scope;
+function makeEditable(root){
+  var texts=root.querySelectorAll('p,li,h4,h3,td,th,span.ws-year,.lead,.s-lead'),i;
+  for(i=0;i<texts.length;i++){
+    if(texts[i].querySelector('input,select,button'))continue;
+    texts[i].setAttribute('contenteditable','true');
+  }
 }
-window.addEventListener('afterprint',endPrint);
-document.getElementById('printSheet').addEventListener('click',function(){beginPrint('sheet',current);});
-document.getElementById('printAll').addEventListener('click',function(){beginPrint('all');});
-document.getElementById('printSession').addEventListener('click',function(){beginPrint('session',current);});
+function openPreview(kind,n){
+  var list=[],i,s,node;
+  pvAns.hidden=(kind.indexOf('quiz')<0);
+  document.body.classList.remove('pv-ans');pvAns.setAttribute('aria-pressed','false');
+  if(kind==='sheet'||kind==='quiz'){
+    s=sessionOf(n);
+    node=stage.querySelector(kind==='sheet'?'.ws[data-ws="'+n+'"]':'.quiz[data-quiz="'+n+'"]');
+    if(node)list.push(pvPage(node,(kind==='sheet'?'학습지 ':'OX 퀴즈 ')+pad(n)+' · '+s.title,''));
+    pvTitle.textContent=(kind==='sheet'?'학습지':'퀴즈')+' 미리보기 · '+n+'차시';
+  }else if(kind==='sheets'||kind==='quizzes'){
+    var selr=(kind==='sheets'?'.ws[data-ws]':'.quiz[data-quiz]');
+    var all=stage.querySelectorAll(selr);
+    for(i=0;i<all.length;i++){
+      var num=+(all[i].dataset.ws||all[i].dataset.quiz);
+      s=sessionOf(num);
+      list.push(pvPage(all[i],(kind==='sheets'?'학습지 ':'OX 퀴즈 ')+pad(num)+' · '+s.title,''));
+    }
+    pvTitle.textContent=(kind==='sheets'?'학습지':'퀴즈')+' 전체 미리보기 · '+all.length+'장';
+  }else{ /* 차시 전체 */
+    s=sessionOf(n);
+    var sec=stage.querySelector('.session[data-n="'+n+'"]');
+    var blocks=sec.querySelectorAll(':scope > .block');
+    var page=document.createElement('div');page.className='pv-page';
+    var hd=document.createElement('div');hd.className='pv-head';
+    hd.innerHTML='<b contenteditable="true">'+n+'차시 · '+s.title+'</b><span class="pv-id">이름 <span></span> 날짜 <span></span></span>';
+    page.appendChild(hd);
+    for(i=0;i<blocks.length;i++){
+      if(blocks[i].classList.contains('b-edit')||blocks[i].classList.contains('b-wage')||
+         blocks[i].classList.contains('noprint'))continue;
+      var cl=blocks[i].cloneNode(true);
+      var k2=cl.querySelectorAll('.noprint,.ws-actions,.qz-ctl,.qz-foot,.qz-badge,.qz-fb,.s-done,.print-only,.idfields');
+      for(var m=0;m<k2.length;m++)k2[m].parentNode.removeChild(k2[m]);
+      makeEditable(cl);
+      page.appendChild(cl);
+    }
+    list.push(page);
+    pvTitle.textContent='차시 전체 미리보기 · '+n+'차시';
+  }
+  pvBody.innerHTML='';
+  for(i=0;i<list.length;i++)pvBody.appendChild(list[i]);
+  document.body.classList.add('pv-open');
+  pvBody.scrollTop=0;
+}
+function closePreview(){
+  document.body.classList.remove('pv-open','pv-ans','pv-big');
+  pvBody.innerHTML='';
+}
+document.getElementById('pvClose').addEventListener('click',closePreview);
+document.getElementById('pvPrint').addEventListener('click',function(){window.print();});
+document.getElementById('pvBig').addEventListener('click',function(){
+  var on=!document.body.classList.contains('pv-big');
+  document.body.classList.toggle('pv-big',on);
+  this.setAttribute('aria-pressed',on?'true':'false');
+  this.textContent=on?'글자 보통으로':'글자 크게';
+});
+pvAns.addEventListener('click',function(){
+  var on=!document.body.classList.contains('pv-ans');
+  document.body.classList.toggle('pv-ans',on);
+  this.setAttribute('aria-pressed',on?'true':'false');
+  this.textContent=on?'정답 숨기기':'정답 표시';
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'&&document.body.classList.contains('pv-open'))closePreview();
+});
+
+document.getElementById('printSheet').addEventListener('click',function(){openPreview('sheet',current);});
+document.getElementById('printAll').addEventListener('click',function(){openPreview('sheets');});
+document.getElementById('printSession').addEventListener('click',function(){openPreview('session',current);});
 stage.addEventListener('click',function(e){
   var a=e.target.closest('[data-print-ws]');
-  if(a){beginPrint('sheet',+a.dataset.printWs);return;}
+  if(a){openPreview('sheet',+a.dataset.printWs);return;}
   var b=e.target.closest('[data-print-all]');
-  if(b){beginPrint('all');return;}
+  if(b){openPreview('sheets');return;}
   var c=e.target.closest('[data-print-quiz]');
-  if(c){beginPrint('quiz',+c.dataset.printQuiz);return;}
+  if(c){openPreview('quiz',+c.dataset.printQuiz);return;}
   var d=e.target.closest('[data-print-allquiz]');
-  if(d){beginPrint('all-quiz');}
+  if(d){openPreview('quizzes');}
 });
+
 document.addEventListener('keydown',function(e){
   if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;
   if(e.key==='ArrowRight'&&current<SESSIONS.length)show(current+1,true);
