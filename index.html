@@ -328,6 +328,23 @@ details.memo ul{margin:0;padding-left:1.2em;display:grid;gap:8px}
 .flash{animation:flashbg .9s ease-out}
 @keyframes flashbg{0%{background:var(--go);color:#fff}35%{background:var(--go);color:#fff}100%{}}
 
+/* 자료 수정기 */
+.editor{background:var(--surface);border:2px solid var(--edge);border-radius:9px;box-shadow:var(--shadow);overflow:hidden}
+.ed-pane{padding:18px 20px;display:grid;gap:15px}
+.ed-f{display:grid;gap:6px}
+.ed-f label{font-family:var(--head);font-size:14.5px;font-weight:700}
+.ed-f .rule{font-family:var(--mono);font-size:11.5px;font-weight:500;color:var(--ink3);line-height:1.6}
+.ed-f input,.ed-f textarea{font-family:var(--body);font-size:15.5px;line-height:1.7;color:var(--ink);background:var(--surface2);border:2px solid var(--edge);border-radius:6px;padding:10px 12px;width:100%;resize:vertical}
+.ed-f textarea{min-height:92px;font-size:15px}
+.ed-f textarea.big{min-height:210px}
+.ed-f textarea.code{font-family:var(--mono);font-size:13px;line-height:1.65;min-height:260px}
+.ed-act{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
+.ed-msg{font-family:var(--head);font-size:14.5px;font-weight:700;padding:9px 13px;border:2px solid var(--edge);border-radius:7px;display:none}
+.ed-msg.ok{display:block;background:var(--go-soft);color:var(--go)}
+.ed-msg.bad{display:block;background:var(--halt-soft);color:var(--halt)}
+.ed-note{margin:0;font-size:14px;color:var(--ink3);line-height:1.7}
+.edited{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11.5px;font-weight:600;background:var(--guide);color:#fff;border:2px solid var(--edge);border-radius:99px;padding:3px 10px;margin-left:9px;vertical-align:middle}
+
 /* 정리 */
 .wrapup{list-style:none;margin:0;padding:17px 19px;display:grid;gap:9px;background:var(--go-soft);border:2px solid var(--edge);border-radius:7px;box-shadow:var(--shadow-sm)}
 .wrapup li{font-size:17px;font-weight:500;line-height:1.75;display:grid;grid-template-columns:auto 1fr;gap:10px}
@@ -1241,6 +1258,120 @@ function wagePanelHtml(){
   return h;
 }
 
+/* ===== 자료 수정 (교사용) =====
+   원본은 BASE에 그대로 두고, 고친 내용만 localStorage에 쌓아 덮어씁니다.
+   그래서 ‘원래대로’를 누르면 언제든 처음 자료로 돌아옵니다. */
+var BASE=null;
+function deep(o){return JSON.parse(JSON.stringify(o))}
+function snapshot(){
+  if(BASE)return;
+  BASE={sessions:deep(SESSIONS),quiz:deep(QUIZ),links:deep(LINKS)};
+}
+function loadEdits(){try{return JSON.parse(localStorage.getItem('hj-edits')||'{}')||{};}catch(e){return {};}}
+function saveEdits(o){try{localStorage.setItem('hj-edits',JSON.stringify(o));}catch(e){}}
+function isEdited(n){var e=loadEdits();return !!e[n];}
+function rebuildData(){
+  snapshot();
+  var ed=loadEdits(),i,n,k;
+  SESSIONS.length=0;
+  var src=deep(BASE.sessions);
+  for(i=0;i<src.length;i++){
+    n=src[i].n;
+    if(ed[n]&&ed[n].session){for(k in ed[n].session)src[i][k]=ed[n].session[k];}
+    SESSIONS.push(src[i]);
+  }
+  for(n in QUIZ)delete QUIZ[n];
+  var bq=deep(BASE.quiz);for(n in bq)QUIZ[n]=(ed[n]&&ed[n].quiz)?ed[n].quiz:bq[n];
+  for(n in LINKS)delete LINKS[n];
+  var bl=deep(BASE.links);for(n in bl)LINKS[n]=(ed[n]&&ed[n].links)?ed[n].links:bl[n];
+}
+
+/* 줄 단위 입력을 자료 모양으로 바꾸는 작은 해석기 */
+function lines2arr(s){
+  var a=String(s).split(/\r?\n/),out=[],i,t;
+  for(i=0;i<a.length;i++){t=a[i].trim();if(t)out.push(t);}
+  return out;
+}
+function cols(line,n){
+  var p=String(line).split('|'),i,out=[];
+  for(i=0;i<n;i++)out.push((p[i]||'').trim());
+  return out;
+}
+function arr2lines(a){return (a||[]).join('\n')}
+function words2text(w){var o=[],i;for(i=0;i<w.length;i++)o.push(w[i].w+' | '+w[i].d);return o.join('\n')}
+function text2words(s){var l=lines2arr(s),o=[],i,c;for(i=0;i<l.length;i++){c=cols(l[i],2);if(c[0])o.push({w:c[0],d:c[1]});}return o}
+function vids2text(v){var o=[],i;for(i=0;i<v.length;i++)o.push(v[i].t+' | '+v[i].ch+' | '+v[i].why+' | '+v[i].url);return o.join('\n')}
+function text2vids(s){var l=lines2arr(s),o=[],i,c;for(i=0;i<l.length;i++){c=cols(l[i],4);if(c[0])o.push({t:c[0],ch:c[1],why:c[2],url:c[3]||'#'});}return o}
+function links2text(a){var o=[],i;for(i=0;i<a.length;i++)o.push(a[i][0]+' | '+a[i][1]+' | '+a[i][2]);return o.join('\n')}
+function text2links(s){var l=lines2arr(s),o=[],i,c;for(i=0;i<l.length;i++){c=cols(l[i],3);if(c[0])o.push([c[0],c[1]||'#',c[2]]);}return o}
+function quiz2text(q){var o=[],i;for(i=0;i<q.length;i++)o.push(q[i][0]+' | '+(q[i][1]?'O':'X'));return o.join('\n')}
+function text2quiz(s){
+  var l=lines2arr(s),o=[],i,c,a;
+  for(i=0;i<l.length;i++){
+    c=cols(l[i],2);if(!c[0])continue;
+    a=c[1].toUpperCase();
+    o.push([c[0],(a==='O'||a==='○'||a==='1'||a==='Y'||a==='예')?1:0]);
+  }
+  return o;
+}
+function esAttr(s){return String(s).split('&').join('&amp;').split('<').join('&lt;').split('"').join('&quot;')}
+function taVal(s){return String(s).split('&').join('&amp;').split('<').join('&lt;')}
+
+function editorHtml(s){
+  var q=QUIZ[s.n]||[],lk=LINKS[s.n]||[];
+  function f(label,rule,id,val,cls){
+    return '<div class="ed-f"><label for="'+id+'">'+label+'</label>'+
+      (rule?'<span class="rule">'+rule+'</span>':'')+
+      '<textarea id="'+id+'" class="'+(cls||'')+'">'+taVal(val)+'</textarea></div>';
+  }
+  var h='<div class="block b-edit noprint">'+lbl('pen','자료 수정 · 교사용','var(--guide)')+
+   '<div class="editor" data-editor="'+s.n+'">'+
+   '<div class="tabs" role="tablist">'+
+   '<button type="button" class="tab" data-tab="simple" role="tab" aria-selected="true">간단 수정</button>'+
+   '<button type="button" class="tab" data-tab="json" role="tab" aria-selected="false">전체(JSON)</button>'+
+   '<button type="button" class="tab" data-tab="io" role="tab" aria-selected="false">내보내기 · 불러오기</button>'+
+   '</div>'+
+
+   '<div class="tabpane ed-pane" data-pane="simple">'+
+   '<div class="ed-f"><label for="ed-title-'+s.n+'">차시 제목</label>'+
+   '<input id="ed-title-'+s.n+'" type="text" value="'+esAttr(s.title)+'"></div>'+
+   '<div class="ed-f"><label for="ed-lead-'+s.n+'">한 줄 설명</label>'+
+   '<input id="ed-lead-'+s.n+'" type="text" value="'+esAttr(s.lead)+'"></div>'+
+   f('학습목표','한 줄에 하나씩','ed-goals-'+s.n,arr2lines(s.goals))+
+   f('쉬운 말 사전','한 줄에 하나 · <b>낱말 | 뜻풀이</b>','ed-words-'+s.n,words2text(s.words))+
+   f('수업 영상','한 줄에 하나 · <b>제목 | 기관 | 수업 활용 | 주소</b>','ed-vids-'+s.n,vids2text(s.vids))+
+   f('관련 링크','한 줄에 하나 · <b>이름 | 주소 | 설명</b>','ed-links-'+s.n,links2text(lk))+
+   f('OX 퀴즈','한 줄에 하나 · <b>문장 | O</b> 또는 <b>문장 | X</b>','ed-quiz-'+s.n,quiz2text(q),'big')+
+   f('오늘의 정리','한 줄에 하나씩','ed-close-'+s.n,arr2lines(s.close))+
+   f('교사용 지도 메모','한 줄에 하나씩','ed-memo-'+s.n,arr2lines(s.memo))+
+   '<div class="ed-act"><button type="button" class="btn" data-apply="'+s.n+'">수정 적용</button>'+
+   '<button type="button" class="btn ghost" data-revert="'+s.n+'">이 차시 원래대로</button>'+
+   '<span class="ed-msg" data-msg="'+s.n+'"></span></div>'+
+   '<p class="ed-note">적용하면 이 기기에 저장되어 다음에 열 때도 유지됩니다. 학습지 문항처럼 모양이 복잡한 자료는 <b>전체(JSON)</b> 탭에서 고칠 수 있습니다.</p>'+
+   '</div>'+
+
+   '<div class="tabpane ed-pane" data-pane="json" hidden>'+
+   '<div class="ed-f"><label for="ed-json-'+s.n+'">이 차시 자료 전체</label>'+
+   '<span class="rule">학습지(sheet)·안전자료(boxes)·읽기자료(read)까지 모두 들어 있습니다. 따옴표와 쉼표를 지우지 않도록 조심하세요.</span>'+
+   '<textarea id="ed-json-'+s.n+'" class="code">'+taVal(JSON.stringify(s,null,1))+'</textarea></div>'+
+   '<div class="ed-act"><button type="button" class="btn" data-applyjson="'+s.n+'">JSON 적용</button>'+
+   '<button type="button" class="btn ghost" data-revert="'+s.n+'">이 차시 원래대로</button>'+
+   '<span class="ed-msg" data-msgj="'+s.n+'"></span></div></div>'+
+
+   '<div class="tabpane ed-pane" data-pane="io" hidden>'+
+   '<div class="ed-f"><label for="ed-io-'+s.n+'">수정 내용 (모든 차시)</label>'+
+   '<span class="rule">다른 컴퓨터에서 쓰려면 이 글을 복사해 두었다가 그쪽 화면에 붙여 넣고 불러오기를 누르세요.</span>'+
+   '<textarea id="ed-io-'+s.n+'" class="code"></textarea></div>'+
+   '<div class="ed-act"><button type="button" class="btn ghost" data-ioload="'+s.n+'">지금 수정 내용 보기</button>'+
+   '<button type="button" class="btn ghost" data-iocopy="'+s.n+'">복사</button>'+
+   '<button type="button" class="btn" data-ioapply="'+s.n+'">붙여넣은 내용 불러오기</button>'+
+   '<button type="button" class="btn ghost" data-ioclear="1">모든 수정 지우기</button>'+
+   '<span class="ed-msg" data-msgio="'+s.n+'"></span></div></div>'+
+
+   '</div></div>';
+  return h;
+}
+
 function wageYearOptions(){
   var y,opts='';
   for(y in WAGE)opts='<option value="'+y+'">'+y+'년</option>'+opts;
@@ -1264,6 +1395,7 @@ var IC={
  news:'<path d="M3 4h10v12H3z" stroke="currentColor" stroke-width="2.2" fill="none"/><path d="M13 7h4v7a2 2 0 01-4 0z" stroke="currentColor" stroke-width="2.2" fill="none"/><path d="M5.5 7.5h5M5.5 10.5h5M5.5 13.5h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
  quiz:'<circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="2.2" fill="none"/><path d="M7.5 7.8A2.6 2.6 0 0110 6.2c1.5 0 2.6.9 2.6 2.2 0 1.6-2.3 1.7-2.3 3.2" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/><circle cx="10" cy="14.4" r="1.2" fill="currentColor"/>',
  sheet:'<path d="M5 2.5h10v15H5z" stroke="currentColor" stroke-width="2.2" fill="none"/><path d="M7.5 6.5h5M7.5 10h5M7.5 13.5h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+ pen:'<path d="M3.5 16.5l.9-3.4 8.3-8.3 2.5 2.5-8.3 8.3z" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linejoin="round"/><path d="M12.7 4.8l1.6-1.6 2.5 2.5-1.6 1.6" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linejoin="round"/>',
  coin:'<circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="2.2" fill="none"/><path d="M12.4 7.4A3 3 0 0010 6.3c-1.6 0-2.7.8-2.7 1.9 0 2.4 5.4 1.2 5.4 3.6 0 1.1-1.1 1.9-2.7 1.9a3 3 0 01-2.4-1.1M10 5v10" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>',
  flag:'<path d="M5 17V3m0 0l10 2.5L5 9" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/>'
 };
@@ -1370,7 +1502,7 @@ function qItem(it,n,sid){
 function sessionHtml(s){
   var h='<section class="session" data-n="'+s.n+'" aria-label="'+s.n+'차시">',i;
   h+='<div class="s-head"><div class="s-num">'+pad(s.n)+'</div><div>'+
-     '<p class="s-tag">'+s.n+'차시 · 50분 · '+s.tag+'</p><h3>'+s.title+'</h3>'+
+     '<p class="s-tag">'+s.n+'차시 · 50분 · '+s.tag+(isEdited(s.n)?' <span class="edited">수정됨</span>':'')+'</p><h3>'+s.title+'</h3>'+
      '<p class="s-lead">'+s.lead+'</p><div class="s-done noprint">'+
      '<button type="button" class="stamp" data-done="'+s.n+'" aria-pressed="false"><b>□</b> 이 차시 다 들었어요</button>'+
      '</div></div></div>';
@@ -1432,23 +1564,31 @@ function sessionHtml(s){
   for(i=0;i<s.memo.length;i++)h+='<li>'+s.memo[i]+'</li>';
   if(s.n===8)h+='<li><b>학습지 2번 계산 정답 — 하루 7시간 <span data-w="day7"></span> · 5일 <span data-w="week5"></span> · 휴게 30분</b></li>';
   h+='<li><b>'+quizKey(s.n)+'</b></li>';
-  h+='</ul></div></details>';
-  h+='<div class="jump noprint"><button type="button" class="btn ghost" data-jump="-1">◀ 이전 차시</button>'+
+  h+='</ul></div></details></div>';
+
+  h+=editorHtml(s);
+
+  h+='<div class="block noprint"><div class="jump noprint"><button type="button" class="btn ghost" data-jump="-1">◀ 이전 차시</button>'+
      '<button type="button" class="btn" data-jump="1">다음 차시 ▶</button></div></div>';
 
   return h+'</section>';
 }
 
 var stage=document.getElementById('stage'),sel=document.getElementById('sessionSel');
-var oh='',sh='';
-for(var k=0;k<SESSIONS.length;k++){
-  var s=SESSIONS[k];
-  oh+='<option value="'+s.n+'">'+s.n+'차시 · '+s.title+'</option>';
-  sh+=sessionHtml(s);
+var sections=[],total=0;
+function renderAll(){
+  var oh='',sh='',k,s;
+  for(k=0;k<SESSIONS.length;k++){
+    s=SESSIONS[k];
+    oh+='<option value="'+s.n+'">'+s.n+'차시 · '+s.title+'</option>';
+    sh+=sessionHtml(s);
+  }
+  sel.innerHTML=oh;stage.innerHTML=sh;
+  sections=stage.querySelectorAll('.session');
+  total=SESSIONS.length;
 }
-sel.innerHTML=oh;stage.innerHTML=sh;
-
-var sections=stage.querySelectorAll('.session'),total=SESSIONS.length;
+rebuildData();
+renderAll();
 var navCount=document.getElementById('navCount'),navBar=document.getElementById('navBar');
 var prevB=document.getElementById('prevS'),nextB=document.getElementById('nextS');
 var current=1;
@@ -1502,11 +1642,118 @@ stage.addEventListener('click',function(e){
   if(n>=1&&n<=total)show(n,true);
 });
 
+/* 자료 수정 적용 */
+function refreshAfterEdit(n,keep){
+  rebuildData();
+  renderAll();
+  show(current,false);
+  applyWage();
+  if(keep){
+    var ed=stage.querySelector('.editor[data-editor="'+n+'"]');
+    if(ed){
+      var tab=ed.querySelector('.tab[data-tab="'+keep+'"]');
+      if(tab)tab.click();
+      ed.scrollIntoView({block:'center'});
+    }
+  }
+}
+function edMsg(n,kind,text,pane){
+  var at='data-msg'+(pane==='json'?'j':(pane==='io'?'io':''));
+  var el=stage.querySelector('.editor[data-editor="'+n+'"] ['+at+'="'+n+'"]');
+  if(!el)return;
+  el.className='ed-msg '+kind;el.textContent=text;
+  setTimeout(function(){el.className='ed-msg';},4000);
+}
+function val(id){var e=document.getElementById(id);return e?e.value:'';}
+
+stage.addEventListener('click',function(e){
+  var ap=e.target.closest('[data-apply]');
+  if(ap){
+    var n=+ap.dataset.apply,ed=loadEdits();
+    var q=text2quiz(val('ed-quiz-'+n));
+    if(!q.length){edMsg(n,'bad','퀴즈 문장이 하나도 없습니다. 확인해 주세요.');return;}
+    ed[n]=ed[n]||{};
+    ed[n].session=ed[n].session||{};
+    ed[n].session.title=val('ed-title-'+n).trim()||'제목 없음';
+    ed[n].session.lead=val('ed-lead-'+n).trim();
+    ed[n].session.goals=lines2arr(val('ed-goals-'+n));
+    ed[n].session.words=text2words(val('ed-words-'+n));
+    ed[n].session.vids=text2vids(val('ed-vids-'+n));
+    ed[n].session.close=lines2arr(val('ed-close-'+n));
+    ed[n].session.memo=lines2arr(val('ed-memo-'+n));
+    ed[n].links=text2links(val('ed-links-'+n));
+    ed[n].quiz=q;
+    saveEdits(ed);
+    refreshAfterEdit(n,'simple');
+    edMsg(n,'ok','수정한 내용을 적용했습니다. (퀴즈 '+q.length+'문항)');
+    return;
+  }
+  var aj=e.target.closest('[data-applyjson]');
+  if(aj){
+    var nj=+aj.dataset.applyjson,obj;
+    try{obj=JSON.parse(val('ed-json-'+nj));}
+    catch(err){edMsg(nj,'bad','JSON 형식이 맞지 않습니다: '+err.message,'json');return;}
+    if(!obj||!obj.title||!obj.sheet){edMsg(nj,'bad','제목(title)과 학습지(sheet)가 있어야 합니다.','json');return;}
+    obj.n=nj;
+    var e2=loadEdits();e2[nj]=e2[nj]||{};e2[nj].session=obj;saveEdits(e2);
+    refreshAfterEdit(nj,'json');
+    edMsg(nj,'ok','이 차시 자료를 통째로 바꿨습니다.','json');
+    return;
+  }
+  var rv=e.target.closest('[data-revert]');
+  if(rv){
+    var nr=+rv.dataset.revert,e3=loadEdits();
+    delete e3[nr];saveEdits(e3);
+    refreshAfterEdit(nr,'simple');
+    edMsg(nr,'ok','처음 자료로 되돌렸습니다.');
+    return;
+  }
+  var il=e.target.closest('[data-ioload]');
+  if(il){
+    var ni=+il.dataset.ioload;
+    document.getElementById('ed-io-'+ni).value=JSON.stringify(loadEdits(),null,1);
+    edMsg(ni,'ok','지금까지 수정한 내용을 아래에 펼쳤습니다.','io');
+    return;
+  }
+  var ic=e.target.closest('[data-iocopy]');
+  if(ic){
+    var nc=+ic.dataset.iocopy,ta=document.getElementById('ed-io-'+nc);
+    if(!ta.value)ta.value=JSON.stringify(loadEdits(),null,1);
+    ta.select();
+    var done=false;
+    try{done=document.execCommand('copy');}catch(err){}
+    if(navigator.clipboard&&!done){navigator.clipboard.writeText(ta.value);done=true;}
+    edMsg(nc,done?'ok':'bad',done?'복사했습니다.':'복사하지 못했습니다. 직접 선택해 복사하세요.','io');
+    return;
+  }
+  var ia=e.target.closest('[data-ioapply]');
+  if(ia){
+    var na=+ia.dataset.ioapply,data;
+    try{data=JSON.parse(val('ed-io-'+na));}
+    catch(err2){edMsg(na,'bad','불러올 내용의 형식이 맞지 않습니다.','io');return;}
+    if(!data||typeof data!=='object'){edMsg(na,'bad','불러올 내용이 비어 있습니다.','io');return;}
+    saveEdits(data);
+    refreshAfterEdit(na,'io');
+    edMsg(na,'ok','다른 기기에서 만든 수정 내용을 불러왔습니다.','io');
+    return;
+  }
+  var ix=e.target.closest('[data-ioclear]');
+  if(ix){
+    var nx=+ix.closest('.editor').dataset.editor;
+    saveEdits({});
+    refreshAfterEdit(nx,'io');
+    edMsg(nx,'ok','모든 차시를 처음 자료로 되돌렸습니다.','io');
+    return;
+  }
+});
+
 /* 최저임금 설정 탭 */
 stage.addEventListener('click',function(e){
   var tb=e.target.closest('.tab');
   if(tb){
-    var box=tb.closest('.wagebox'),tabs=box.querySelectorAll('.tab'),panes=box.querySelectorAll('.tabpane'),i;
+    var box=tb.closest('.wagebox,.editor');
+    if(!box)return;
+    var tabs=box.querySelectorAll('.tab'),panes=box.querySelectorAll('.tabpane'),i;
     for(i=0;i<tabs.length;i++)tabs[i].setAttribute('aria-selected',tabs[i]===tb?'true':'false');
     for(i=0;i<panes.length;i++)panes[i].hidden=(panes[i].dataset.pane!==tb.dataset.tab);
     return;
