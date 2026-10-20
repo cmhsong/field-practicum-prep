@@ -328,7 +328,13 @@ details.memo ul{margin:0;padding-left:1.2em;display:grid;gap:8px}
 .flash{animation:flashbg .9s ease-out}
 @keyframes flashbg{0%{background:var(--go);color:#fff}35%{background:var(--go);color:#fff}100%{}}
 
-/* 자료 수정기 */
+/* 자료 수정기 — 평소에는 숨기고 교사 모드에서만 보입니다 */
+.b-edit{display:none}
+body.teacher .b-edit{display:block}
+.ed-head{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin:-4px 0 13px}
+.ed-head .ed-why{margin:0;font-size:14px;color:var(--ink3);line-height:1.6}
+.btn.tiny{font-size:13px;padding:7px 12px}
+#teacherToggle[aria-pressed="true"]{background:var(--guide);color:#fff}
 .editor{background:var(--surface);border:2px solid var(--edge);border-radius:9px;box-shadow:var(--shadow);overflow:hidden}
 .ed-pane{padding:18px 20px;display:grid;gap:15px}
 .ed-f{display:grid;gap:6px}
@@ -442,6 +448,7 @@ body.present .hide-present{display:none}
     </div>
     <div class="tools">
       <button class="btn blue" id="goPresent">⛶ 전체 화면 수업</button>
+      <button class="btn ghost" id="teacherToggle" aria-pressed="false" title="자료 수정 탭 보이기/숨기기 (T)">교사 모드</button>
       <button class="btn" id="printSheet">학습지 인쇄</button>
       <button class="btn ghost" id="printAll">학습지 11장</button>
       <button class="btn ghost" id="printSession">차시 전체 인쇄</button>
@@ -1325,6 +1332,8 @@ function editorHtml(s){
       '<textarea id="'+id+'" class="'+(cls||'')+'">'+taVal(val)+'</textarea></div>';
   }
   var h='<div class="block b-edit noprint">'+lbl('pen','자료 수정 · 교사용','var(--guide)')+
+   '<div class="ed-head"><p class="ed-why">학생에게 보일 때는 <b>교사 모드</b>를 꺼 두세요. 꺼도 고친 내용은 그대로 남습니다.</p>'+
+   '<button type="button" class="btn ghost tiny" data-hideedit="1">이 탭 숨기기</button></div>'+
    '<div class="editor" data-editor="'+s.n+'">'+
    '<div class="tabs" role="tablist">'+
    '<button type="button" class="tab" data-tab="simple" role="tab" aria-selected="true">간단 수정</button>'+
@@ -1790,6 +1799,29 @@ stage.addEventListener('keydown',function(e){
   if(id==='wageYearIn'||id==='wageAmtIn'){e.preventDefault();document.getElementById('wageSave').click();}
 });
 
+/* 교사 모드 — 자료 수정 탭 보이기/숨기기 */
+var teacherBtn=document.getElementById('teacherToggle');
+function setTeacher(on,scroll){
+  document.body.classList.toggle('teacher',on);
+  teacherBtn.setAttribute('aria-pressed',on?'true':'false');
+  teacherBtn.textContent=on?'교사 모드 끄기':'교사 모드';
+  try{localStorage.setItem('hj-teacher',on?'1':'0');}catch(e){}
+  if(on&&scroll){
+    var ed=stage.querySelector('.session:not([hidden]) .b-edit');
+    if(ed)ed.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}
+teacherBtn.addEventListener('click',function(){
+  setTeacher(!document.body.classList.contains('teacher'),true);
+});
+stage.addEventListener('click',function(e){
+  if(e.target.closest('[data-hideedit]')){
+    setTeacher(false,false);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+});
+try{setTeacher(localStorage.getItem('hj-teacher')==='1',false);}catch(e){setTeacher(false,false);}
+
 /* 전체 화면 수업 모드 */
 function setPresent(on){
   document.body.classList.toggle('present',on);
@@ -1892,6 +1924,7 @@ document.addEventListener('keydown',function(e){
   if(e.key==='ArrowRight'&&current<SESSIONS.length)show(current+1,true);
   if(e.key==='ArrowLeft'&&current>1)show(current-1,true);
   if(e.key==='f'||e.key==='F')setPresent(!document.body.classList.contains('present'));
+  if(e.key==='t'||e.key==='T')setTeacher(!document.body.classList.contains('teacher'),true);
 });
 
 var start=1;
