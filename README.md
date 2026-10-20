@@ -64,6 +64,13 @@ git add -A && git commit -m "내용 수정" && git push
 
 `build.js`는 `<!doctype>`·charset·viewport 같은 문서 껍데기를 입히는 일만 합니다.
 수업 내용은 `src/page.html` 안의 `SESSIONS` 배열에 차시별로 들어 있습니다.
+차시를 하나 고치려면 그 차시의 `SESSIONS.push({ ... })` 블록만 보면 됩니다.
+
+| 파일 | 역할 |
+|---|---|
+| `src/page.html` | 원본. 수업 내용 전체(`SESSIONS` 배열)와 디자인·인쇄 CSS |
+| `index.html` | 빌드 결과물. GitHub Pages가 이 파일을 서빙 |
+| `build.js` | 원본에 HTML 문서 껍데기를 입혀 `index.html` 생성 |
 
 ## 상담·신고 번호
 
